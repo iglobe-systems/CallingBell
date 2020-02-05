@@ -1,0 +1,36 @@
+.header-logo{
+    width:120px;
+    vertical-align: middle;
+}
+
+
+.size{
+	display: inline-block;
+	width:48%;  //default - 46%
+	background-color: #f1f1f1;
+	text-align: center;
+    margin: 1%;
+	height:150px;
+	border-radius:5px;
+}
+
+ .service-img{
+    width:100px;
+    // height:150px;
+    height:100px;
+    border-radius: 5px;
+    // margin-left: auto;
+    // margin-right: auto;
+    margin: 10px auto;
+    }
+
+	.flex{
+		display: flex;
+		flex-direction:column;
+	}
+   
+	.service-name{
+		text-transform: uppercase;
+		margin:10px;
+		font-size: 12px;
+	}

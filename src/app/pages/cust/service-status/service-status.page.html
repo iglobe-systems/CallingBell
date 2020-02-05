@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar color="danger">
+  	<ion-buttons slot="start">
+      <ion-menu-button color="light"></ion-menu-button>
+    </ion-buttons>
+        <div class="logo-in"></div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding color="light">
+  <ion-card nopadding *ngFor="let s of status" (click)="serviceDesc(s)">
+    <ion-row>
+      <ion-col><h5>TICKET ID</h5></ion-col>
+      <ion-col><h4 class="fw800">{{s.id}}</h4></ion-col>
+      <ion-col><h5>TITLE</h5></ion-col>
+      <ion-col><h4 class="fw800">{{s.issue}}</h4></ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col><h5>CREATED TIME & DATE</h5></ion-col>
+      <ion-col><h4 class="fw800">{{s.time}}</h4></ion-col>
+      <ion-col><h5>STATUS</h5></ion-col>
+      <ion-col><h4 class="fw800">{{s.status}}</h4></ion-col>
+    </ion-row>
+  </ion-card>
+</ion-content>

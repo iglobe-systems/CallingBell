@@ -1,0 +1,94 @@
+<ion-header>
+<ion-toolbar color="darkblue">
+    <ion-buttons slot="start">
+      <ion-menu-button color="light"></ion-menu-button>
+    </ion-buttons>
+	<div>
+		<img src="assets/img/newlogov7.png" class="header-logo"/>
+	  </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<h2>ASSET MANAGEMENT</h2>
+	<p>You can add your household assets here!</p>
+	   <form [formGroup]="onAddAssetForm">
+		<ion-list>
+		<ion-item>
+			<ion-label position="floating" class="fw600">Product Category</ion-label>
+		    <ion-select formControlName="productCategory">
+		            <ion-select-option >Entertainment</ion-select-option>
+		    </ion-select>
+		</ion-item>
+		<ion-item>
+			<ion-label  position="floating" class="fw600">Product Name</ion-label>
+		    <ion-select formControlName="productName">
+		            <ion-select-option >Samsung J7</ion-select-option>
+		    </ion-select>
+		</ion-item>
+		<ion-item>
+			<ion-label  position="floating" class="fw600">Brand</ion-label>
+		    <ion-select formControlName="productBrand">
+		            <ion-select-option >Samsung</ion-select-option>
+		    </ion-select>
+		</ion-item>
+		<ion-item>
+			<ion-label  position="floating" class="fw600">Date of Purchase</ion-label>
+		    <ion-datetime placeholder="Select Date" formControlName="dateOfPurchase"></ion-datetime>
+		</ion-item>
+		<ion-item>
+			<ion-label  position="floating" class="fw600">Number of Months Warranty</ion-label>
+		    <ion-input type="numeric" formControlName="monthsWarranty"></ion-input>
+		</ion-item>
+		<ion-item>
+			<ion-label  position="floating" class="fw600">Product Price</ion-label>
+		    <ion-input type="numeric" placeholder="&#8377;" formControlName="productPrice"></ion-input>
+		</ion-item>
+	</ion-list>
+	</form>
+	<div class="text-center">
+		<ion-button (click)="addAsset()" color="gold">SUBMIT THE FORM</ion-button>
+	</div>
+	<ion-card>
+		<h5>CAPTURE PRODUCT IMAGE</h5>
+		<ion-row>
+		<ion-col>
+			<ion-button (click)="openCam()" size="small">Open Camera</ion-button>
+			<ion-button (click)="openGallery()" size="small">Open Gallery</ion-button>
+			
+		</ion-col>
+			<ion-col>
+				<img src="{{base64Image}}">
+				<ion-button (click)="uploadImg()" size="small" color="danger">Upload Image</ion-button>
+			</ion-col>
+		</ion-row>
+	</ion-card>
+	<ion-card>
+		<h5>CAPTURE INVOICE IMAGE</h5>
+		<ion-row>
+			<ion-col>
+				<ion-button (click)="openCam1()" size="small">Open Camera</ion-button>
+				<ion-button (click)="openGallery1()" size="small">Open Gallery</ion-button>
+			</ion-col>
+			<ion-col>
+				<img src="{{base64Image1}}"/>
+				<ion-button (click)="uploadImg1()" size="small" color="danger">Upload Image</ion-button>
+			</ion-col>
+		</ion-row>
+	</ion-card>
+	<ion-card>
+		<h5>CAPTURE WARRANTY CARD IMAGE</h5>
+		<ion-row>
+			<ion-col>
+				<ion-button (click)="openCam2()" size="small">Open Camera</ion-button>
+				<ion-button (click)="openGallery2()" size="small">Open Gallery</ion-button>
+			</ion-col>
+			<ion-col>
+				<img src="{{base64Image2}}"/>
+				<ion-button (click)="uploadImg2()" size="small" color="danger">Upload Image</ion-button>
+			</ion-col>
+		</ion-row>
+	</ion-card>
+
+
+</ion-content>
