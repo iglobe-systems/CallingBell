@@ -166,6 +166,10 @@ var map = {
 		"./src/app/pages/cust/spec-cat/insurance/insurance.module.ts",
 		"pages-cust-spec-cat-insurance-insurance-module"
 	],
+	"./pages/cust/spec-cat/issue-list/issue-list.module": [
+		"./src/app/pages/cust/spec-cat/issue-list/issue-list.module.ts",
+		"pages-cust-spec-cat-issue-list-issue-list-module"
+	],
 	"./pages/cust/spec-cat/medical/medical.module": [
 		"./src/app/pages/cust/spec-cat/medical/medical.module.ts",
 		"pages-cust-spec-cat-medical-medical-module"
@@ -185,6 +189,10 @@ var map = {
 	"./pages/cust/spec-cat/remainders/remainders.module": [
 		"./src/app/pages/cust/spec-cat/remainders/remainders.module.ts",
 		"pages-cust-spec-cat-remainders-remainders-module"
+	],
+	"./pages/cust/spec-cat/trending-issues/trending-issues.module": [
+		"./src/app/pages/cust/spec-cat/trending-issues/trending-issues.module.ts",
+		"pages-cust-spec-cat-trending-issues-trending-issues-module"
 	],
 	"./pages/cust/spec-cat/trending/trending.module": [
 		"./src/app/pages/cust/spec-cat/trending/trending.module.ts",
@@ -798,6 +806,8 @@ var routes = [
     { path: 'grocery-filterlist', loadChildren: './pages/cust/grocery/grocery-filterlist/grocery-filterlist.module#GroceryFilterlistPageModule' },
     { path: 'grocery-desc', loadChildren: './pages/cust/grocery/grocery-desc/grocery-desc.module#GroceryDescPageModule' },
     { path: 'otp-form', loadChildren: './pages/cust/otp-form/otp-form.module#OtpFormPageModule' },
+    { path: 'trending-issues', loadChildren: './pages/cust/spec-cat/trending-issues/trending-issues.module#TrendingIssuesPageModule' },
+    { path: 'issue-list', loadChildren: './pages/cust/spec-cat/issue-list/issue-list.module#IssueListPageModule' },
 ];
 var AppRoutingModule = /** @class */ (function () {
     function AppRoutingModule() {
@@ -887,7 +897,7 @@ var AppComponent = /** @class */ (function () {
             },
             {
                 title: 'Product Category',
-                url: 'prod-cat',
+                url: 'trending',
                 direct: 'forward',
                 icon: 'ios-list'
             },

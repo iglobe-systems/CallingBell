@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-header>\n  <ion-toolbar color=\"danger\">\n        <div class=\"logo-in\"></div>\n    <ion-buttons slot=\"end\">\n      <ion-button size=\"small\" shape=\"round\" color=\"light\" (click)=\"logout()\" class=\"fw700\">\n        <ion-icon name=\"log-out\"></ion-icon>\n      LOGOUT\n      </ion-button>\n    </ion-buttons>\n  </ion-toolbar> \n</ion-header>\n\n<ion-content class=\"ion-padding\" color=\"light\" overflow-scroll=\"true\">\n<div *ngIf=\"ticket\">\n\t<div *ngFor=\"let t of ticket\">\n\t\t<ion-button class=\"ion-margin\" expand=\"full\" color=\"dark\" (click)=\"viewTicket(t)\">{{t.number}} - {{t.status}}</ion-button>\n\t</div>\n</div>\n\n</ion-content>\n"
+module.exports = "<ion-header>\n  <ion-toolbar color=\"darkblue\">\n    <div class=\"header-logo-div\">\n      <img src=\"assets/img/newlogov7.png\" class=\"header-logo\"/>\n    </div>\n    <ion-buttons slot=\"end\">\n      <ion-button size=\"small\" shape=\"round\" color=\"light\" (click)=\"logout()\" class=\"fw700\">\n        <ion-icon name=\"log-out\"></ion-icon>\n      LOGOUT\n      </ion-button>\n    </ion-buttons>\n  </ion-toolbar> \n</ion-header>\n\n<ion-content class=\"ion-padding\" overflow-scroll=\"true\">\n<div *ngIf=\"ticket\">\n\t<div *ngFor=\"let t of ticket\">\n\t\t<ion-button class=\"ion-margin\" expand=\"full\" color=\"dark\" (click)=\"viewTicket()\">{{t.number}} - {{t.status}}</ion-button>\n\t</div>\n</div>\n\n</ion-content>\n"
 
 /***/ }),
 
@@ -69,7 +69,7 @@ var OpenTicketsPageModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3BhZ2VzL3RlY2gvb3Blbi10aWNrZXRzL29wZW4tdGlja2V0cy5wYWdlLnNjc3MifQ== */"
+module.exports = ".header-logo {\n  width: 120px;\n  vertical-align: middle;\n}\n\n.header-logo-div {\n  padding-left: 10px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcGFnZXMvdGVjaC9vcGVuLXRpY2tldHMvRDpcXFJpYXpcXE5ld0FQS1xcTmV3QVBLdjAuMS9zcmNcXGFwcFxccGFnZXNcXHRlY2hcXG9wZW4tdGlja2V0c1xcb3Blbi10aWNrZXRzLnBhZ2Uuc2NzcyIsInNyYy9hcHAvcGFnZXMvdGVjaC9vcGVuLXRpY2tldHMvb3Blbi10aWNrZXRzLnBhZ2Uuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLFlBQUE7RUFDQSxzQkFBQTtBQ0NKOztBREVBO0VBQ0ksa0JBQUE7QUNDSiIsImZpbGUiOiJzcmMvYXBwL3BhZ2VzL3RlY2gvb3Blbi10aWNrZXRzL29wZW4tdGlja2V0cy5wYWdlLnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuaGVhZGVyLWxvZ297XHJcbiAgICB3aWR0aDoxMjBweDtcclxuICAgIHZlcnRpY2FsLWFsaWduOiBtaWRkbGU7XHJcbn1cclxuXHJcbi5oZWFkZXItbG9nby1kaXZ7XHJcbiAgICBwYWRkaW5nLWxlZnQ6MTBweDtcclxufSIsIi5oZWFkZXItbG9nbyB7XG4gIHdpZHRoOiAxMjBweDtcbiAgdmVydGljYWwtYWxpZ246IG1pZGRsZTtcbn1cblxuLmhlYWRlci1sb2dvLWRpdiB7XG4gIHBhZGRpbmctbGVmdDogMTBweDtcbn0iXX0= */"
 
 /***/ }),
 
@@ -112,21 +112,13 @@ var OpenTicketsPage = /** @class */ (function () {
         this.getTickets();
     };
     OpenTicketsPage.prototype.getTickets = function () {
-        var _this = this;
-        var body = '';
-        this.authService.openTickets(body).subscribe(function (data) {
-            console.log(data);
-            _this.ticket = data['message'];
-        });
+        this.ticket = [
+            { "number": "IGLT0010", "status": "Technician on the way" }, { "number": "IGLT0011", "status": "Processing Approval" }, { "number": "IGLT0012", "status": "Order Received" },
+            { "number": "IGLT0013", "status": "open" }, { "number": "IGLT00114", "status": "open" }, { "number": "IGLT0015", "status": "open" }
+        ];
     };
     OpenTicketsPage.prototype.viewTicket = function (t) {
-        var navigationExtras = {
-            state: {
-                t: t
-            }
-        };
-        this.router.navigate(['ticket-detail'], navigationExtras);
-        console.log(t);
+        this.navCtrl.navigateForward('ticket-detail');
     };
     OpenTicketsPage.prototype.logout = function () {
         this.authService.techlogout();

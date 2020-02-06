@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar color="darkblue">
+    <ion-buttons slot="start">
+      <ion-menu-button color="light"></ion-menu-button>
+    </ion-buttons>
+    <div>
+        <img src="assets/img/newlogov7.png" class="header-logo"/>
+      </div>
+    <ion-buttons slot="end">
+      <ion-button shape="round" (click)="back()">
+        <ion-icon name="arrow-round-back" class="text15"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div>
+    <h5>{{subCategory}}</h5>
+  </div>
+  <div>
+    <div *ngFor="let issue of issueList" class="div-flex">
+      <div class="column1">
+        <img src="{{issue.icon}}" class="issue-img"/>
+      </div>
+      <div class="column2"> 
+        <h4 class="issue-name">{{issue.name}}</h4>
+        <h4 class="issue-detail">{{issue.short_details}}</h4>
+        <div class="div-flex2">
+          <div class="column3">
+            <h3 class="issue-name fw600">&#8377; {{issue.mrp}}</h3>
+          </div>
+          <div class="column4">
+            <ion-button color="darkblue" size="small" fill="outline">Add</ion-button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>

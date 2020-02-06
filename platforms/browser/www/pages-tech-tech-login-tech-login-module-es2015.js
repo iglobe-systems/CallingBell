@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-content  class=\"animated fadeIn login auth-page ion-padding\">\n  <!-- <div class=\"theme-bg\"></div> -->\n  <div class=\"auth-content\">\n    <!-- Logo -->\n    <div  class=\"animated fadeInDown ion-text-center\">\n      <div class=\"logo\"></div>\n      <!-- <h4 no-margin>\n        <ion-text color=\"light\" class=\"fw700\">\n          CALLING BELL\n        </ion-text>\n      </h4> -->\n    </div>\n    <br>\n      <div class=\"text-center\">   \n        <ion-text color=\"danger\" class=\"fw700 text12\">\n          TECHNICIAN LOGIN\n        </ion-text>\n      </div>\n    <!-- Login form -->\n    \n    <form [formGroup]=\"onTechLoginForm\" class=\"list-form\">\n      <ion-item  class=\"animated fadeInUp ion-no-padding\">\n        <ion-label position=\"floating\">\n         <ion-icon name=\"contact\"></ion-icon>\n          User Name\n        </ion-label>\n        <ion-input color=\"secondary\" class=\"fw800\" type=\"text\" formControlName=\"username\" ></ion-input>\n      </ion-item>\n      \n      <ion-item  class=\"animated fadeInUp ion-no-padding\">\n        <ion-label position=\"floating\">\n          <ion-icon name=\"lock\" item-start></ion-icon>\n          Password\n        </ion-label>\n        <ion-input color=\"secondary\" type=\"password\" formControlName=\"password\"></ion-input>\n      </ion-item>\n      \n    </form>\n\n    <div>\n      <ion-button icon-left size=\"medium\" expand=\"full\" shape=\"round\" color=\"primary\" (click)=\"login()\" [disabled]=\"!onTechLoginForm.valid\" tappable>\n        <ion-icon name=\"log-in\"></ion-icon>\n        LOGIN\n      </ion-button>\n    <ion-buttons slot=\"end\">\n      <ion-button size=\"small\" shape=\"round\" color=\"primary\" (click)=\"back()\">\n        <ion-icon name=\"arrow-round-back\"></ion-icon>\n        BACK\n      </ion-button>\n    </ion-buttons>\n    </div>\n\n\n    <!-- Other links -->\n\n\n  </div>\n</ion-content>"
+module.exports = "<ion-content  class=\"animated fadeIn login auth-page ion-padding\" color=\"darkblue\">\n  <!-- <div class=\"theme-bg\"></div> -->\n  <div class=\"auth-content\">\n    <!-- Logo -->\n    <div  class=\"animated fadeInDown ion-text-center\">\n      <div>\n        <img src=\"assets/img/newlogov6.png\"/>\n      </div>\n    </div>\n    <br>\n      <div class=\"text-center\">   \n        <ion-text color=\"gold\" class=\"fw500 text12\">\n          FM ( Field Master )\n        </ion-text>\n      </div>\n    <!-- Login form -->\n    \n    <form [formGroup]=\"onTechLoginForm\" class=\"list-form\">\n      <ion-item  class=\"animated fadeInUp ion-no-padding\">\n        <ion-label position=\"floating\">\n         <ion-icon name=\"contact\"></ion-icon>\n          User Name\n        </ion-label>\n        <ion-input color=\"gold\" class=\"fw500\" type=\"text\" formControlName=\"username\" ></ion-input>\n      </ion-item>\n      \n      <ion-item  class=\"animated fadeInUp ion-no-padding\">\n        <ion-label position=\"floating\">\n          <ion-icon name=\"lock\" item-start></ion-icon>\n          Password\n        </ion-label>\n        <ion-input color=\"gold\" type=\"password\" formControlName=\"password\"></ion-input>\n      </ion-item>\n      \n    </form>\n\n    <div>\n      <ion-button icon-left size=\"medium\" expand=\"full\" shape=\"round\" color=\"gold\" (click)=\"login()\" [disabled]=\"!onTechLoginForm.valid\" tappable>\n        <ion-icon name=\"log-in\"></ion-icon>\n        LOGIN\n      </ion-button>\n    <ion-buttons slot=\"end\">\n      <ion-button size=\"small\" shape=\"round\" color=\"light\" (click)=\"back()\">\n        <ion-icon name=\"arrow-round-back\"></ion-icon>\n        BACK\n      </ion-button>\n    </ion-buttons>\n    </div>\n\n\n    <!-- Other links -->\n\n\n  </div>\n</ion-content>"
 
 /***/ }),
 
@@ -121,24 +121,7 @@ let TechLoginPage = class TechLoginPage {
         });
     }
     login() {
-        var data = this.onTechLoginForm.value;
-        var username = data.username;
-        var password = data.password;
-        var body = '';
-        console.log(username, password);
-        this.authService.techLogin(username, password, body).subscribe(data => {
-            console.log(data);
-            console.log(data['result'].login.session, data['result'].modules[16].id);
-            if (data['success']) {
-                this.authService.storeTechData(data['result'].login.session, data['result'].modules[16].id, data['result'].login.userid);
-                this.alertService.presentToast('Logged in successfully');
-                this.navCtrl.navigateRoot('tech-home');
-            }
-            else {
-                this.alertService.presentToast(data['success']);
-                return false;
-            }
-        });
+        this.navCtrl.navigateForward('tech-home');
     }
     back() {
         this.navCtrl.navigateRoot('/');

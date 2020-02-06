@@ -28,7 +28,7 @@
           Required Field
         </ion-text>
       </p>
-      <p ion-text class="text08" *ngIf="onConsLoginForm.get('phone').touched && onConsLoginForm.get('phone').hasError('maxLength')">
+      <!-- <p ion-text class="text08" *ngIf="onConsLoginForm.get('phone').touched && onConsLoginForm.get('phone').hasError('maxLength')">
         <ion-text color="success">
           Enter 10 digit phone number
         </ion-text>
@@ -37,7 +37,7 @@
         <ion-text color="success">
           Enter 10 digit phone number
         </ion-text>
-      </p>
+      </p> -->
 
       <ion-item class="animated fadeInUp ion-no-padding ">
         <ion-label position="floating">
@@ -66,7 +66,7 @@
     </p> -->
 
     <div>
-      <ion-button icon-left size="medium" expand="full" shape="round" color="gold" (click)="login()" [disabled]="!onConsLoginForm.valid" tappable>
+      <ion-button icon-left size="medium" expand="full" shape="round" color="gold" (click)="login()">
         <ion-icon name="log-in"></ion-icon>
         LOGIN
       </ion-button>

@@ -18,33 +18,34 @@
 
 <!-- image -->
 
-<h4>What do you want help with?</h4>
-  <div *ngFor="let service of plumbing"  class="size">
-    <div class="flex">
-      <img src="{{service.img}}" onError="this.src='http://apiv1.iglobesystems.com/assets/img/no_img.png'" class="service-img"/>
+<h4 class="fw600">What do you want help with?</h4>
+  <div *ngFor="let service of serviceSC"  class="size">
+    <div class="flex" (click)="goToIssueList(service)">
+      <img src="{{service.icon}}" onError="this.src='http://apiv1.iglobesystems.com/assets/img/no_img.png'" class="service-img"/>
       <h5>{{service.name}}</h5>
     </div>
   </div>
-
+  <br>
+  <br>
 <div class="CB">
-  <h2>CB verified</h2>
+  <h2 class="fw600">CB verified</h2>
   <div class="CB-verify">
-    <ion-icon name="contact" color="gold"></ion-icon><ion-label>Skilled & verified technicians</ion-label>
+    <ion-icon name="contact" color="gold"></ion-icon><ion-label class="fs14">Skilled & verified technicians</ion-label>
   </div>
   <div class="CB-verify">
-      <ion-icon name="calendar" color="gold"></ion-icon><ion-label>30-Day service guarantee</ion-label>
+      <ion-icon name="calendar" color="gold"></ion-icon><ion-label class="fs14">30-Day service guarantee</ion-label>
   </div>
   <div class="CB-verify">
-      <ion-icon name="wallet" color="gold"></ion-icon><ion-label>Rs.10,000 damage cover on every booking</ion-label>
+      <ion-icon name="wallet" color="gold"></ion-icon><ion-label class="fs14">Rs.10,000 damage cover on every booking</ion-label>
   </div>
 </div>
 
 <div>
-  <h3>Note</h3>
+  <h3 class="fw600">Note</h3>
   <ul>
-    <li>Spare parts are charged as per market price</li>
-    <li>Spare parts are charged as per market price</li>
-    <li>Spare parts are charged as per market price</li>
+    <li class="fs14">Spare parts are charged as per market price</li>
+    <li class="fs14">A Rs.100 procurement fee is charged on all order where partner fetches material as part of the service</li>
+    <li class="fs14">Service charge excludes material costs and masonry charges</li>
   </ul>
 </div>
 </ion-content>

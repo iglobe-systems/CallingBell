@@ -63,6 +63,7 @@ const routes: Routes = [
   { path: 'grocery-desc', loadChildren: './pages/cust/grocery/grocery-desc/grocery-desc.module#GroceryDescPageModule' },
   { path: 'otp-form', loadChildren: './pages/cust/otp-form/otp-form.module#OtpFormPageModule' },
   { path: 'trending-issues', loadChildren: './pages/cust/spec-cat/trending-issues/trending-issues.module#TrendingIssuesPageModule' },
+  { path: 'issue-list', loadChildren: './pages/cust/spec-cat/issue-list/issue-list.module#IssueListPageModule' },
 ];
 
 @NgModule({

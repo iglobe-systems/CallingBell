@@ -166,6 +166,10 @@ var map = {
 		"./src/app/pages/cust/spec-cat/insurance/insurance.module.ts",
 		"pages-cust-spec-cat-insurance-insurance-module"
 	],
+	"./pages/cust/spec-cat/issue-list/issue-list.module": [
+		"./src/app/pages/cust/spec-cat/issue-list/issue-list.module.ts",
+		"pages-cust-spec-cat-issue-list-issue-list-module"
+	],
 	"./pages/cust/spec-cat/medical/medical.module": [
 		"./src/app/pages/cust/spec-cat/medical/medical.module.ts",
 		"pages-cust-spec-cat-medical-medical-module"
@@ -797,6 +801,7 @@ const routes = [
     { path: 'grocery-desc', loadChildren: './pages/cust/grocery/grocery-desc/grocery-desc.module#GroceryDescPageModule' },
     { path: 'otp-form', loadChildren: './pages/cust/otp-form/otp-form.module#OtpFormPageModule' },
     { path: 'trending-issues', loadChildren: './pages/cust/spec-cat/trending-issues/trending-issues.module#TrendingIssuesPageModule' },
+    { path: 'issue-list', loadChildren: './pages/cust/spec-cat/issue-list/issue-list.module#IssueListPageModule' },
 ];
 let AppRoutingModule = class AppRoutingModule {
 };

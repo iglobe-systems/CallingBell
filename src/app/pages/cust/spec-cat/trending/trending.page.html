@@ -15,10 +15,10 @@
 </ion-header>
 
 <ion-content>
-	<h5 class="ion-margin">Top trending services which you can't resist</h5>
-  <div *ngFor="let service of trending" class="size" (click)="goToIssue()">
-    <div class="flex">
-      <img src="{{service.img_m}}" onError="this.src='http://apiv1.iglobesystems.com/assets/img/no_img.png'" class="service-img"/>
+	<h5 class="ion-margin title">Top trending services which you can't resist</h5>
+  <div *ngFor="let service of trending" class="size">
+    <div class="flex" (click)="goToIssue(service)">
+      <img src="{{service.icon}}" onError="this.src='http://apiv1.iglobesystems.com/assets/img/no_img.png'" class="service-img"/>
       <h5 class="service-name">{{service.name}}</h5>
     </div>
   </div>

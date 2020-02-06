@@ -56,8 +56,14 @@ export class TrendingPage implements OnInit {
       });
   }
 
-  goToIssue(){
-    this.navCtrl.navigateForward('trending-issues')
+  goToIssue(service){
+    let navigationExtras: NavigationExtras={
+      state:{
+        service:service
+      }
+    }
+    this.router.navigate(['trending-issues'],navigationExtras);
+    console.log(service);
   }
 
   back(){

@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-content  class=\"animated fadeIn login auth-page ion-padding\" color=\"light\">\n  <!-- <div class=\"theme-bg\"></div> -->\n  <div class=\"auth-content\">\n    <!-- Logo -->\n    <div  class=\"animated fadeInDown ion-text-center\">\n      <div class=\"logo\"></div>\n      <!-- <h4 no-margin>\n        <ion-text color=\"light\" class=\"fw700\">\n          CALLING BELL\n        </ion-text>\n      </h4> -->\n    </div>\n    <br>\n      <div class=\"text-center\">   \n        <ion-text color=\"danger\" class=\"fw700 text12\">\n          APP CONSULTANT LOGIN\n        </ion-text>\n      </div>\n    <!-- Login form -->\n    \n    <form [formGroup]=\"onConsLoginForm\" class=\"list-form\">\n      <ion-item  class=\"animated fadeInUp ion-no-padding\">\n        <ion-label position=\"floating\">\n          <ion-icon name=\"call\" item-start></ion-icon>\n          Mobile Number\n        </ion-label>\n        <ion-input color=\"secondary\" class=\"fw800\" type=\"text\" formControlName=\"phone\" maxlength=\"10\"></ion-input>\n      </ion-item>\n      <p ion-text class=\"text08\" *ngIf=\"onConsLoginForm.get('phone').touched && onConsLoginForm.get('phone').hasError('required')\">\n        <ion-text color=\"success\">\n          Required Field\n        </ion-text>\n      </p>\n      <p ion-text class=\"text08\" *ngIf=\"onConsLoginForm.get('phone').touched && onConsLoginForm.get('phone').hasError('maxLength')\">\n        <ion-text color=\"success\">\n          Enter 10 digit phone number\n        </ion-text>\n      </p>\n      <p ion-text class=\"text08\" *ngIf=\"onConsLoginForm.get('phone').touched && onConsLoginForm.get('phone').hasError('pattern')\">\n        <ion-text color=\"success\">\n          Enter 10 digit phone number\n        </ion-text>\n      </p>\n\n      <ion-item class=\"animated fadeInUp ion-no-padding \">\n        <ion-label position=\"floating\">\n          <ion-icon name=\"lock\" item-start></ion-icon>\n          Password\n        </ion-label>\n        <ion-input color=\"secondary\" type=\"password\" formControlName=\"password\"></ion-input>\n      </ion-item>\n      <p ion-text class=\"text08\" *ngIf=\"onConsLoginForm.get('password').touched && onConsLoginForm.get('password').hasError('required')\">\n        <ion-text color=\"success\">\n          Required Field\n        </ion-text>\n        </p>\n    </form>\n\n    <!-- <p text-right tappable (click)=\"forgotPass()\" class=\"paz\">\n      <ion-text color=\"danger\">\n        <strong>Forgot Password?</strong>\n      </ion-text>\n    </p>\n\n    <p text-right tappable (click)=\"resetPass()\" class=\"paz\">\n      <ion-text color=\"danger\">\n        <strong>Reset Password</strong>\n      </ion-text>\n    </p> -->\n\n    <div>\n      <ion-button icon-left size=\"medium\" expand=\"full\" shape=\"round\" color=\"primary\" (click)=\"login()\" [disabled]=\"!onConsLoginForm.valid\" tappable>\n        <ion-icon name=\"log-in\"></ion-icon>\n        LOGIN\n      </ion-button>\n    </div>\n     <ion-buttons slot=\"end\">\n      <ion-button size=\"small\" shape=\"round\" color=\"primary\" (click)=\"back()\">\n        <ion-icon name=\"arrow-round-back\"></ion-icon>\n        BACK\n      </ion-button>\n    </ion-buttons>\n\n\n    <!-- Other links -->\n    <!-- <div text-center margin-top>\n      <span (click)=\"goToRegister()\" class=\"paz\" tappable>\n        <ion-text color=\"danger\">\n          New here? <strong>Sign Up</strong>\n        </ion-text>\n      </span>\n    </div> -->\n\n  </div>\n</ion-content>"
+module.exports = "<ion-content  class=\"animated fadeIn login auth-page ion-padding\" color=\"darkblue\">\n  <!-- <div class=\"theme-bg\"></div> -->\n  <div class=\"auth-content\">\n    <!-- Logo -->\n    <div  class=\"animated fadeInDown ion-text-center\">\n      <div>\n        <img src=\"assets/img/newlogov6.png\"/>\n      </div>\n    </div>\n    <br>\n      <div class=\"text-center\">   \n        <ion-text color=\"gold\" class=\"fw500 text12\">\n          APP CONSULTANT LOGIN\n        </ion-text>\n      </div>\n    <!-- Login form -->\n    \n    <form [formGroup]=\"onConsLoginForm\" class=\"list-form\">\n      <ion-item  class=\"animated fadeInUp ion-no-padding\">\n        <ion-label position=\"floating\">\n          <ion-icon name=\"call\" item-start></ion-icon>\n          Mobile Number\n        </ion-label>\n        <ion-input color=\"gold\" class=\"fw500\" type=\"text\" formControlName=\"phone\" maxlength=\"10\"></ion-input>\n      </ion-item>\n      <p ion-text class=\"text08\" *ngIf=\"onConsLoginForm.get('phone').touched && onConsLoginForm.get('phone').hasError('required')\">\n        <ion-text color=\"success\">\n          Required Field\n        </ion-text>\n      </p>\n      <!-- <p ion-text class=\"text08\" *ngIf=\"onConsLoginForm.get('phone').touched && onConsLoginForm.get('phone').hasError('maxLength')\">\n        <ion-text color=\"success\">\n          Enter 10 digit phone number\n        </ion-text>\n      </p>\n      <p ion-text class=\"text08\" *ngIf=\"onConsLoginForm.get('phone').touched && onConsLoginForm.get('phone').hasError('pattern')\">\n        <ion-text color=\"success\">\n          Enter 10 digit phone number\n        </ion-text>\n      </p> -->\n\n      <ion-item class=\"animated fadeInUp ion-no-padding \">\n        <ion-label position=\"floating\">\n          <ion-icon name=\"lock\" item-start></ion-icon>\n          Password\n        </ion-label>\n        <ion-input color=\"gold\" type=\"password\" formControlName=\"password\"></ion-input>\n      </ion-item>\n      <p ion-text class=\"text08\" *ngIf=\"onConsLoginForm.get('password').touched && onConsLoginForm.get('password').hasError('required')\">\n        <ion-text color=\"success\">\n          Required Field\n        </ion-text>\n        </p>\n    </form>\n\n    <!-- <p text-right tappable (click)=\"forgotPass()\" class=\"paz\">\n      <ion-text color=\"danger\">\n        <strong>Forgot Password?</strong>\n      </ion-text>\n    </p>\n\n    <p text-right tappable (click)=\"resetPass()\" class=\"paz\">\n      <ion-text color=\"danger\">\n        <strong>Reset Password</strong>\n      </ion-text>\n    </p> -->\n\n    <div>\n      <ion-button icon-left size=\"medium\" expand=\"full\" shape=\"round\" color=\"gold\" (click)=\"login()\">\n        <ion-icon name=\"log-in\"></ion-icon>\n        LOGIN\n      </ion-button>\n    </div>\n     <ion-buttons slot=\"end\">\n      <ion-button size=\"small\" shape=\"round\" color=\"light\" (click)=\"back()\">\n        <ion-icon name=\"arrow-round-back\"></ion-icon>\n        BACK\n      </ion-button>\n    </ion-buttons>\n\n\n    <!-- Other links -->\n    <!-- <div text-center margin-top>\n      <span (click)=\"goToRegister()\" class=\"paz\" tappable>\n        <ion-text color=\"danger\">\n          New here? <strong>Sign Up</strong>\n        </ion-text>\n      </span>\n    </div> -->\n\n  </div>\n</ion-content>"
 
 /***/ }),
 
@@ -113,7 +113,7 @@ let ConsLoginPage = class ConsLoginPage {
     ngOnInit() {
         this.onConsLoginForm = this.formBuilder.group({
             'phone': [null, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].compose([
-                    _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].maxLength(10), _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].pattern('^[0-9]{10}'),
+                    _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required,
                 ])],
             'password': [null, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].compose([
                     _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required,
@@ -121,26 +121,7 @@ let ConsLoginPage = class ConsLoginPage {
         });
     }
     login() {
-        console.log(this.onConsLoginForm.value);
-        this.authService.consLogin(this.onConsLoginForm.value).subscribe(data => {
-            console.log(data);
-            if (data['response']) {
-                this.authService.storeUserData(data['token'], data['user']);
-                var count = data['count'];
-                console.log(count);
-                let navigationExtras = {
-                    state: {
-                        count: count
-                    }
-                };
-                this.alertService.presentToast('Logged in successfully');
-                this.navCtrl.navigateRoot('cons-home', navigationExtras);
-            }
-            else {
-                this.alertService.presentToast(data['message']);
-                return false;
-            }
-        });
+        this.navCtrl.navigateForward('cons-home');
     }
     back() {
         this.navCtrl.navigateBack('cons-start');

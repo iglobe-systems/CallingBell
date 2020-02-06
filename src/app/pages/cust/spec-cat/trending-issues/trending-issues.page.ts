@@ -11,14 +11,15 @@ import {
 import { AuthService } from 'src/app/services/auth.service';
 import { AlertService } from 'src/app/services/alert.service';
 
-import { Router, NavigationExtras } from '@angular/router';
+import { Router, NavigationExtras, ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-trending-issues',
   templateUrl: './trending-issues.page.html',
   styleUrls: ['./trending-issues.page.scss'],
 })
 export class TrendingIssuesPage implements OnInit {
-  plumbing:any;
+  serviceId:any;
+  serviceSC:any;
   constructor(public navCtrl: NavController,
     public menuCtrl: MenuController,
     public popoverCtrl: PopoverController,
@@ -28,20 +29,37 @@ export class TrendingIssuesPage implements OnInit {
     public authService: AuthService,
     public loadingCtrl: LoadingController,
     private alertService: AlertService,
-    public router: Router) { }
+    public router: Router,
+    private route:ActivatedRoute,) { }
 
   ngOnInit() {
-    this.plumbing=[
-      {"name":"Basin & Sink","img":"https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template,q_30/categories/category_v2/category_70442750.png"},
-      {"name":"Basin & Sink","img":"https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template,q_30/categories/category_v2/category_70442750.png"},
-      {"name":"Basin & Sink","img":"https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template,q_30/categories/category_v2/category_70442750.png"},
-      {"name":"Basin & Sink","img":"https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template,q_30/categories/category_v2/category_70442750.png"},
-      {"name":"Basin & Sink","img":"https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template,q_30/categories/category_v2/category_70442750.png"},
-      {"name":"Basin & Sink","img":"https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template,q_30/categories/category_v2/category_70442750.png"},
-    ]
+    this.getIssues();
+  }
+
+  getIssues(){
+    this.route.queryParams.subscribe(params => {
+      if (this.router.getCurrentNavigation().extras.state) {
+        this.serviceId = this.router.getCurrentNavigation().extras.state.service.id;
+         this.authService.getServiceCategory(this.serviceId).subscribe(result => {
+           console.log(result);
+           this.serviceSC = result['data'].list;
+           console.log(this.serviceSC);
+          });
+      }
+  });
+  }
+
+  goToIssueList(service){
+    let navigationExtras: NavigationExtras={
+      state:{
+        service:service
+      }
+    }
+    this.router.navigate(['issue-list'],navigationExtras);
+    console.log(service);
   }
 
   back(){
-    this.navCtrl.navigateBack('cust-home');
+    this.navCtrl.navigateBack('trending');
   }
 }

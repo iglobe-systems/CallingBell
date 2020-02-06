@@ -1,5 +1,4 @@
-cordova.define("cordova-plugin-lottie-splashscreen.LottieSplashScreen", function(require, exports, module) {
-"use strict";
+cordova.define("cordova-plugin-lottie-splashscreen.LottieSplashScreen", function(require, exports, module) { "use strict";
 var cordova_1 = require("cordova");
 var LottieSplashScreen = (function () {
     function LottieSplashScreen() {

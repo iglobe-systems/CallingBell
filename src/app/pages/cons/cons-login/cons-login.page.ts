@@ -32,7 +32,7 @@ ionViewWillEnter() {
   ngOnInit() {
   	this.onConsLoginForm = this.formBuilder.group({
       'phone': [null, Validators.compose([
-        Validators.required, Validators.maxLength(10), Validators.pattern('^[0-9]{10}'),
+        Validators.required,
       ])],
       'password': [null, Validators.compose([
         Validators.required,
