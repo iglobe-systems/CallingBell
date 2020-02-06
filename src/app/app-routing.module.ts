@@ -64,6 +64,7 @@ const routes: Routes = [
   { path: 'otp-form', loadChildren: './pages/cust/otp-form/otp-form.module#OtpFormPageModule' },
   { path: 'trending-issues', loadChildren: './pages/cust/spec-cat/trending-issues/trending-issues.module#TrendingIssuesPageModule' },
   { path: 'issue-list', loadChildren: './pages/cust/spec-cat/issue-list/issue-list.module#IssueListPageModule' },
+  { path: 'quick-book', loadChildren: './pages/cust/spec-cat/quick-book/quick-book.module#QuickBookPageModule' },
 ];
 
 @NgModule({

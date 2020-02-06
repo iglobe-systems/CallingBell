@@ -19,6 +19,12 @@
 <!-- image -->
 
 <h4 class="fw600">What do you want help with?</h4>
+<div class="size">
+  <div class="flex" (click)="allService()">
+    <img src="assets/img/QB.jpg" onError="this.src='http://apiv1.iglobesystems.com/assets/img/no_img.png'" class="service-img"/>
+    <h5>All services</h5>
+  </div>
+</div>
   <div *ngFor="let service of serviceSC"  class="size">
     <div class="flex" (click)="goToIssueList(service)">
       <img src="{{service.icon}}" onError="this.src='http://apiv1.iglobesystems.com/assets/img/no_img.png'" class="service-img"/>

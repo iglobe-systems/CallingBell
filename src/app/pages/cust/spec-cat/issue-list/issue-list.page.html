@@ -21,7 +21,7 @@
   <div>
     <div *ngFor="let issue of issueList" class="div-flex">
       <div class="column1">
-        <img src="{{issue.icon}}" class="issue-img"/>
+        <img src="{{issue.icon}}" onError="this.src='http://apiv1.iglobesystems.com/assets/img/no_img.png'" class="issue-img"/>
       </div>
       <div class="column2"> 
         <h4 class="issue-name">{{issue.name}}</h4>
@@ -38,3 +38,4 @@
     </div>
   </div>
 </ion-content>
+

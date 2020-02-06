@@ -18,6 +18,7 @@ import { Router, NavigationExtras, ActivatedRoute } from '@angular/router';
   styleUrls: ['./trending-issues.page.scss'],
 })
 export class TrendingIssuesPage implements OnInit {
+  service:any;
   serviceId:any;
   serviceSC:any;
   constructor(public navCtrl: NavController,
@@ -40,6 +41,7 @@ export class TrendingIssuesPage implements OnInit {
     this.route.queryParams.subscribe(params => {
       if (this.router.getCurrentNavigation().extras.state) {
         this.serviceId = this.router.getCurrentNavigation().extras.state.service.id;
+        this.service = this.router.getCurrentNavigation().extras.state.service;
          this.authService.getServiceCategory(this.serviceId).subscribe(result => {
            console.log(result);
            this.serviceSC = result['data'].list;
@@ -47,6 +49,15 @@ export class TrendingIssuesPage implements OnInit {
           });
       }
   });
+  }
+
+  allService(){
+    let navigationExtras: NavigationExtras={
+      state:{
+        service:this.service
+      }
+    }
+    this.router.navigate(['quick-book'],navigationExtras);
   }
 
   goToIssueList(service){

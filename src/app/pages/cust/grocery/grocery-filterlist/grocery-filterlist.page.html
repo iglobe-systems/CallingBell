@@ -27,7 +27,7 @@
             <ion-item>
                 <div class="item-style">
                     <div class="ion-text-center item-img-style"  (click)="grocerydesc(list.id)">
-                        <img src="{{list.icon}}" class="cat-img"/>
+                        <img src="{{list.icon}}" onError="this.src='http://apiv1.iglobesystems.com/assets/img/no_img.png'" class="cat-img"/>
                     </div>
                      <div class="item-content-style">
                         <h5 class="cat-name fw600"  (click)="grocerydesc(list.id)">{{list.name}}</h5>

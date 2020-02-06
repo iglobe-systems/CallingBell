@@ -48,7 +48,7 @@
   <div class="brand-main">
       <h5 class="brand-header">Popular Brands</h5>
       <div *ngFor = "let brand of groceryBrand" class="brand-size">
-        <img src="{{brand.img_path}}" class="brand-img" />
+        <img src="{{brand.img_path}}" class="brand-img" onError="this.src='http://apiv1.iglobesystems.com/assets/img/no_img.png'"/>
       </div>
     </div>
     
