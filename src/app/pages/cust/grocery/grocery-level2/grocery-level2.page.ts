@@ -24,6 +24,9 @@ categoryId:any;
 categoryName:any;
 groceryCat:any;
 groceryFilter:any;
+
+public onQtyForm:FormGroup;
+qty:any;
   constructor(
     private route:ActivatedRoute,
     public authService: AuthService, 
@@ -37,6 +40,9 @@ groceryFilter:any;
     private formBuilder: FormBuilder) { }
 
   ngOnInit() {
+    this.onQtyForm = this.formBuilder.group({
+      'qty':['', Validators.required]
+    });
     this.getGrocerylt();
   }
 
@@ -56,17 +62,21 @@ groceryFilter:any;
    });
   } 
   addToCart(product) {
-    this.alertService.cartNote('1 item added to cart');
-    let qty={
-      "qty":"1"
+    if(this.onQtyForm.get('qty').touched){
+      this.alertService.cartNote('1 item added to cart');
+    }else{
+      this.alertService.cartNote('Please select quantity');
     }
-    let id={
-      "id":product.id
-    }
-    this.authService.addToCart(qty,id).subscribe(result =>{
+    
+    // let qty={
+    //   "qty":"1"
+    // }
+    console.log(this.onQtyForm.value);
+    this.authService.addToCart(this.onQtyForm.value,product).subscribe(result =>{
       console.log(result);
       });
-  }
+    }
+ 
   async opencart(){
     let modal = await this.modalCtrl.create({
       component: CartPage,

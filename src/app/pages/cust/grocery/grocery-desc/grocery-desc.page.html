@@ -46,11 +46,12 @@
           <ion-row>
             <ion-col>
               <form [formGroup]="onQtyForm">
-                  <ion-item>
+                  <ion-item class="no-lines">
                       <ion-label>Qty : </ion-label>
-                      <ion-select interface="popover" type="number" formControlName="qty" color="darkblue">
-                        <ion-select-option *ngFor = "let count of productDesc.max_count">{{count}}</ion-select-option>
-                      </ion-select>
+                      <select type="number" formControlName="qty" color="darkblue">
+                        <option></option>
+                        <option *ngFor = "let count of productDesc.max_count">{{count}}</option>
+                      </select>
                   </ion-item>
                   <p ion-text class="text08" *ngIf="onQtyForm.get('qty').touched && onQtyForm.get('qty').hasError('required')">
                       <ion-text color="palegreen">

@@ -186,6 +186,10 @@ var map = {
 		"./src/app/pages/cust/spec-cat/pooja/pooja.module.ts",
 		"pages-cust-spec-cat-pooja-pooja-module"
 	],
+	"./pages/cust/spec-cat/quick-book/quick-book.module": [
+		"./src/app/pages/cust/spec-cat/quick-book/quick-book.module.ts",
+		"pages-cust-spec-cat-quick-book-quick-book-module"
+	],
 	"./pages/cust/spec-cat/remainders/remainders.module": [
 		"./src/app/pages/cust/spec-cat/remainders/remainders.module.ts",
 		"pages-cust-spec-cat-remainders-remainders-module"
@@ -698,7 +702,7 @@ module.exports = "<div *ngIf=\"showSplash\">\n  <div>\n      <img src=\"assets/i
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-list no-padding no-margin>\n    <ion-list-header color=\"light\">\n      <ion-label class=\"fw700\">WELCOME TO SUPPORT</ion-label>\n    </ion-list-header>\n\n    <form [formGroup]=\"onSupportForm\">\n      <ion-item no-padding class=\"margin\">\n          <ion-label position=\"floating\">How can we support you ?</ion-label>\n          <ion-select formControlName=\"issue\">\n            <ion-select-option value=\"{{p.services}}\" *ngFor=\"let p of support\">{{p.services}}</ion-select-option>\n          </ion-select>\n      </ion-item>\n      <ion-label class=\"label\">Specify the time to call</ion-label>\n      <ion-item *ngIf=\"!onSupportForm.get('callMeTodayAt').value && !onSupportForm.get('callMeOn').value && !onSupportForm.get('callMeAt').value \">\n          <ion-label>Call me now</ion-label>\n          <ion-checkbox formControlName=\"callMeNow\" value=\"call now\" ></ion-checkbox>\n      </ion-item>\n      <ion-item *ngIf=\"!onSupportForm.get('callMeNow').value && !onSupportForm.get('callMeOn').value && !onSupportForm.get('callMeAt').value \">\n          <ion-label>Call me today at</ion-label>\n          <ion-datetime display-format=\"h:mm A\" picker-format=\"h:mm A\" formControlName=\"callMeTodayAt\"></ion-datetime>\n      </ion-item>\n      <ion-item *ngIf=\"!onSupportForm.get('callMeNow').value && !onSupportForm.get('callMeTodayAt').value\">\n          <ion-label>Call me on</ion-label>\n          <ion-datetime placeholder=\"Select Date\" formControlName=\"callMeOn\"></ion-datetime>\n      </ion-item>\n      <ion-item *ngIf=\"!onSupportForm.get('callMeNow').value && !onSupportForm.get('callMeTodayAt').value\">\n          <ion-label>Call me at</ion-label>\n          <ion-datetime display-format=\"h:mm A\" picker-format=\"h:mm A\" formControlName=\"callMeAt\"></ion-datetime>\n      </ion-item>\n    </form>  \n    <div class=\"text-center\">\n    <ion-button shape=\"round\" color=\"dark\" (click)=\"sendSupport()\" margin>Submit</ion-button>\n    </div>\n\n  </ion-list>\n\n\n  <!-- 1800 258 6099 -->"
+module.exports = "\n  <ion-list>\n    <ion-item button (click)=\"opencart()\">Items available in cart for checkout <ion-icon slot=\"end\" name=\"arrow-dropright\"></ion-icon></ion-item>\n    <ion-item button>Update your personal details <ion-icon slot=\"end\" name=\"arrow-dropright\"></ion-icon></ion-item>\n    <ion-item button>6th month vaccination is a week ahead <ion-icon slot=\"end\" name=\"arrow-dropright\"></ion-icon></ion-item>\n    <ion-item button>Birthday - Aravind 15th feb <ion-icon  slot=\"end\" name=\"arrow-dropright\"></ion-icon></ion-item>\n    <ion-item button>New product launched <ion-icon  slot=\"end\" name=\"arrow-dropright\"></ion-icon></ion-item>\n  </ion-list>\n\n\n<!-- <ion-list no-padding no-margin>\n    <ion-list-header color=\"light\">\n      <ion-label class=\"fw700\">WELCOME TO SUPPORT</ion-label>\n    </ion-list-header>\n\n    <form [formGroup]=\"onSupportForm\">\n      <ion-item no-padding class=\"margin\">\n          <ion-label position=\"floating\">How can we support you ?</ion-label>\n          <ion-select formControlName=\"issue\">\n            <ion-select-option value=\"{{p.services}}\" *ngFor=\"let p of support\">{{p.services}}</ion-select-option>\n          </ion-select>\n      </ion-item>\n      <ion-label class=\"label\">Specify the time to call</ion-label>\n      <ion-item *ngIf=\"!onSupportForm.get('callMeTodayAt').value && !onSupportForm.get('callMeOn').value && !onSupportForm.get('callMeAt').value \">\n          <ion-label>Call me now</ion-label>\n          <ion-checkbox formControlName=\"callMeNow\" value=\"call now\" ></ion-checkbox>\n      </ion-item>\n      <ion-item *ngIf=\"!onSupportForm.get('callMeNow').value && !onSupportForm.get('callMeOn').value && !onSupportForm.get('callMeAt').value \">\n          <ion-label>Call me today at</ion-label>\n          <ion-datetime display-format=\"h:mm A\" picker-format=\"h:mm A\" formControlName=\"callMeTodayAt\"></ion-datetime>\n      </ion-item>\n      <ion-item *ngIf=\"!onSupportForm.get('callMeNow').value && !onSupportForm.get('callMeTodayAt').value\">\n          <ion-label>Call me on</ion-label>\n          <ion-datetime placeholder=\"Select Date\" formControlName=\"callMeOn\"></ion-datetime>\n      </ion-item>\n      <ion-item *ngIf=\"!onSupportForm.get('callMeNow').value && !onSupportForm.get('callMeTodayAt').value\">\n          <ion-label>Call me at</ion-label>\n          <ion-datetime display-format=\"h:mm A\" picker-format=\"h:mm A\" formControlName=\"callMeAt\"></ion-datetime>\n      </ion-item>\n    </form>  \n    <div class=\"text-center\">\n    <ion-button shape=\"round\" color=\"dark\" (click)=\"sendSupport()\" margin>Submit</ion-button>\n    </div>\n\n  </ion-list> -->\n\n\n  <!-- 1800 258 6099 -->"
 
 /***/ }),
 
@@ -720,7 +724,7 @@ module.exports = "<!-- <ion-header>\n  <ion-toolbar color=\"danger\">\n    <ion-
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n<ion-content fullscreen>\n\t<ion-item class=\"close-fake\" lines=\"none\" text-center>\n\t\t<ion-button (click)=\"close()\" fill=\"clear\" color=\"light\">\n\t\t\t<ion-icon name=\"close\" slot=\"start\"></ion-icon>\n\t\t\tBack\n\t\t</ion-button>\n\n\t\t<ion-button (click)=\"zoom(true)\" fill=\"clear\" color=\"light\">\n\t\t\t<ion-icon name=\"add\" slot=\"start\"></ion-icon>\n\t\t\tIn\n\t\t</ion-button>\n\n\t\t<ion-button (click)=\"zoom(false)\" fill=\"clear\" color=\"light\">\n\t\t\t<ion-icon name=\"remove\" slot=\"start\"></ion-icon>\n\t\t\tOut\n\t\t</ion-button>\n\t</ion-item>\n\n\t<ion-slides [options]=\"sliderOpts\" #slider>\n\t\t<ion-slide>\n\t\t\t<div class=\"swiper-zoom-container\">\n\t\t\t<img src=\"{{this.img}}\">\n\t\t\t</div> \n\t\t</ion-slide>\n\t</ion-slides>\n</ion-content>\n"
+module.exports = "\n<ion-content fullscreen>\n\t<ion-item class=\"close-fake\" lines=\"none\" text-center>\n\t\t<ion-button (click)=\"close()\" fill=\"clear\" color=\"light\">\n\t\t\t<ion-icon name=\"arrow-back\" slot=\"start\"></ion-icon>\n\t\t\tBack\n\t\t</ion-button>\n\n\t\t<ion-button (click)=\"zoom(true)\" fill=\"clear\" color=\"light\">\n\t\t\t<ion-icon name=\"add\" slot=\"start\"></ion-icon>\n\t\t\tIn\n\t\t</ion-button>\n\n\t\t<ion-button (click)=\"zoom(false)\" fill=\"clear\" color=\"light\">\n\t\t\t<ion-icon name=\"remove\" slot=\"start\"></ion-icon>\n\t\t\tOut\n\t\t</ion-button>\n\t</ion-item>\n\n\t<ion-slides [options]=\"sliderOpts\" #slider>\n\t\t<ion-slide>\n\t\t\t<div class=\"swiper-zoom-container\">\n\t\t\t<img src=\"{{this.img}}\">\n\t\t\t</div> \n\t\t</ion-slide>\n\t</ion-slides>\n</ion-content>\n"
 
 /***/ }),
 
@@ -802,6 +806,7 @@ const routes = [
     { path: 'otp-form', loadChildren: './pages/cust/otp-form/otp-form.module#OtpFormPageModule' },
     { path: 'trending-issues', loadChildren: './pages/cust/spec-cat/trending-issues/trending-issues.module#TrendingIssuesPageModule' },
     { path: 'issue-list', loadChildren: './pages/cust/spec-cat/issue-list/issue-list.module#IssueListPageModule' },
+    { path: 'quick-book', loadChildren: './pages/cust/spec-cat/quick-book/quick-book.module#QuickBookPageModule' },
 ];
 let AppRoutingModule = class AppRoutingModule {
 };
@@ -909,13 +914,15 @@ let AppComponent = class AppComponent {
     }
     initializeApp() {
         this.platform.ready().then(() => {
-            // this.storage.getItem('token').then(data => {
-            //   this.navCtrl.navigateRoot('cust-home');
-            //   this.splashScreen.hide();
-            // }, err =>{
-            //   this.navCtrl.navigateRoot('cust-login');
-            //   this.splashScreen.hide();
-            // })
+            // console.log(this.storage.getItem('token'));
+            this.userInfo = this.storage.getItem('user');
+            this.storage.getItem('user').then(data => {
+                this.navCtrl.navigateRoot('cust-home');
+                this.splashScreen.hide();
+            }, err => {
+                this.navCtrl.navigateRoot('cust-login');
+                this.splashScreen.hide();
+            });
             this.statusBar.styleDefault();
             this.splashScreen.hide();
             Object(rxjs_observable_timer__WEBPACK_IMPORTED_MODULE_6__["timer"])(3000).subscribe(() => this.showSplash = false);
@@ -1080,7 +1087,7 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".ion-list.list-ios {\n  margin-bottom: 0;\n}\n\n.label {\n  color: red;\n  margin-left: 2%;\n}\n\n.margin {\n  margin: 0px 2% 0px 2%;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy9zdXBwb3J0L0Q6XFxSaWF6XFxOZXdBUEtcXE5ld0FQS3YwLjEvc3JjXFxhcHBcXGNvbXBvbmVudHNcXHN1cHBvcnRcXHN1cHBvcnQuY29tcG9uZW50LnNjc3MiLCJzcmMvYXBwL2NvbXBvbmVudHMvc3VwcG9ydC9zdXBwb3J0LmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUNJO0VBQ0ksZ0JBQUE7QUNBUjs7QURRQTtFQUNDLFVBQUE7RUFDQSxlQUFBO0FDTEQ7O0FEZ0JBO0VBQ0MscUJBQUE7QUNiRCIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvc3VwcG9ydC9zdXBwb3J0LmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmlvbi1saXN0IHtcclxuICAgICYubGlzdC1pb3Mge1xyXG4gICAgICAgIG1hcmdpbi1ib3R0b206IDA7XHJcbiAgICB9XHJcbn1cclxuXHJcbi8vIGlvbi1iYWNrZHJvcC5zYy1pb24tcG9wb3Zlci1tZC5tZC5oeWRyYXRlZCB7XHJcbi8vIFx0LS13aWR0aDo2NSU7XHJcbi8vIH1cclxuXHJcbi5sYWJlbHtcclxuXHRjb2xvcjpyZWQ7XHJcblx0bWFyZ2luLWxlZnQ6MiU7XHJcbn1cclxuXHJcbi8vIC5zYy1pb24tcG9wb3Zlci1tZC1oIHtcclxuLy8gXHQtLXdpZHRoOjY1JTtcclxuLy8gfVxyXG5cclxuLy8gaW9uLXBvcG92ZXIjaW9uLW92ZXJsYXktMi5zYy1pb24tcG9wb3Zlci1tZC1oLnNjLWlvbi1wb3BvdmVyLW1kLXMubWQuaHlkcmF0ZWR7XHJcbi8vIFx0LS13aWR0aDo2NSU7XHJcbi8vIH1cclxuXHJcbi5tYXJnaW57XHJcblx0bWFyZ2luOjBweCAyJSAwcHggMiU7XHJcbn0iLCIuaW9uLWxpc3QubGlzdC1pb3Mge1xuICBtYXJnaW4tYm90dG9tOiAwO1xufVxuXG4ubGFiZWwge1xuICBjb2xvcjogcmVkO1xuICBtYXJnaW4tbGVmdDogMiU7XG59XG5cbi5tYXJnaW4ge1xuICBtYXJnaW46IDBweCAyJSAwcHggMiU7XG59Il19 */"
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvc3VwcG9ydC9zdXBwb3J0LmNvbXBvbmVudC5zY3NzIn0= */"
 
 /***/ }),
 
@@ -1101,6 +1108,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_services_alert_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/services/alert.service */ "./src/app/services/alert.service.ts");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
+/* harmony import */ var _pages_cust_cart_cart_page__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../pages/cust/cart/cart.page */ "./src/app/pages/cust/cart/cart.page.ts");
+
 
 
 
@@ -1109,31 +1118,41 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let SupportComponent = class SupportComponent {
-    constructor(authService, route, navParams, alertService, loadingCtrl, alertCtrl, navCtrl, formBuilder, router, popoverctrl) {
+    constructor(authService, route, navParams, alertService, loadingCtrl, alertCtrl, modalCtrl, navCtrl, formBuilder, router, popoverctrl) {
         this.authService = authService;
         this.route = route;
         this.navParams = navParams;
         this.alertService = alertService;
         this.loadingCtrl = loadingCtrl;
         this.alertCtrl = alertCtrl;
+        this.modalCtrl = modalCtrl;
         this.navCtrl = navCtrl;
         this.formBuilder = formBuilder;
         this.router = router;
         this.popoverctrl = popoverctrl;
     }
     ngOnInit() {
-        this.productCategory();
-        this.getIssue();
+        //  	this.productCategory();
+        // this.getIssue();
         // this.pro=this.navParams.get('p');
         // console.log(this.pro.categoryName);
-        this.onSupportForm = this.formBuilder.group({
-            'issue': [null, _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].compose([
-                    _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required,
-                ])],
-            'callMeNow': [null],
-            'callMeTodayAt': [null],
-            'callMeOn': [null],
-            'callMeAt': [null]
+        // this.onSupportForm = this.formBuilder.group({
+        //   'issue': [null, Validators.compose([
+        //     Validators.required,
+        //   ])],
+        //   'callMeNow':[null],
+        //   'callMeTodayAt':[null],
+        //   'callMeOn':[null],
+        //   'callMeAt':[null]
+        // });
+    }
+    opencart() {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
+            let modal = yield this.modalCtrl.create({
+                component: _pages_cust_cart_cart_page__WEBPACK_IMPORTED_MODULE_7__["CartPage"],
+                cssClass: 'cart-modal'
+            });
+            modal.present();
         });
     }
     getIssue() {
@@ -1188,6 +1207,7 @@ SupportComponent.ctorParameters = () => [
     { type: src_app_services_alert_service__WEBPACK_IMPORTED_MODULE_4__["AlertService"] },
     { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["LoadingController"] },
     { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["AlertController"] },
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["ModalController"] },
     { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["NavController"] },
     { type: _angular_forms__WEBPACK_IMPORTED_MODULE_6__["FormBuilder"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"] },
@@ -1205,6 +1225,7 @@ SupportComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         src_app_services_alert_service__WEBPACK_IMPORTED_MODULE_4__["AlertService"],
         _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["LoadingController"],
         _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["AlertController"],
+        _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["ModalController"],
         _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["NavController"],
         _angular_forms__WEBPACK_IMPORTED_MODULE_6__["FormBuilder"],
         _angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"],

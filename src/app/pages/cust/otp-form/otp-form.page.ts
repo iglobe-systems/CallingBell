@@ -51,7 +51,7 @@ export class OtpFormPage implements OnInit {
     this.authService.verifyOtp(phone,otp).subscribe(
       result=>{
           if(result['status'] == true){
-            console.log(result);
+          console.log(result);
           console.log(result['data'].api_key);
           this.storage.setItem('user',{
             token : result['data'].api_key,

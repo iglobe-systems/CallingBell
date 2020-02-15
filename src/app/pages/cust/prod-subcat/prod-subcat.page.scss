@@ -1,54 +1,104 @@
+.header-logo{
+    width:120px;
+    vertical-align: middle;
+}
 
-:host{
-    ion-card{
-        display:flex;
-        flex-direction:column;
-        color:white;
-    }
-    .size{
-        display:inline-block;
-        width:48%;
-        text-align: center;
-        margin: 1%;
-    }
-     img{
-    width:130px;
-    // height:150px;
+.product-title{
+    font-size: 16px;
+    margin: 10px;
+}
+
+.sc-flex{
+    display: flex;
+    flex-direction: column;
+}
+
+.sc-item{
+    display: inline-block;
+    width: 46%;
+    margin: 2%;
+    text-align: center;
+}
+.sc-img{
+    width:100px;
     height:100px;
-    border-radius: 5px;
-    margin-left: auto;
-    margin-right: auto;
-    }
+    margin: auto;
+}
 
-    h5{
-        text-transform: uppercase;
-        font-size: 15px;
-        font-weight: 600;
-        color:#f34d4d;
-        overflow-x:hidden;
-        height: 15px;
-    }
+.sc-name{
+    font-size: 14px;
+    text-transform: uppercase;
+    margin: 10px;
+}
 
-    h3{
-        font-size: 15px;
-        font-weight: 600;
-        color:#258619;
-    }
-     .size1{
-        display:inline-block;
-        width:48%;
-        text-align: center;
-        margin: 1%;
-        background-color: #f7f7f7;
-        font-weight: 700;
-    }
+.item-style{
+    display:flex;
+    width: 100%;
+}
 
-    h4{
-        font-size: 16px;
-        font-weight: 600;
-    }
+.item-content-style{
+    margin-left:10px;
+    width: 100%;
+}
 
-    span{
-        font-size: 11px;
-    }
+.item-img-style{
+    width: 80px;
+    height: 80px;
+}
+
+.cat-main{
+    display: flex;
+    justify-content: space-between;
+}
+
+.cat-header{
+    margin:2% 5%;
+    text-transform: capitalize;
+}
+
+.cat-img{
+   width: auto;
+   height: auto;
+   max-width: 70px;
+   max-height: 70px;
+}
+
+.cat-divsize{
+    display: inline-block;
+    width:48%;
+    text-align: center;
+    margin:1%;
+    padding-bottom: 4%; 
+}
+
+.cat-name{
+    margin: 0;
+    font-size: 14px;
+    padding:2px;
+    text-transform: capitalize;
+}
+
+.cat-quantity{
+    margin: 0;
+    padding:1px;
+    font-size: 12px;
+}
+
+.cat-brand{
+    margin: 0;
+    font-size: 13px;
+    padding:1px;
+    text-transform: capitalize;
+}
+
+.cat-mrp{
+    margin: 0;
+    font-size:18px;
+    padding:1px;
+    color:#ffad00;
+}
+
+.cat-item-footer{
+    display: flex;
+    align-items: center;
 }

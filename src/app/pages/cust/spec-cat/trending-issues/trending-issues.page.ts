@@ -12,6 +12,7 @@ import { AuthService } from 'src/app/services/auth.service';
 import { AlertService } from 'src/app/services/alert.service';
 
 import { Router, NavigationExtras, ActivatedRoute } from '@angular/router';
+import { CartPage } from '../../cart/cart.page';
 @Component({
   selector: 'app-trending-issues',
   templateUrl: './trending-issues.page.html',
@@ -51,6 +52,25 @@ export class TrendingIssuesPage implements OnInit {
   });
   }
 
+  goToProducts(){
+    if(this.serviceId == 86){
+      let navigationExtras: NavigationExtras={
+        state:{
+          category_id:2
+        }
+      }
+      this.router.navigate(['prod-subcat'],navigationExtras);
+    }
+    else if(this.serviceId == 87){
+      let navigationExtras: NavigationExtras={
+        state:{
+          category_id:3
+        }
+      }
+      this.router.navigate(['prod-subcat'],navigationExtras);
+    }
+  }
+
   allService(){
     let navigationExtras: NavigationExtras={
       state:{
@@ -69,6 +89,15 @@ export class TrendingIssuesPage implements OnInit {
     this.router.navigate(['issue-list'],navigationExtras);
     console.log(service);
   }
+ 
+  async opencart(){
+    let modal = await this.modalCtrl.create({
+      component: CartPage,
+      cssClass:'cart-modal'
+    });
+    modal.present();
+  }
+
 
   back(){
     this.navCtrl.navigateBack('trending');

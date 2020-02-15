@@ -165,7 +165,13 @@ export class AuthService {
     catchError(this.handleError));
   }
 
-
+  storeUserData(token, user) {
+    this.storage.setItem('token', token);
+    this.storage.setItem('user', user);
+    this.user = user;
+    this.token = token;
+    this.isLoggedIn = true;
+  }
 
 
 
@@ -186,13 +192,7 @@ export class AuthService {
       catchError(this.handleError));
   }
 
-  storeUserData(token, user) {
-    this.storage.setItem('token', token);
-    this.storage.setItem('user', user);
-    this.user = user;
-    this.token = token;
-    this.isLoggedIn = true;
-  }
+ 
 
   storeTechData(session,id,userid){
     this.storage.setItem('session',session);

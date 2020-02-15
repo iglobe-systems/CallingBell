@@ -1,56 +1,81 @@
+.header-logo{
+    width:120px;
+    vertical-align: middle;
+}
 
-:host{
-    ion-card{
-        display:flex;
-        flex-direction:column;
-        color:white;
-    }
+.product-title{
+    font-size: 16px;
+    margin: 10px;
+}
 
-    .size{
-        display:inline-block;
-        width:48%;
-        text-align: center;
-        margin: 1%;
-    }
-     img{
-    width:130px;
-    height:100px;
-    // height:75%;
-    border-radius: 5px;
-    margin-left: auto;
-    margin-right: auto;
-    }
+.item-style{
+    display:flex;
+    width: 100%;
+}
 
+.item-content-style{
+    margin-left:10px;
+    width: 100%;
+}
 
-    h5{
-       font-size:0.8rem;
-       color:#868686;
-        margin-top:7px;
-        margin-bottom:7px;
-    }
-     h4{
-        font-size: 16px;
-        font-weight: 600;
-    }
-    h2{
-        font-size:1rem;
-         margin-top:7px;
-        margin-bottom:7px;
-    }
-    h3{
-        font-size: 1rem;
-        color:#f34d4d;
-        font-weight: 700;
-        overflow-x:hidden;   
-        height: 1rem;
-        margin-top:7px;
-        margin-bottom:7px;
-    }
-    span{
-        font-size: 0.8rem;
-    }
-    .mrp{
-        text-decoration: line-through;
-        color:red;
-    }
+.item-img-style{
+    width: 80px;
+    height: 80px;
+}
+
+.cat-main{
+    display: flex;
+    justify-content: space-between;
+}
+
+.cat-header{
+    margin:2% 5%;
+    text-transform: capitalize;
+}
+
+.cat-img{
+   width: auto;
+   height: auto;
+   max-width: 70px;
+   max-height: 70px;
+}
+
+.cat-divsize{
+    display: inline-block;
+    width:48%;
+    text-align: center;
+    margin:1%;
+    padding-bottom: 4%; 
+}
+
+.cat-name{
+    margin: 0;
+    font-size: 14px;
+    padding:2px;
+    text-transform: capitalize;
+}
+
+.cat-quantity{
+    margin: 0;
+    padding:1px;
+    font-size: 12px;
+}
+
+.cat-brand{
+    margin: 0;
+    font-size: 13px;
+    padding:1px;
+    text-transform: capitalize;
+}
+
+.cat-mrp{
+    margin: 0;
+    font-size:18px;
+    padding:1px;
+    color:#ffad00;
+}
+
+.cat-item-footer{
+    display: flex;
+    align-items: center;
 }

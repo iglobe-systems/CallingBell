@@ -1,9 +1,11 @@
 <ion-header>
-  <ion-toolbar color="danger">
+  <ion-toolbar color="darkblue">
     <ion-buttons slot="start">
       <ion-menu-button color="light"></ion-menu-button>
     </ion-buttons>
-        <div class="logo-in"></div>
+    <div>
+      <img src="assets/img/newlogov7.png" class="header-logo"/>
+    </div>
          <ion-buttons slot="end">
       <ion-button shape="round" (click)="back()">
         <ion-icon name="arrow-round-back" class="text15"></ion-icon>
@@ -12,25 +14,38 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding">
-<!-- <ion-card *ngIf="prodlist"> -->
-  <h4 *ngIf="prodlist">Results for "{{brand}}"</h4>
-<!-- </ion-card> -->
-
-<div *ngFor = "let prod of prodlist" class="size" (click)="getProductDesc(prod)">
- <!-- <h5>{{prod.brand}}</h5> -->
-    <img src="{{prod.image}}" onError="this.src='https://static.thenounproject.com/png/212328-200.png'">
-       <h3>{{prod.productname}}</h3> 
-       <h5>{{prod.capacity}}</h5>
-        <h2><span>&#8377;</span> {{prod.price}}</h2>
-          <!-- <ion-segment color="danger" scrollable >
-            <ion-segment-button  (click)="addToCart(prod)"  checked><ion-label color="danger">Cart</ion-label></ion-segment-button>
-            <ion-segment-button  (click)="getProductDesc(prod)" checked><ion-label color="warning">Full Desc</ion-label></ion-segment-button>
-          </ion-segment>    -->    
-          <br>   
-</div>
-
-<!-- <ion-fab horizontal="end" vertical="bottom" slot="fixed">
-  <ion-fab-button color="danger" size="small" (click)="opencart()"><ion-icon name="cart"></ion-icon></ion-fab-button>
-</ion-fab> -->
+<ion-content>
+  <h5 class="product-title">Results for <b>{{name}}</b></h5>
+  <div *ngFor = "let sclist of list">
+        <ion-list>
+            <ion-item>
+              <div class="item-style">
+                <div class="ion-text-center item-img-style" (click)="getProductDesc(sclist)">
+                    <img src="{{sclist.icon}}" onError="this.src='http://apiv1.iglobesystems.com/assets/img/no_img.png'" class="cat-img"/>
+                </div>
+                 <div class="item-content-style">
+                    <h5 class="cat-name fw600" (click)="getProductDesc(sclist)">{{sclist.name}}</h5>
+                    <h5 class="cat-quantity" (click)="getProductDesc(sclist)">{{sclist.quantity}}</h5>
+                    <!-- <h5 class="cat-brand" (click)="grocerydesc(cat.id)">{{sclist.brand_name}}</h5> -->
+                    <ion-row class="cat-item-footer">
+                      <ion-col class="ion-no-padding" size="9" (click)="getProductDesc(sclist)">
+                        <h1 class="cat-mrp fw600">&#8377; {{sclist.mrp}}</h1>
+                      </ion-col>
+                      <ion-col class="ion-no-padding">
+                        <ion-buttons class="ion-text-center">
+                          <ion-button size="small" color="darkblue" (click)="addToCart(sclist)" tappable><ion-icon name="add-circle"></ion-icon></ion-button>
+                        </ion-buttons>
+                      </ion-col>
+                    </ion-row>
+                 </div>
+                </div>
+            </ion-item>
+        </ion-list> 
+  </div>
+  <ion-fab horizontal="end" vertical="bottom" slot="fixed">
+    <ion-fab-button color="darkblue" size="small" (click)="opencart()" #cart>
+      <!-- <div class="cart-length">{{ cardItemCount | async }}</div> -->
+      <ion-icon name="cart"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-content>

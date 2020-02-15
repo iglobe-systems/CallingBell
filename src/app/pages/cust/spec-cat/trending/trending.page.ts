@@ -12,7 +12,7 @@ import { AuthService } from 'src/app/services/auth.service';
 import { AlertService } from 'src/app/services/alert.service';
 
 import { Router, NavigationExtras } from '@angular/router';
-
+import { CartPage } from '../../cart/cart.page';
 @Component({
   selector: 'app-trending',
   templateUrl: './trending.page.html',
@@ -64,6 +64,14 @@ export class TrendingPage implements OnInit {
     }
     this.router.navigate(['trending-issues'],navigationExtras);
     console.log(service);
+  }
+
+  async opencart(){
+    let modal = await this.modalCtrl.create({
+      component: CartPage,
+      cssClass:'cart-modal'
+    });
+    modal.present();
   }
 
   back(){

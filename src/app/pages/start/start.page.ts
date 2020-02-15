@@ -122,7 +122,7 @@ export class StartPage implements OnInit {
     }else{
       this.navCtrl.navigateRoot('cust-login');
     } 
-    }
+ }
    
   techLogin(){
     this.navCtrl.navigateRoot('tech-login');

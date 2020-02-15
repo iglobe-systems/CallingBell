@@ -18,7 +18,7 @@
 <h4 class="ion-text-center">POOJA ITEMS</h4>
 <div *ngFor="let items of pooja"  class="size">
   <div class="flex">
-    <img src="{{items.image_url}}" class="pooja-img"/>
+    <img src="{{items.image_url}}" onError="this.src='http://apiv1.iglobesystems.com/assets/img/no_img.png'" class="pooja-img"/>
     <ion-row>
       <ion-col>
         <h5>{{items.s_name}}</h5>

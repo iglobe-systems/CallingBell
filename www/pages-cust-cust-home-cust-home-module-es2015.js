@@ -89,6 +89,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_services_alert_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/services/alert.service */ "./src/app/services/alert.service.ts");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
 /* harmony import */ var _cart_cart_page__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../cart/cart.page */ "./src/app/pages/cust/cart/cart.page.ts");
+/* harmony import */ var _ionic_native_native_storage_ngx__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @ionic-native/native-storage/ngx */ "./node_modules/@ionic-native/native-storage/ngx/index.js");
+
 
 
 
@@ -98,7 +100,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let CustHomePage = class CustHomePage {
-    constructor(navCtrl, menuCtrl, popoverCtrl, alertCtrl, modalCtrl, toastCtrl, authService, loadingCtrl, alertService, router) {
+    constructor(navCtrl, menuCtrl, popoverCtrl, alertCtrl, modalCtrl, toastCtrl, authService, loadingCtrl, alertService, router, platform, storage) {
         this.navCtrl = navCtrl;
         this.menuCtrl = menuCtrl;
         this.popoverCtrl = popoverCtrl;
@@ -109,9 +111,11 @@ let CustHomePage = class CustHomePage {
         this.loadingCtrl = loadingCtrl;
         this.alertService = alertService;
         this.router = router;
+        this.platform = platform;
+        this.storage = storage;
         this.slideOptsOne = {
             initialSlide: 0,
-            slidesPerView: 1.4,
+            slidesPerView: 1.2,
             autoplay: true
         };
         this.slideOptsTwo = {
@@ -148,6 +152,8 @@ let CustHomePage = class CustHomePage {
         // this.getProductCategory();
         this.getUser();
         this.getIcons();
+        console.log(this.storage.getItem('user'));
+        console.log(this.storage.getItem('token'));
     }
     getIcons() {
         this.authService.getHomeIcons().subscribe(result => {
@@ -247,6 +253,12 @@ let CustHomePage = class CustHomePage {
     }
     ionViewWillEnter() {
         this.menuCtrl.enable(true);
+        this.subscription = this.platform.backButton.subscribe(() => {
+            navigator['app'].exitApp();
+        });
+    }
+    ionViewWillLeave() {
+        this.subscription.unsubscribe();
     }
     // settings() {
     //   this.navCtrl.navigateForward('settings');
@@ -334,7 +346,9 @@ CustHomePage.ctorParameters = () => [
     { type: src_app_services_auth_service__WEBPACK_IMPORTED_MODULE_4__["AuthService"] },
     { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["LoadingController"] },
     { type: src_app_services_alert_service__WEBPACK_IMPORTED_MODULE_5__["AlertService"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_6__["Router"] }
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_6__["Router"] },
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["Platform"] },
+    { type: _ionic_native_native_storage_ngx__WEBPACK_IMPORTED_MODULE_8__["NativeStorage"] }
 ];
 CustHomePage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -351,7 +365,9 @@ CustHomePage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         src_app_services_auth_service__WEBPACK_IMPORTED_MODULE_4__["AuthService"],
         _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["LoadingController"],
         src_app_services_alert_service__WEBPACK_IMPORTED_MODULE_5__["AlertService"],
-        _angular_router__WEBPACK_IMPORTED_MODULE_6__["Router"]])
+        _angular_router__WEBPACK_IMPORTED_MODULE_6__["Router"],
+        _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["Platform"],
+        _ionic_native_native_storage_ngx__WEBPACK_IMPORTED_MODULE_8__["NativeStorage"]])
 ], CustHomePage);
 
 

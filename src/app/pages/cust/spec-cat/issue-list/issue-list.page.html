@@ -37,5 +37,11 @@
       </div>
     </div>
   </div>
+  <ion-fab horizontal="end" vertical="bottom" slot="fixed">
+    <ion-fab-button color="darkblue" size="small" (click)="opencart()" #cart>
+      <!-- <div class="cart-length">{{ cardItemCount | async }}</div> -->
+      <ion-icon name="cart"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-content>
 

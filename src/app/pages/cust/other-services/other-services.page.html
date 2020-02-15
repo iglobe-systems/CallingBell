@@ -16,19 +16,22 @@
 </ion-header>
 
 <ion-content>
-  <h4>hiring services</h4>
+<div *ngFor="let service of serviceCat"> 
+    <h4>{{service.name}}</h4>
+    <div *ngFor="let list of service.list"  class="size">
+      <div class="flex">
+        <img src="{{list.img}}" onError="this.src='http://apiv1.iglobesystems.com/assets/img/no_img.png'" class="service-img"/>
+        <h5>{{list.name}}</h5>
+      </div>
+    </div>
+</div>
+
+
+  <!-- <h4>hiring services</h4>
   <div *ngFor="let service of otherServices"  class="size">
     <div class="flex">
       <img src="{{service.img_m}}" onError="this.src='http://apiv1.iglobesystems.com/assets/img/no_img.png'" class="service-img"/>
       <h5>{{service.name}}</h5>
-    </div>
-  </div>
-
-  <!-- <h4>other classes</h4>
-   <div *ngFor="let class of classes"  class="size">
-    <div class="flex">
-      <img src="{{class.image_url}}" class="service-img"/>
-      <h5>{{class.name}}</h5>
     </div>
   </div> -->
 </ion-content>

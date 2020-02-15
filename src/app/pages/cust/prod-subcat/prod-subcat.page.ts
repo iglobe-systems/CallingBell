@@ -13,8 +13,7 @@ import {
 import { ActivatedRoute } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { AlertService } from 'src/app/services/alert.service';
-
-
+import { CartPage } from '../cart/cart.page';
 
 
 @Component({
@@ -37,57 +36,62 @@ export class ProdSubcatPage implements OnInit {
               public modalCtrl: ModalController) { }
 
   ngOnInit() {
-
     this.getSubCategory();
   }
 
     getSubCategory(){
      this.route.queryParams.subscribe(params => {
         if (this.router.getCurrentNavigation().extras.state) {
-          this.pro = this.router.getCurrentNavigation().extras.state.p.categoryName;
-          
-       
-          this.authService.getProductSubCategory(this.pro).subscribe(result =>{
-               console.log(result);
-               this.subCategory = result['message'].subcategory;
+          this.pro = this.router.getCurrentNavigation().extras.state.category_id;
+          this.authService.getProds(this.pro).subscribe(result =>{
+            console.log(result);
+               this.subCategory = result['data'].list;
                console.log(this.subCategory);
-               this.brand = result['message'].brands;
+               this.brand = result['data'].list;
           });
 
         }
-    });
-     
+    }); 
   }
 
-
-     productList(subCat){
+  productList(subCat){
     let navigationExtras: NavigationExtras={
       state:{
-        subCat:subCat,
-        prodcat: this.pro
-      }
-    }
-    this.router.navigate(['prod-latest-arrivals'],navigationExtras);
-    console.log(subCat);
-  }
-
-  prodlist(brand){
-     let navigationExtras: NavigationExtras={
-      state:{
-        brand:brand,
-        prodcat: this.pro
+        product:subCat
       }
     }
     this.router.navigate(['prod-list'],navigationExtras);
-    console.log(brand);
   }
 
-
- opencart(){
-    this.navCtrl.navigateForward('cart');
+  addToCart(sclist){
+    this.alertService.cartNote('1 item added to cart');
+    let qty={
+      "qty":"1"
+    }
+    this.authService.addToCart(qty,sclist).subscribe(result =>{
+      console.log(result);
+      });
   }
 
+  async opencart(){
+    let modal = await this.modalCtrl.create({
+      component: CartPage,
+      cssClass:'cart-modal'
+    });
+    modal.present();
+  }
+  
+  getProductDesc(cat){
+    let navigationExtras : NavigationExtras={
+      state:{
+        prod:cat
+      }
+    }
+    this.router.navigate(['prod-desc'],navigationExtras);
+    console.log(cat);
+  }
+  
   back(){
-    this.navCtrl.navigateBack('trending');
+    this.navCtrl.navigateBack('trending-issues');
   }
 }

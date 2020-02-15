@@ -13,6 +13,7 @@ import { AuthService } from 'src/app/services/auth.service';
 import { AlertService } from 'src/app/services/alert.service';
 import { Router, NavigationExtras,ActivatedRoute  } from '@angular/router';
 import { FormBuilder, FormGroup, Validators,FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CartPage } from '../../pages/cust/cart/cart.page';
 
 @Component({
   selector: 'app-support',
@@ -32,26 +33,37 @@ cat:any;
               public alertService: AlertService, 
               public loadingCtrl: LoadingController, 
               public alertCtrl: AlertController, 
+              public modalCtrl:ModalController,
               public navCtrl: NavController,
               private formBuilder: FormBuilder, 
               private router: Router,
               private popoverctrl:PopoverController) { }
 
   ngOnInit() {
-  	 	this.productCategory();
-    this.getIssue();
+  	//  	this.productCategory();
+    // this.getIssue();
     // this.pro=this.navParams.get('p');
     // console.log(this.pro.categoryName);
-    this.onSupportForm = this.formBuilder.group({
-      'issue': [null, Validators.compose([
-        Validators.required,
-      ])],
-      'callMeNow':[null],
-      'callMeTodayAt':[null],
-      'callMeOn':[null],
-      'callMeAt':[null]
-    });
+    // this.onSupportForm = this.formBuilder.group({
+    //   'issue': [null, Validators.compose([
+    //     Validators.required,
+    //   ])],
+    //   'callMeNow':[null],
+    //   'callMeTodayAt':[null],
+    //   'callMeOn':[null],
+    //   'callMeAt':[null]
+    // });
   }
+
+
+  async opencart(){
+    let modal = await this.modalCtrl.create({
+      component: CartPage,
+      cssClass:'cart-modal'
+    });
+    modal.present();
+  }
+
 
 getIssue(){
       this.pro=this.navParams.get('p');

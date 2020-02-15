@@ -33,7 +33,7 @@
   </div>
   <br>
   <br>
-  <img src="assets/img/ads/rosupply.jpg"/>
+  <img src="assets/img/ads/rosupply.jpg" (click)="goToProducts()"/>
 <div class="CB">
   <h2 class="fw600">CB verified</h2>
   <div class="CB-verify">
@@ -55,4 +55,10 @@
     <li class="fs14">Service charge excludes material costs and masonry charges</li>
   </ul>
 </div>
+<ion-fab horizontal="end" vertical="bottom" slot="fixed">
+  <ion-fab-button color="darkblue" size="small" (click)="opencart()" #cart>
+    <!-- <div class="cart-length">{{ cardItemCount | async }}</div> -->
+    <ion-icon name="cart"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
 </ion-content>

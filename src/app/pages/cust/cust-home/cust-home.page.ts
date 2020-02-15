@@ -6,7 +6,8 @@ import {
   ToastController,
   PopoverController,
   ModalController,
-  LoadingController} from '@ionic/angular';
+  LoadingController,
+  Platform} from '@ionic/angular';
 
 import { SupportComponent } from '../../../components/support/support.component';
 import { AuthService } from 'src/app/services/auth.service';
@@ -19,6 +20,7 @@ import anime from 'animejs/lib/anime.es.js';
 import { Router, NavigationExtras } from '@angular/router';
 import { Icon } from 'ionicons/dist/types/icon/icon';
 import { CartPage } from '../cart/cart.page';
+import { NativeStorage } from '@ionic-native/native-storage/ngx';
 @Component({
   selector: 'app-cust-home',
   templateUrl: './cust-home.page.html',
@@ -31,7 +33,7 @@ export class CustHomePage implements OnInit {
 
   slideOptsOne = {
     initialSlide: 0,
-    slidesPerView: 1.4,
+    slidesPerView: 1.2,
     autoplay:true
   };
 
@@ -52,6 +54,7 @@ export class CustHomePage implements OnInit {
   productCategory: Object;
   Icons:any;
 
+  subscription:any;
 
 
   constructor( public navCtrl: NavController,
@@ -64,6 +67,8 @@ export class CustHomePage implements OnInit {
     public loadingCtrl: LoadingController,
     private alertService: AlertService,
     public router: Router,
+    private platform: Platform,
+    private storage: NativeStorage,
     ) 
   {
     this.sliderOne =
@@ -96,6 +101,7 @@ export class CustHomePage implements OnInit {
    // this.getProductCategory();
    this.getUser();
    this.getIcons();
+   console.log(this.storage.getItem('user'));
   }
 
   getIcons(){
@@ -205,8 +211,15 @@ export class CustHomePage implements OnInit {
 
   ionViewWillEnter() {
     this.menuCtrl.enable(true);
-  }
+    this.subscription = this.platform.backButton.subscribe(()=>
+    { 
+      navigator['app'].exitApp(); 
+    }); 
+  } 
 
+  ionViewWillLeave(){ 
+    this.subscription.unsubscribe();
+  }
   // settings() {
   //   this.navCtrl.navigateForward('settings');
   // }

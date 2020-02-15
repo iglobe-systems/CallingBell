@@ -14,82 +14,70 @@ import { ActivatedRoute } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { AlertService } from 'src/app/services/alert.service';
 import { CartService } from '../../../services/cart.service';
-
+import { CartPage } from '../cart/cart.page';
 @Component({
   selector: 'app-prod-list',
   templateUrl: './prod-list.page.html',
   styleUrls: ['./prod-list.page.scss'],
 })
 export class ProdListPage implements OnInit {
-  cat:any;
-  prodlist:any;
-  brands:any;
-  brand:any;
-  products:any;
-
-    cart = [];
-     items = [];
- 
+  product:any;
+  list:any;
+  name:any;
   constructor(private route:ActivatedRoute,
               public authService: AuthService, 
               public alertService: AlertService, 
               public loadingCtrl: LoadingController, 
               public alertCtrl: AlertController, 
               public navCtrl: NavController,
+              public modalCtrl:ModalController,
               private router: Router,
               private cartService: CartService) { }
 
   ngOnInit() {
-  	// this.items = this.getProducts();
     this.getProducts();
-    this.cart = this.cartService.getCart();
-    // this.items = this.cartService.getProducts();
+  }
+
+
+   getProducts(){
+    this.route.queryParams.subscribe(params => {
+      if (this.router.getCurrentNavigation().extras.state) {
+        this.product = this.router.getCurrentNavigation().extras.state.product.id;
+        this.name = this.router.getCurrentNavigation().extras.state.product.name;
+        this.authService.getProds(this.product).subscribe(result =>{
+          console.log(result);
+          this.list = result['data'].list;
+        });
+      }
+  });    
   }
 
   addToCart(product) {
-    this.cartService.addProduct(product);
-  }
- 
-  openCart() {
-    this.router.navigate(['cart']);
-  }
+    this.alertService.cartNote('1 item added to cart');
+    let qty={
+      "qty":"1"
+    }
+    this.authService.addToCart(qty,product).subscribe(result =>{
+      console.log(result);
+      });
+    }
 
-   getProducts(){
-     this.route.queryParams.subscribe(params => {
-        if (this.router.getCurrentNavigation().extras.state) {
-          this.cat = this.router.getCurrentNavigation().extras.state.prodcat;
-          this.brand = this.router.getCurrentNavigation().extras.state.brand;
-          console.log(this.cat);
-          console.log(this.brand);
-          this.authService.getProductList(this.cat,this.brand).subscribe(result =>{
-                console.log(result);
-                this.prodlist = result['message'];
-                console.log(this.prodlist);
-                // this.prod = result['message']
-           });
-        }
-    });
-    
-  }
+    async opencart(){
+      let modal = await this.modalCtrl.create({
+        component: CartPage,
+        cssClass:'cart-modal'
+      });
+      modal.present();
+    }
 
-  // showProducts(brand){
-  //   this.brand = brand.brand;
-  //   console.log(brand.brand);
-  //   this.authService.getProductList(this.brand,this.pro).subscribe(result =>{
-  //     console.log(result);
-  //    this.products = result['message'];
-  //   });
-  // }
-
-
-getProductDesc(prod){
+getProductDesc(cat){
     let navigationExtras : NavigationExtras={
       state:{
-        prod:prod
+        prod:cat
       }
     }
     this.router.navigate(['prod-desc'],navigationExtras);
-    console.log(prod);
+    console.log(cat);
   }
   
   back(){

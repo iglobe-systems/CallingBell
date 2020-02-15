@@ -92,6 +92,7 @@ export class PoojaPage implements OnInit {
     private router: Router) { }
 
   ngOnInit() {
+    this.alertService.developmentNote('To reduce app size images are hidden!');
   }
 
   back(){

@@ -12,6 +12,7 @@ import { AuthService } from 'src/app/services/auth.service';
 import { AlertService } from 'src/app/services/alert.service';
 
 import { Router, NavigationExtras, ActivatedRoute } from '@angular/router';
+import { CartPage } from '../../cart/cart.page';
 @Component({
   selector: 'app-issue-list',
   templateUrl: './issue-list.page.html',
@@ -50,6 +51,14 @@ export class IssueListPage implements OnInit {
           });
       }
   });
+  }
+
+  async opencart(){
+    let modal = await this.modalCtrl.create({
+      component: CartPage,
+      cssClass:'cart-modal'
+    });
+    modal.present();
   }
 
   back(){

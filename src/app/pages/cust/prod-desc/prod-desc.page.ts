@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef  } from '@angular/core';
 import { Router, NavigationExtras} from '@angular/router';
 import {
   NavController,
@@ -10,6 +10,7 @@ import {
   ModalController,
   LoadingController
 } from '@ionic/angular';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { AlertService } from 'src/app/services/alert.service';
@@ -24,18 +25,18 @@ import { CartPage } from '../cart/cart.page';
   styleUrls: ['./prod-desc.page.scss'],
 })
 export class ProdDescPage implements OnInit {
-	product:any;
-	productDetail:any;
+  desc:any;
+  productDesc:any;
   images:any;
-	slidesOptions2 = {
+	slidesOptions1 = {
     slidesPerView:1.5
   };
-
   cart = [];
-  items = [];
-  // products=[];
   cardItemCount: BehaviorSubject<number>;
 
+  public onQtyForm:FormGroup;
+  
+  @ViewChild('cart',{ static:false, read: ElementRef})fab:ElementRef;
   constructor(private route:ActivatedRoute,
               public authService: AuthService, 
               public alertService: AlertService, 
@@ -44,38 +45,39 @@ export class ProdDescPage implements OnInit {
               public navCtrl: NavController,
               private router: Router,
               private cartService: CartService,
-              private modalCtrl: ModalController) { }
+              private modalCtrl: ModalController,
+              private formBuilder: FormBuilder) { }
 
   ngOnInit() {
-  	 this.getProducts();
-     this.cart = this.cartService.getCart();
-    // this.products = this.cartService.getProducts();
+    this.onQtyForm = this.formBuilder.group({
+      'qty':['', Validators.required]
+    });
+    this.getGroceryDesc();
+    this.cart = this.cartService.getCart();
     this.cardItemCount = this.cartService.getCartItemCount();
   }
 
-  getProducts(){
+  getGroceryDesc(){
     this.route.queryParams.subscribe(params => {
-        if (this.router.getCurrentNavigation().extras.state) {
-          this.product = this.router.getCurrentNavigation().extras.state.prod.productId;
-          // this.brand = this.router.getCurrentNavigation().extras.state.brand.brand;
-          console.log(this.product);
-          //console.log(this.brand);
-          this.authService.getProductDesc(this.product).subscribe(result =>{
-                console.log(result);
-                this.productDetail = result['message'];
-                this.images = result['image'];
-                console.log(this.productDetail);
-                console.log(this.images);
-                // this.prod = result['message']
-           });
-        }
-    });
-  	
+       if (this.router.getCurrentNavigation().extras.state) {
+         this.desc = this.router.getCurrentNavigation().extras.state.prod.id;
+           this.authService.getProdsDesc(this.desc).subscribe(result => {
+            this.productDesc = result['data'];
+             console.log(this.productDesc);
+            });
+       }
+   });
   }
 
   addToCart(product) {
-    this.cartService.addProduct(product);
+    this.alertService.cartNote('1 item added to cart');
+    // this.cartService.addProduct(product);
     console.log(product);
+    console.log(this.onQtyForm.value);
+    
+    this.authService.addToCart(this.onQtyForm.value,product).subscribe(result =>{
+      console.log(result);
+      });
   }
 
   async opencart(){

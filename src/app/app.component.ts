@@ -20,7 +20,7 @@ export class AppComponent {
    user: any;
   public appPages: Array<Pages>;
   userProfile: any;
-
+  userInfo:any;
   showSplash = true;
   constructor(
     private platform: Platform,
@@ -74,14 +74,20 @@ export class AppComponent {
 
 initializeApp() {
     this.platform.ready().then(() => {
-      // this.storage.getItem('token').then(data => {
+      // console.log(this.storage.getItem('token'));
+
+      //uncomment during build
+
+      // this.userInfo = this.storage.getItem('user');
+      // this.storage.getItem('user').then(data => {
       //   this.navCtrl.navigateRoot('cust-home');
       //   this.splashScreen.hide();
       // }, err =>{
       //   this.navCtrl.navigateRoot('cust-login');
       //   this.splashScreen.hide();
       // })
-      this.statusBar.styleDefault();
+      // this.statusBar.styleDefault();
+      
       this.splashScreen.hide();
       timer(3000).subscribe(()=> this.showSplash = false)
     }).catch(() => {});
