@@ -171,7 +171,7 @@ var ProdSubcatPage = /** @class */ (function () {
         console.log(cat);
     };
     ProdSubcatPage.prototype.back = function () {
-        this.navCtrl.navigateBack('trending');
+        this.navCtrl.navigateBack('trending-issues');
     };
     ProdSubcatPage.ctorParameters = function () { return [
         { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },

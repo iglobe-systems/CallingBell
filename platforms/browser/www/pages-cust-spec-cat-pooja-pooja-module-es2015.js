@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-header>\n  <ion-toolbar color=\"darkblue\">\n      <ion-buttons slot=\"start\">\n        <ion-menu-button color=\"light\"></ion-menu-button>\n      </ion-buttons>\n      <div>\n        <img src=\"assets/img/newlogov7.png\" class=\"header-logo\"/>\n      </div>\n         <ion-buttons slot=\"end\">\n          <ion-button shape=\"round\" (click)=\"back()\">\n            <ion-icon name=\"arrow-round-back\" class=\"text15\"></ion-icon>\n          </ion-button>\n        </ion-buttons>\n    </ion-toolbar>\n</ion-header>\n\n<ion-content>\n<h4 class=\"ion-text-center\">POOJA ITEMS</h4>\n<div *ngFor=\"let items of pooja\"  class=\"size\">\n  <div class=\"flex\">\n    <img src=\"{{items.image_url}}\" class=\"pooja-img\"/>\n    <ion-row>\n      <ion-col>\n        <h5>{{items.s_name}}</h5>\n      </ion-col>\n      <ion-col>\n        <h5 class=\"hindi\">{{items.h_name}}</h5>\n      </ion-col>\n    </ion-row>\n    <ion-row>\n      <ion-col>\n          <h5>{{items.t_name}}</h5>\n      </ion-col>\n      <ion-col>\n          <h5 class=\"hindi\">{{items.e_name}}</h5>\n      </ion-col>\n    </ion-row>\n  </div>\n</div>\n</ion-content>\n"
+module.exports = "<ion-header>\n  <ion-toolbar color=\"darkblue\">\n      <ion-buttons slot=\"start\">\n        <ion-menu-button color=\"light\"></ion-menu-button>\n      </ion-buttons>\n      <div>\n        <img src=\"assets/img/newlogov7.png\" class=\"header-logo\"/>\n      </div>\n         <ion-buttons slot=\"end\">\n          <ion-button shape=\"round\" (click)=\"back()\">\n            <ion-icon name=\"arrow-round-back\" class=\"text15\"></ion-icon>\n          </ion-button>\n        </ion-buttons>\n    </ion-toolbar>\n</ion-header>\n\n<ion-content>\n<h4 class=\"ion-text-center\">POOJA ITEMS</h4>\n<div *ngFor=\"let items of pooja\"  class=\"size\">\n  <div class=\"flex\">\n    <img src=\"{{items.image_url}}\" onError=\"this.src='http://apiv1.iglobesystems.com/assets/img/no_img.png'\" class=\"pooja-img\"/>\n    <ion-row>\n      <ion-col>\n        <h5>{{items.s_name}}</h5>\n      </ion-col>\n      <ion-col>\n        <h5 class=\"hindi\">{{items.h_name}}</h5>\n      </ion-col>\n    </ion-row>\n    <ion-row>\n      <ion-col>\n          <h5>{{items.t_name}}</h5>\n      </ion-col>\n      <ion-col>\n          <h5 class=\"hindi\">{{items.e_name}}</h5>\n      </ion-col>\n    </ion-row>\n  </div>\n</div>\n</ion-content>\n"
 
 /***/ }),
 
@@ -168,6 +168,7 @@ let PoojaPage = class PoojaPage {
         ];
     }
     ngOnInit() {
+        this.alertService.developmentNote('To reduce app size images are hidden!');
     }
     back() {
         this.navCtrl.navigateBack('cust-home');

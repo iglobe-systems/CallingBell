@@ -915,15 +915,16 @@ let AppComponent = class AppComponent {
     initializeApp() {
         this.platform.ready().then(() => {
             // console.log(this.storage.getItem('token'));
-            this.userInfo = this.storage.getItem('user');
-            this.storage.getItem('user').then(data => {
-                this.navCtrl.navigateRoot('cust-home');
-                this.splashScreen.hide();
-            }, err => {
-                this.navCtrl.navigateRoot('cust-login');
-                this.splashScreen.hide();
-            });
-            this.statusBar.styleDefault();
+            //uncomment during build
+            // this.userInfo = this.storage.getItem('user');
+            // this.storage.getItem('user').then(data => {
+            //   this.navCtrl.navigateRoot('cust-home');
+            //   this.splashScreen.hide();
+            // }, err =>{
+            //   this.navCtrl.navigateRoot('cust-login');
+            //   this.splashScreen.hide();
+            // })
+            // this.statusBar.styleDefault();
             this.splashScreen.hide();
             Object(rxjs_observable_timer__WEBPACK_IMPORTED_MODULE_6__["timer"])(3000).subscribe(() => this.showSplash = false);
         }).catch(() => { });
@@ -1745,16 +1746,16 @@ let AuthService = class AuthService {
         return this.http.post(this.env.NEW_API_URL + '/api_v1/services/GetServicesCat', body)
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_7__["map"])(res => res), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_7__["catchError"])(this.handleError));
     }
-    login(body) {
-        return this.http.post(this.env.API_URL + '/iglobe/CBA/api_v1/login/index.php', body)
-            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_7__["map"])(res => res), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_7__["catchError"])(this.handleError));
-    }
     storeUserData(token, user) {
         this.storage.setItem('token', token);
         this.storage.setItem('user', user);
         this.user = user;
         this.token = token;
         this.isLoggedIn = true;
+    }
+    login(body) {
+        return this.http.post(this.env.API_URL + '/iglobe/CBA/api_v1/login/index.php', body)
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_7__["map"])(res => res), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_7__["catchError"])(this.handleError));
     }
     storeTechData(session, id, userid) {
         this.storage.setItem('session', session);

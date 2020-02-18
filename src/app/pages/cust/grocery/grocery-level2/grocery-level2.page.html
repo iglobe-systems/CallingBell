@@ -47,9 +47,9 @@
                 <ion-select-option *ngFor = "let count of cat.max_count">{{count}}</ion-select-option>
               </ion-select> -->
               <form [formGroup]="onQtyForm">
-                <select formControlName="qty">
+                <select formControlName="qty" interface="popover">
                   <option></option>
-                  <option *ngFor = "let count of cat.max_count">{{count}}</option>
+                  <option *ngFor = "let count of cat.max_count" value="{{count}}">{{count}}</option>
                 </select>
               </form>
             </ion-col>

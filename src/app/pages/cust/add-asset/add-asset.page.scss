@@ -8,15 +8,17 @@
 // 	height: 50px;
 // }
 
-h2{
+.header{
 	text-align: center;
-	font-size: 1rem;
+	font-size:14px;
 	font-weight: 600;
+	margin: 5px 0px;
 }
 
-p{
+.header-sub{
 	text-align: center;
-	font-size: 0.8rem;
+	font-size:12px;
+	margin: 5px 0px;
 }
 
 h5{
@@ -25,3 +27,15 @@ h5{
 	font-weight: 600;
 }
 
+ion-item{
+	border:0.5px solid black;
+	border-radius:10px;
+	margin-bottom: 10px;
+}
+
+.buttonone{
+	margin: 10px 0px;
+}
+.buttontwo{
+	margin:10px 20px;
+}

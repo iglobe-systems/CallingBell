@@ -8,6 +8,7 @@
 
     <domain-config cleartextTrafficPermitted="true">
         <domain includeSubdomains="true">localhost</domain>
-        <domain includeSubdomains="true">http://vaccrm.com</domain>
+        <domain includeSubdomains="true">http://http://apiv1.iglobesystems.com:8000</domain>
+        <domain includeSubdomains="true">http://http://apiv1.iglobesystems.com</domain>
     </domain-config>
 </network-security-config>

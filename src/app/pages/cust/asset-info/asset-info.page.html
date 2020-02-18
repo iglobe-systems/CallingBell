@@ -24,13 +24,17 @@
 			<h2 class="darkblue">warranty : 1 year</h2>
 			<h2 class="darkblue">expires on : 09 Nov 2016 </h2>
 		</ion-col>
-		<div class="center">
-				<h4>PRODUCT PRICE : &#8377;52,999</h4>
-				<h1>YOUR WARRANTY HAS EXPIRED!</h1>
-			</div>
 	</ion-row>
-	
-	<h3>INSURANCE</h3>
+	<div class="center">
+		<h5>PRODUCT PRICE : &#8377;52,999</h5>
+		<h1>YOUR WARRANTY HAS EXPIRED!</h1>
+	</div>
+	<div class="center">
+		<ion-button size="small" color="dark">SUPPORT</ion-button>
+		<ion-button size="small" color="gold">BUY</ion-button>
+		<ion-button size="small" color="darkblue">SELL</ion-button>
+	</div>
+	<h5>INSURANCE</h5>
 	<div>
 		<ion-card class="bg-color">
 			<ion-row>
@@ -42,13 +46,13 @@
 					
 				</ion-col>
 				<ion-col size="4">
-					<img src="assets/img/bell figures/homebell.png" onError="this.src='http://apiv1.iglobesystems.com/assets/img/no_img.png'" class="img3">
+					<img src="assets/img/90.png" onError="this.src='http://apiv1.iglobesystems.com/assets/img/no_img.png'" class="img3">
 				</ion-col>
 			</ion-row>
 		</ion-card>
 	</div>
 
-	<h3>Images</h3>
+	<h5>Images</h5>
 	<ion-slides [options]="sliderOpts">
 		<ion-slide *ngFor="let img of ['warranty image', 'invoice image', 'product image']">
 			<img src="assets/img/{{ img }}.jpg" tappable (click)="openPreview(img)">
@@ -56,7 +60,7 @@
 		</ion-slide>
 	</ion-slides>
 	<br>
-	<h3>Service History</h3>
+	<h5>Service History</h5>
 	<div>
 	<ion-card class="bg-color">
 		<h3>Model : 4k uhd led smart tv (55 Inches)</h3>

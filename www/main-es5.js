@@ -925,15 +925,16 @@ var AppComponent = /** @class */ (function () {
         var _this = this;
         this.platform.ready().then(function () {
             // console.log(this.storage.getItem('token'));
-            _this.userInfo = _this.storage.getItem('user');
-            _this.storage.getItem('user').then(function (data) {
-                _this.navCtrl.navigateRoot('cust-home');
-                _this.splashScreen.hide();
-            }, function (err) {
-                _this.navCtrl.navigateRoot('cust-login');
-                _this.splashScreen.hide();
-            });
-            _this.statusBar.styleDefault();
+            //uncomment during build
+            // this.userInfo = this.storage.getItem('user');
+            // this.storage.getItem('user').then(data => {
+            //   this.navCtrl.navigateRoot('cust-home');
+            //   this.splashScreen.hide();
+            // }, err =>{
+            //   this.navCtrl.navigateRoot('cust-login');
+            //   this.splashScreen.hide();
+            // })
+            // this.statusBar.styleDefault();
             _this.splashScreen.hide();
             Object(rxjs_observable_timer__WEBPACK_IMPORTED_MODULE_6__["timer"])(3000).subscribe(function () { return _this.showSplash = false; });
         }).catch(function () { });
@@ -1840,16 +1841,16 @@ var AuthService = /** @class */ (function () {
         return this.http.post(this.env.NEW_API_URL + '/api_v1/services/GetServicesCat', body)
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_7__["map"])(function (res) { return res; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_7__["catchError"])(this.handleError));
     };
-    AuthService.prototype.login = function (body) {
-        return this.http.post(this.env.API_URL + '/iglobe/CBA/api_v1/login/index.php', body)
-            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_7__["map"])(function (res) { return res; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_7__["catchError"])(this.handleError));
-    };
     AuthService.prototype.storeUserData = function (token, user) {
         this.storage.setItem('token', token);
         this.storage.setItem('user', user);
         this.user = user;
         this.token = token;
         this.isLoggedIn = true;
+    };
+    AuthService.prototype.login = function (body) {
+        return this.http.post(this.env.API_URL + '/iglobe/CBA/api_v1/login/index.php', body)
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_7__["map"])(function (res) { return res; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_7__["catchError"])(this.handleError));
     };
     AuthService.prototype.storeTechData = function (session, id, userid) {
         this.storage.setItem('session', session);

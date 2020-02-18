@@ -98,7 +98,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let CustHomePage = class CustHomePage {
-    constructor(navCtrl, menuCtrl, popoverCtrl, alertCtrl, modalCtrl, toastCtrl, authService, loadingCtrl, alertService, router) {
+    constructor(navCtrl, menuCtrl, popoverCtrl, alertCtrl, modalCtrl, toastCtrl, authService, loadingCtrl, alertService, router, platform) {
         this.navCtrl = navCtrl;
         this.menuCtrl = menuCtrl;
         this.popoverCtrl = popoverCtrl;
@@ -109,9 +109,10 @@ let CustHomePage = class CustHomePage {
         this.loadingCtrl = loadingCtrl;
         this.alertService = alertService;
         this.router = router;
+        this.platform = platform;
         this.slideOptsOne = {
             initialSlide: 0,
-            slidesPerView: 1.4,
+            slidesPerView: 1.2,
             autoplay: true
         };
         this.slideOptsTwo = {
@@ -247,6 +248,12 @@ let CustHomePage = class CustHomePage {
     }
     ionViewWillEnter() {
         this.menuCtrl.enable(true);
+        this.subscription = this.platform.backButton.subscribe(() => {
+            navigator['app'].exitApp();
+        });
+    }
+    ionViewWillLeave() {
+        this.subscription.unsubscribe();
     }
     // settings() {
     //   this.navCtrl.navigateForward('settings');
@@ -334,7 +341,8 @@ CustHomePage.ctorParameters = () => [
     { type: src_app_services_auth_service__WEBPACK_IMPORTED_MODULE_4__["AuthService"] },
     { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["LoadingController"] },
     { type: src_app_services_alert_service__WEBPACK_IMPORTED_MODULE_5__["AlertService"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_6__["Router"] }
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_6__["Router"] },
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["Platform"] }
 ];
 CustHomePage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -351,7 +359,8 @@ CustHomePage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         src_app_services_auth_service__WEBPACK_IMPORTED_MODULE_4__["AuthService"],
         _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["LoadingController"],
         src_app_services_alert_service__WEBPACK_IMPORTED_MODULE_5__["AlertService"],
-        _angular_router__WEBPACK_IMPORTED_MODULE_6__["Router"]])
+        _angular_router__WEBPACK_IMPORTED_MODULE_6__["Router"],
+        _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["Platform"]])
 ], CustHomePage);
 
 

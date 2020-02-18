@@ -101,7 +101,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var CustHomePage = /** @class */ (function () {
-    function CustHomePage(navCtrl, menuCtrl, popoverCtrl, alertCtrl, modalCtrl, toastCtrl, authService, loadingCtrl, alertService, router) {
+    function CustHomePage(navCtrl, menuCtrl, popoverCtrl, alertCtrl, modalCtrl, toastCtrl, authService, loadingCtrl, alertService, router, platform) {
         this.navCtrl = navCtrl;
         this.menuCtrl = menuCtrl;
         this.popoverCtrl = popoverCtrl;
@@ -112,9 +112,10 @@ var CustHomePage = /** @class */ (function () {
         this.loadingCtrl = loadingCtrl;
         this.alertService = alertService;
         this.router = router;
+        this.platform = platform;
         this.slideOptsOne = {
             initialSlide: 0,
-            slidesPerView: 1.4,
+            slidesPerView: 1.2,
             autoplay: true
         };
         this.slideOptsTwo = {
@@ -261,6 +262,12 @@ var CustHomePage = /** @class */ (function () {
     };
     CustHomePage.prototype.ionViewWillEnter = function () {
         this.menuCtrl.enable(true);
+        this.subscription = this.platform.backButton.subscribe(function () {
+            navigator['app'].exitApp();
+        });
+    };
+    CustHomePage.prototype.ionViewWillLeave = function () {
+        this.subscription.unsubscribe();
     };
     // settings() {
     //   this.navCtrl.navigateForward('settings');
@@ -373,7 +380,8 @@ var CustHomePage = /** @class */ (function () {
         { type: src_app_services_auth_service__WEBPACK_IMPORTED_MODULE_4__["AuthService"] },
         { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["LoadingController"] },
         { type: src_app_services_alert_service__WEBPACK_IMPORTED_MODULE_5__["AlertService"] },
-        { type: _angular_router__WEBPACK_IMPORTED_MODULE_6__["Router"] }
+        { type: _angular_router__WEBPACK_IMPORTED_MODULE_6__["Router"] },
+        { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["Platform"] }
     ]; };
     CustHomePage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -390,7 +398,8 @@ var CustHomePage = /** @class */ (function () {
             src_app_services_auth_service__WEBPACK_IMPORTED_MODULE_4__["AuthService"],
             _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["LoadingController"],
             src_app_services_alert_service__WEBPACK_IMPORTED_MODULE_5__["AlertService"],
-            _angular_router__WEBPACK_IMPORTED_MODULE_6__["Router"]])
+            _angular_router__WEBPACK_IMPORTED_MODULE_6__["Router"],
+            _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["Platform"]])
     ], CustHomePage);
     return CustHomePage;
 }());

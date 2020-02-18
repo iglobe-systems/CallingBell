@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-header>\n    <ion-toolbar color=\"darkblue\">\n      <ion-buttons slot=\"start\">\n         <ion-menu-button color=\"light\"></ion-menu-button>\n      </ion-buttons>\n  \n      <div>\n          <img src=\"assets/img/newlogov7.png\" class=\"header-logo\"/>\n        </div>\n     \n      <ion-buttons slot=\"end\">\n        <ion-button shape=\"round\" (click)=\"back()\">\n          <ion-icon name=\"arrow-round-back\" class=\"text15\"></ion-icon>\n        </ion-button>\n      </ion-buttons>\n    </ion-toolbar>\n</ion-header>\n\n<ion-content>\n  <ion-searchbar mode=\"ios\" placeholder=\"Search in store\"></ion-searchbar>\n  <div class=\"cat-main\">\n      <h5 class=\"cat-header\">Results in {{categoryName}}</h5>\n      <ion-buttons class=\"filter-button\">\n          <ion-button shape=\"round\" (click)=\"groFilter()\">\n             <ion-icon name=\"funnel\" mode=\"ios\" color=\"darkblue\"></ion-icon>\n          </ion-button>\n      </ion-buttons>\n  </div>\n\n  <div *ngFor=\"let cat of groceryCat\">\n<ion-list>\n  <ion-item>\n    <div class=\"item-style\">\n      <div class=\"ion-text-center item-img-style\" (click)=\"grocerydesc(cat.id)\">\n          <img src=\"{{cat.icon}}\" class=\"cat-img\"/>\n      </div>\n       <div class=\"item-content-style\">\n          <h5 class=\"cat-name fw600\" (click)=\"grocerydesc(cat.id)\">{{cat.name}}</h5>\n          <h5 class=\"cat-quantity\" (click)=\"grocerydesc(cat.id)\">{{cat.quantity}}</h5>\n          <h5 class=\"cat-brand\" (click)=\"grocerydesc(cat.id)\">{{cat.brand_name}}</h5>\n          <ion-row class=\"cat-item-footer\">\n            <ion-col class=\"ion-no-padding\" size=\"9\">\n              <h1 class=\"cat-mrp fw600\" (click)=\"grocerydesc(cat.id)\">&#8377; {{cat.mrp}}</h1>\n            </ion-col>\n            <ion-col class=\"ion-no-padding\">\n              <ion-buttons class=\"ion-text-center\">\n                <ion-button size=\"small\" color=\"darkblue\" (click)=\"addToCart(cat)\" tappable><ion-icon name=\"add-circle\"></ion-icon></ion-button>\n              </ion-buttons>\n            </ion-col>\n          </ion-row>\n       </div>\n      </div>\n  </ion-item>\n</ion-list> \n  </div>\n\n  <ion-fab horizontal=\"end\" vertical=\"bottom\" slot=\"fixed\">\n      <ion-fab-button color=\"darkblue\" size=\"small\" (click)=\"opencart()\" #cart>\n        <!-- <div class=\"cart-length\">{{ cardItemCount | async }}</div> -->\n        <ion-icon name=\"cart\"></ion-icon>\n      </ion-fab-button>\n    </ion-fab>\n</ion-content>\n"
+module.exports = "<ion-header>\n    <ion-toolbar color=\"darkblue\">\n      <ion-buttons slot=\"start\">\n         <ion-menu-button color=\"light\"></ion-menu-button>\n      </ion-buttons>\n  \n      <div>\n          <img src=\"assets/img/newlogov7.png\" class=\"header-logo\"/>\n        </div>\n     \n      <ion-buttons slot=\"end\">\n        <ion-button shape=\"round\" (click)=\"back()\">\n          <ion-icon name=\"arrow-round-back\" class=\"text15\"></ion-icon>\n        </ion-button>\n      </ion-buttons>\n    </ion-toolbar>\n</ion-header>\n\n<ion-content>\n  <ion-searchbar mode=\"ios\" placeholder=\"Search in store\"></ion-searchbar>\n  <div class=\"cat-main\">\n      <h5 class=\"cat-header\">Results in {{categoryName}}</h5>\n      <ion-buttons class=\"filter-button\">\n          <ion-button shape=\"round\" (click)=\"groFilter()\">\n             <ion-icon name=\"funnel\" mode=\"ios\" color=\"darkblue\"></ion-icon>\n          </ion-button>\n      </ion-buttons>\n  </div>\n\n  <div *ngFor=\"let cat of groceryCat\">\n<ion-list>\n  <ion-item>\n    <div class=\"item-style\">\n      <div class=\"ion-text-center item-img-style\" (click)=\"grocerydesc(cat.id)\">\n          <img src=\"{{cat.icon}}\" onError=\"this.src='http://apiv1.iglobesystems.com/assets/img/no_img.png'\" class=\"cat-img\"/>\n      </div>\n       <div class=\"item-content-style\">\n          <h5 class=\"cat-name fw600\" (click)=\"grocerydesc(cat.id)\">{{cat.name}}</h5>\n          <h5 class=\"cat-quantity\" (click)=\"grocerydesc(cat.id)\">{{cat.quantity}}</h5>\n          <h5 class=\"cat-brand\" (click)=\"grocerydesc(cat.id)\">{{cat.brand_name}}</h5>\n          <ion-row class=\"cat-item-footer\">\n            <ion-col class=\"ion-no-padding\" size=\"7\">\n              <h1 class=\"cat-mrp fw600\" (click)=\"grocerydesc(cat.id)\">&#8377; {{cat.mrp}}</h1>\n            </ion-col>\n            <ion-col>\n              <!-- <ion-select interface=\"popover\" type=\"number\" color=\"darkblue\">\n                <ion-select-option *ngFor = \"let count of cat.max_count\">{{count}}</ion-select-option>\n              </ion-select> -->\n              <form [formGroup]=\"onQtyForm\">\n                <select formControlName=\"qty\" interface=\"popover\">\n                  <option></option>\n                  <option *ngFor = \"let count of cat.max_count\" value=\"{{count}}\">{{count}}</option>\n                </select>\n              </form>\n            </ion-col>\n            <ion-col class=\"ion-no-padding\">\n              <ion-buttons class=\"ion-text-center\">\n                <ion-button size=\"small\" color=\"darkblue\" (click)=\"addToCart(cat)\" tappable><ion-icon name=\"add-circle\"></ion-icon></ion-button>\n              </ion-buttons>\n            </ion-col>\n          </ion-row>\n       </div>\n      </div>\n  </ion-item>\n</ion-list> \n  </div>\n\n  <ion-fab horizontal=\"end\" vertical=\"bottom\" slot=\"fixed\">\n      <ion-fab-button color=\"darkblue\" size=\"small\" (click)=\"opencart()\" #cart>\n        <!-- <div class=\"cart-length\">{{ cardItemCount | async }}</div> -->\n        <ion-icon name=\"cart\"></ion-icon>\n      </ion-fab-button>\n    </ion-fab>\n</ion-content>\n\n"
 
 /***/ }),
 
@@ -112,6 +112,9 @@ let GroceryLevel2Page = class GroceryLevel2Page {
         this.formBuilder = formBuilder;
     }
     ngOnInit() {
+        this.onQtyForm = this.formBuilder.group({
+            'qty': ['', _angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].required]
+        });
         this.getGrocerylt();
     }
     getGrocerylt() {
@@ -130,14 +133,17 @@ let GroceryLevel2Page = class GroceryLevel2Page {
         });
     }
     addToCart(product) {
-        this.alertService.cartNote('1 item added to cart');
-        let qty = {
-            "qty": "1"
-        };
-        let id = {
-            "id": product.id
-        };
-        this.authService.addToCart(qty, id).subscribe(result => {
+        if (this.onQtyForm.get('qty').touched) {
+            this.alertService.cartNote('1 item added to cart');
+        }
+        else {
+            this.alertService.cartNote('Please select quantity');
+        }
+        // let qty={
+        //   "qty":"1"
+        // }
+        console.log(this.onQtyForm.value);
+        this.authService.addToCart(this.onQtyForm.value, product).subscribe(result => {
             console.log(result);
         });
     }

@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-header>\n  <ion-toolbar color=\"darkblue\">\n    <ion-buttons slot=\"start\">\n      <ion-menu-button color=\"light\"></ion-menu-button>\n    </ion-buttons>\n    <div>\n        <img src=\"assets/img/newlogov7.png\" class=\"header-logo\"/>\n      </div>\n    <ion-buttons slot=\"end\">\n      <ion-button shape=\"round\" (click)=\"back()\">\n        <ion-icon name=\"arrow-round-back\" class=\"text15\"></ion-icon>\n      </ion-button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n\n<!-- image -->\n\n<h4 class=\"fw600\">What do you want help with?</h4>\n  <div *ngFor=\"let service of serviceSC\"  class=\"size\">\n    <div class=\"flex\" (click)=\"goToIssueList(service)\">\n      <img src=\"{{service.icon}}\" onError=\"this.src='http://apiv1.iglobesystems.com/assets/img/no_img.png'\" class=\"service-img\"/>\n      <h5>{{service.name}}</h5>\n    </div>\n  </div>\n  <br>\n  <br>\n<div class=\"CB\">\n  <h2 class=\"fw600\">CB verified</h2>\n  <div class=\"CB-verify\">\n    <ion-icon name=\"contact\" color=\"gold\"></ion-icon><ion-label class=\"fs14\">Skilled & verified technicians</ion-label>\n  </div>\n  <div class=\"CB-verify\">\n      <ion-icon name=\"calendar\" color=\"gold\"></ion-icon><ion-label class=\"fs14\">30-Day service guarantee</ion-label>\n  </div>\n  <div class=\"CB-verify\">\n      <ion-icon name=\"wallet\" color=\"gold\"></ion-icon><ion-label class=\"fs14\">Rs.10,000 damage cover on every booking</ion-label>\n  </div>\n</div>\n\n<div>\n  <h3 class=\"fw600\">Note</h3>\n  <ul>\n    <li class=\"fs14\">Spare parts are charged as per market price</li>\n    <li class=\"fs14\">A Rs.100 procurement fee is charged on all order where partner fetches material as part of the service</li>\n    <li class=\"fs14\">Service charge excludes material costs and masonry charges</li>\n  </ul>\n</div>\n</ion-content>\n"
+module.exports = "<ion-header>\n  <ion-toolbar color=\"darkblue\">\n    <ion-buttons slot=\"start\">\n      <ion-menu-button color=\"light\"></ion-menu-button>\n    </ion-buttons>\n    <div>\n        <img src=\"assets/img/newlogov7.png\" class=\"header-logo\"/>\n      </div>\n    <ion-buttons slot=\"end\">\n      <ion-button shape=\"round\" (click)=\"back()\">\n        <ion-icon name=\"arrow-round-back\" class=\"text15\"></ion-icon>\n      </ion-button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n\n<!-- image -->\n\n<h4 class=\"fw600\">What do you want help with?</h4>\n<div class=\"size\">\n  <div class=\"flex\" (click)=\"allService()\">\n    <img src=\"assets/img/QB.jpg\" onError=\"this.src='http://apiv1.iglobesystems.com/assets/img/no_img.png'\" class=\"service-img\"/>\n    <h5>All services</h5>\n  </div>\n</div>\n  <div *ngFor=\"let service of serviceSC\"  class=\"size\">\n    <div class=\"flex\" (click)=\"goToIssueList(service)\">\n      <img src=\"{{service.icon}}\" onError=\"this.src='http://apiv1.iglobesystems.com/assets/img/no_img.png'\" class=\"service-img\"/>\n      <h5>{{service.name}}</h5>\n    </div>\n  </div>\n  <br>\n  <br>\n  <img src=\"assets/img/ads/rosupply.jpg\" (click)=\"goToProducts()\"/>\n<div class=\"CB\">\n  <h2 class=\"fw600\">CB verified</h2>\n  <div class=\"CB-verify\">\n    <ion-icon name=\"contact\" color=\"gold\"></ion-icon><ion-label class=\"fs14\">Skilled & verified technicians</ion-label>\n  </div>\n  <div class=\"CB-verify\">\n      <ion-icon name=\"calendar\" color=\"gold\"></ion-icon><ion-label class=\"fs14\">30-Day service guarantee</ion-label>\n  </div>\n  <div class=\"CB-verify\">\n      <ion-icon name=\"wallet\" color=\"gold\"></ion-icon><ion-label class=\"fs14\">Rs.10,000 damage cover on every booking</ion-label>\n  </div>\n</div>\n\n<div>\n  <h3 class=\"fw600\">Note</h3>\n  <ul>\n    <li class=\"fs14\">Spare parts are charged as per market price</li>\n    <li class=\"fs14\">A Rs.100 procurement fee is charged on all order where partner fetches material as part of the service</li>\n    <li class=\"fs14\">Service charge excludes material costs and masonry charges</li>\n  </ul>\n</div>\n<ion-fab horizontal=\"end\" vertical=\"bottom\" slot=\"fixed\">\n  <ion-fab-button color=\"darkblue\" size=\"small\" (click)=\"opencart()\" #cart>\n    <!-- <div class=\"cart-length\">{{ cardItemCount | async }}</div> -->\n    <ion-icon name=\"cart\"></ion-icon>\n  </ion-fab-button>\n</ion-fab>\n</ion-content>\n"
 
 /***/ }),
 
@@ -89,6 +89,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_services_auth_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/services/auth.service */ "./src/app/services/auth.service.ts");
 /* harmony import */ var src_app_services_alert_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/services/alert.service */ "./src/app/services/alert.service.ts");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _cart_cart_page__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../cart/cart.page */ "./src/app/pages/cust/cart/cart.page.ts");
+
 
 
 
@@ -117,6 +119,7 @@ var TrendingIssuesPage = /** @class */ (function () {
         this.route.queryParams.subscribe(function (params) {
             if (_this.router.getCurrentNavigation().extras.state) {
                 _this.serviceId = _this.router.getCurrentNavigation().extras.state.service.id;
+                _this.service = _this.router.getCurrentNavigation().extras.state.service;
                 _this.authService.getServiceCategory(_this.serviceId).subscribe(function (result) {
                     console.log(result);
                     _this.serviceSC = result['data'].list;
@@ -124,6 +127,32 @@ var TrendingIssuesPage = /** @class */ (function () {
                 });
             }
         });
+    };
+    TrendingIssuesPage.prototype.goToProducts = function () {
+        if (this.serviceId == 86) {
+            var navigationExtras = {
+                state: {
+                    category_id: 2
+                }
+            };
+            this.router.navigate(['prod-subcat'], navigationExtras);
+        }
+        else if (this.serviceId == 87) {
+            var navigationExtras = {
+                state: {
+                    category_id: 3
+                }
+            };
+            this.router.navigate(['prod-subcat'], navigationExtras);
+        }
+    };
+    TrendingIssuesPage.prototype.allService = function () {
+        var navigationExtras = {
+            state: {
+                service: this.service
+            }
+        };
+        this.router.navigate(['quick-book'], navigationExtras);
     };
     TrendingIssuesPage.prototype.goToIssueList = function (service) {
         var navigationExtras = {
@@ -133,6 +162,23 @@ var TrendingIssuesPage = /** @class */ (function () {
         };
         this.router.navigate(['issue-list'], navigationExtras);
         console.log(service);
+    };
+    TrendingIssuesPage.prototype.opencart = function () {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
+            var modal;
+            return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.modalCtrl.create({
+                            component: _cart_cart_page__WEBPACK_IMPORTED_MODULE_6__["CartPage"],
+                            cssClass: 'cart-modal'
+                        })];
+                    case 1:
+                        modal = _a.sent();
+                        modal.present();
+                        return [2 /*return*/];
+                }
+            });
+        });
     };
     TrendingIssuesPage.prototype.back = function () {
         this.navCtrl.navigateBack('trending');
