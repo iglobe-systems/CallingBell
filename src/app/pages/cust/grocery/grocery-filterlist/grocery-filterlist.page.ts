@@ -11,6 +11,7 @@ import {
 import { AuthService } from 'src/app/services/auth.service';
 import { AlertService } from 'src/app/services/alert.service';
 import { Router, NavigationExtras } from '@angular/router';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { CartPage } from '../../cart/cart.page';
 @Component({
@@ -24,6 +25,8 @@ export class GroceryFilterlistPage implements OnInit {
   groceryBrand:any;
   groceryQty:any;
   filteredList:any[];
+
+  public onQtyForm:FormGroup;
   constructor(private route:ActivatedRoute,
     public authService: AuthService, 
     public alertService: AlertService, 
@@ -32,9 +35,13 @@ export class GroceryFilterlistPage implements OnInit {
     public navCtrl: NavController,
     public popoverCtrl: PopoverController,
     public modalCtrl:ModalController,
-    private router: Router) { }
+    private router: Router,
+    private formBuilder: FormBuilder) { }
 
   ngOnInit() {
+    this.onQtyForm = this.formBuilder.group({
+      'qty':['', Validators.required]
+    });
     this.filteredList = [];
     this.getFilteredList();
     this.getList();

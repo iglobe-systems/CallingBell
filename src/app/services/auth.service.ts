@@ -94,7 +94,8 @@ export class AuthService {
   getProdslt(catId){
     const body:Object = {
       "cat_id":catId,
-      "include_item":true
+      "include_item":true,
+      "hide_empty_cat":true
     }
     console.log(catId);
     return this.http.post(this.env.NEW_API_URL + '/api_v1/products/GetProductCat',body)

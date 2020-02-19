@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-header>\n    <ion-toolbar color=\"darkblue\">\n      <ion-buttons slot=\"start\">\n         <ion-menu-button color=\"light\"></ion-menu-button>\n      </ion-buttons>\n  \n      <div>\n            <img src=\"assets/img/newlogov7.png\" class=\"header-logo\"/>\n          </div>\n     \n      <ion-buttons slot=\"end\">\n        <ion-button shape=\"round\" (click)=\"back()\">\n          <ion-icon name=\"arrow-round-back\" class=\"text15\"></ion-icon>\n        </ion-button>\n      </ion-buttons>\n    </ion-toolbar>\n</ion-header>\n\n<ion-content>\n    <ion-searchbar mode=\"ios\" placeholder=\"Search in store\"></ion-searchbar>\n    <div>\n        <div class=\"cat-main\">\n            <h5 class=\"cat-header\">Filtered Results by {{groceryBrand}} - {{groceryQty}}</h5>\n        </div>\n        <div *ngFor=\"let list of filteredList\">\n          <ion-list>\n            <ion-item>\n                <div class=\"item-style\">\n                    <div class=\"ion-text-center item-img-style\"  (click)=\"grocerydesc(list.id)\">\n                        <img src=\"{{list.icon}}\" onError=\"this.src='http://apiv1.iglobesystems.com/assets/img/no_img.png'\" class=\"cat-img\"/>\n                    </div>\n                     <div class=\"item-content-style\">\n                        <h5 class=\"cat-name fw600\"  (click)=\"grocerydesc(list.id)\">{{list.name}}</h5>\n                        <h5 class=\"cat-quantity\"  (click)=\"grocerydesc(list.id)\">{{list.quantity}}</h5>\n                        <h5 class=\"cat-brand\"  (click)=\"grocerydesc(list.id)\">{{list.brand_name}}</h5>\n                        <ion-row class=\"cat-item-footer\">\n                          <ion-col class=\"ion-no-padding\" size=\"9\">\n                            <h1 class=\"cat-mrp fw600\" (click)=\"grocerydesc(list.id)\">&#8377; {{list.mrp}}</h1>\n                          </ion-col>\n                          <ion-col class=\"ion-no-padding\">\n                              <ion-buttons class=\"ion-text-center\">\n                                <ion-button size=\"small\" color=\"darkblue\" (click)=\"addToCart(list)\" tappable><ion-icon name=\"add-circle\"></ion-icon></ion-button>\n                              </ion-buttons>\n                            </ion-col>\n                        </ion-row>\n                     </div>\n                    </div>\n            </ion-item>\n          </ion-list>\n        </div>\n      <!-- <div *ngFor=\"let list of filteredList\" class=\"cat-divsize\" (click)=\"grocerydesc(list.id)\">\n          <img src=\"{{list.img_m}}\" class=\"cat-img\"/>\n          <h5 class=\"cat-name fw600\">{{list.name}}</h5>\n          <h5 class=\"cat-quantity\">{{list.quantity}}</h5>\n          <p class=\"cat-brand\">{{list.brand_name}}</p>\n          <h1 class=\"cat-mrp fw600\">&#8377; {{list.mrp}}</h1>\n      </div> -->\n    </div>\n    <div *ngIf=\"filteredList.length == 0\">\n        <div class=\"cat-main\">\n            <h5 class=\"cat-nf\">No Products Found</h5>\n        </div>\n    </div>\n\n    <ion-fab horizontal=\"end\" vertical=\"bottom\" slot=\"fixed\">\n        <ion-fab-button color=\"darkblue\" size=\"small\" (click)=\"opencart()\" #cart>\n          <!-- <div class=\"cart-length\">{{ cardItemCount | async }}</div> -->\n          <ion-icon name=\"cart\"></ion-icon>\n        </ion-fab-button>\n      </ion-fab>\n</ion-content>\n"
+module.exports = "<ion-header>\n    <ion-toolbar color=\"darkblue\">\n      <ion-buttons slot=\"start\">\n         <ion-menu-button color=\"light\"></ion-menu-button>\n      </ion-buttons>\n  \n      <div>\n            <img src=\"assets/img/newlogov7.png\" class=\"header-logo\"/>\n          </div>\n     \n      <ion-buttons slot=\"end\">\n        <ion-button shape=\"round\" (click)=\"back()\">\n          <ion-icon name=\"arrow-round-back\" class=\"text15\"></ion-icon>\n        </ion-button>\n      </ion-buttons>\n    </ion-toolbar>\n</ion-header>\n\n<ion-content>\n    <ion-searchbar mode=\"ios\" placeholder=\"Search in store\"></ion-searchbar>\n    <div>\n        <div class=\"cat-main\">\n            <h5 class=\"cat-header\">Filtered Results by {{groceryBrand}} - {{groceryQty}}</h5>\n        </div>\n        <div *ngFor=\"let list of filteredList\">\n          <ion-list>\n            <ion-item>\n                <div class=\"item-style\">\n                    <div class=\"ion-text-center item-img-style\"  (click)=\"grocerydesc(list.id)\">\n                        <img src=\"{{list.icon}}\" onError=\"this.src='http://apiv1.iglobesystems.com/assets/img/no_img.png'\" class=\"cat-img\"/>\n                    </div>\n                     <div class=\"item-content-style\">\n                        <h5 class=\"cat-name fw600\"  (click)=\"grocerydesc(list.id)\">{{list.name}}</h5>\n                        <h5 class=\"cat-quantity\"  (click)=\"grocerydesc(list.id)\">{{list.quantity}}</h5>\n                        <h5 class=\"cat-brand\"  (click)=\"grocerydesc(list.id)\">{{list.brand_name}}</h5>\n                        <ion-row class=\"cat-item-footer\">\n                          <ion-col class=\"ion-no-padding\" size=\"9\">\n                            <h1 class=\"cat-mrp fw600\" (click)=\"grocerydesc(list.id)\">&#8377; {{list.mrp}}</h1>\n                          </ion-col>\n                          <ion-col>\n                            <!-- <ion-select interface=\"popover\" type=\"number\" color=\"darkblue\">\n                              <ion-select-option *ngFor = \"let count of cat.max_count\">{{count}}</ion-select-option>\n                            </ion-select> -->\n                            <form [formGroup]=\"onQtyForm\">\n                              <select formControlName=\"qty\" interface=\"popover\">\n                                <option></option>\n                                <option *ngFor = \"let count of list.max_count\" value=\"{{count}}\">{{count}}</option>\n                              </select>\n                            </form>\n                          </ion-col>\n                          <ion-col class=\"ion-no-padding\">\n                              <ion-buttons class=\"ion-text-center\">\n                                <ion-button size=\"small\" color=\"darkblue\" (click)=\"addToCart(list)\" tappable><ion-icon name=\"add-circle\"></ion-icon></ion-button>\n                              </ion-buttons>\n                            </ion-col>\n                        </ion-row>\n                     </div>\n                    </div>\n            </ion-item>\n          </ion-list>\n        </div>\n      <!-- <div *ngFor=\"let list of filteredList\" class=\"cat-divsize\" (click)=\"grocerydesc(list.id)\">\n          <img src=\"{{list.img_m}}\" class=\"cat-img\"/>\n          <h5 class=\"cat-name fw600\">{{list.name}}</h5>\n          <h5 class=\"cat-quantity\">{{list.quantity}}</h5>\n          <p class=\"cat-brand\">{{list.brand_name}}</p>\n          <h1 class=\"cat-mrp fw600\">&#8377; {{list.mrp}}</h1>\n      </div> -->\n    </div>\n    <div *ngIf=\"filteredList.length == 0\">\n        <div class=\"cat-main\">\n            <h5 class=\"cat-nf\">No Products Found</h5>\n        </div>\n    </div>\n\n    <ion-fab horizontal=\"end\" vertical=\"bottom\" slot=\"fixed\">\n        <ion-fab-button color=\"darkblue\" size=\"small\" (click)=\"opencart()\" #cart>\n          <!-- <div class=\"cart-length\">{{ cardItemCount | async }}</div> -->\n          <ion-icon name=\"cart\"></ion-icon>\n        </ion-fab-button>\n      </ion-fab>\n</ion-content>\n"
 
 /***/ }),
 
@@ -50,6 +50,7 @@ var GroceryFilterlistPageModule = /** @class */ (function () {
                 _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
                 _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"],
                 _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["IonicModule"],
+                _angular_forms__WEBPACK_IMPORTED_MODULE_3__["ReactiveFormsModule"],
                 _angular_router__WEBPACK_IMPORTED_MODULE_4__["RouterModule"].forChild(routes)
             ],
             declarations: [_grocery_filterlist_page__WEBPACK_IMPORTED_MODULE_6__["GroceryFilterlistPage"]]
@@ -89,7 +90,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_services_auth_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/services/auth.service */ "./src/app/services/auth.service.ts");
 /* harmony import */ var src_app_services_alert_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/services/alert.service */ "./src/app/services/alert.service.ts");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var _cart_cart_page__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../cart/cart.page */ "./src/app/pages/cust/cart/cart.page.ts");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var _cart_cart_page__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../cart/cart.page */ "./src/app/pages/cust/cart/cart.page.ts");
+
 
 
 
@@ -99,7 +102,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var GroceryFilterlistPage = /** @class */ (function () {
-    function GroceryFilterlistPage(route, authService, alertService, loadingCtrl, alertCtrl, navCtrl, popoverCtrl, modalCtrl, router) {
+    function GroceryFilterlistPage(route, authService, alertService, loadingCtrl, alertCtrl, navCtrl, popoverCtrl, modalCtrl, router, formBuilder) {
         this.route = route;
         this.authService = authService;
         this.alertService = alertService;
@@ -109,8 +112,12 @@ var GroceryFilterlistPage = /** @class */ (function () {
         this.popoverCtrl = popoverCtrl;
         this.modalCtrl = modalCtrl;
         this.router = router;
+        this.formBuilder = formBuilder;
     }
     GroceryFilterlistPage.prototype.ngOnInit = function () {
+        this.onQtyForm = this.formBuilder.group({
+            'qty': ['', _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required]
+        });
         this.filteredList = [];
         this.getFilteredList();
         this.getList();
@@ -152,7 +159,7 @@ var GroceryFilterlistPage = /** @class */ (function () {
             return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
                 switch (_a.label) {
                     case 0: return [4 /*yield*/, this.modalCtrl.create({
-                            component: _cart_cart_page__WEBPACK_IMPORTED_MODULE_6__["CartPage"],
+                            component: _cart_cart_page__WEBPACK_IMPORTED_MODULE_7__["CartPage"],
                             cssClass: 'cart-modal'
                         })];
                     case 1:
@@ -196,7 +203,8 @@ var GroceryFilterlistPage = /** @class */ (function () {
         { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["NavController"] },
         { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["PopoverController"] },
         { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["ModalController"] },
-        { type: _angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"] }
+        { type: _angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"] },
+        { type: _angular_forms__WEBPACK_IMPORTED_MODULE_6__["FormBuilder"] }
     ]; };
     GroceryFilterlistPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -212,7 +220,8 @@ var GroceryFilterlistPage = /** @class */ (function () {
             _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["NavController"],
             _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["PopoverController"],
             _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["ModalController"],
-            _angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"]])
+            _angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"],
+            _angular_forms__WEBPACK_IMPORTED_MODULE_6__["FormBuilder"]])
     ], GroceryFilterlistPage);
     return GroceryFilterlistPage;
 }());

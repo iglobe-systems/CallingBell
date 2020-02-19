@@ -37,6 +37,17 @@
                           <ion-col class="ion-no-padding" size="9">
                             <h1 class="cat-mrp fw600" (click)="grocerydesc(list.id)">&#8377; {{list.mrp}}</h1>
                           </ion-col>
+                          <ion-col>
+                            <!-- <ion-select interface="popover" type="number" color="darkblue">
+                              <ion-select-option *ngFor = "let count of cat.max_count">{{count}}</ion-select-option>
+                            </ion-select> -->
+                            <form [formGroup]="onQtyForm">
+                              <select formControlName="qty" interface="popover">
+                                <option></option>
+                                <option *ngFor = "let count of list.max_count" value="{{count}}">{{count}}</option>
+                              </select>
+                            </form>
+                          </ion-col>
                           <ion-col class="ion-no-padding">
                               <ion-buttons class="ion-text-center">
                                 <ion-button size="small" color="darkblue" (click)="addToCart(list)" tappable><ion-icon name="add-circle"></ion-icon></ion-button>

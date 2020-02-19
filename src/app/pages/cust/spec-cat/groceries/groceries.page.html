@@ -3,8 +3,6 @@
     <ion-buttons slot="start">
        <ion-menu-button color="light"></ion-menu-button>
     </ion-buttons>
-
-	 <!-- <div class="logo-in"></div> -->
 	 <div>
 		<img src="assets/img/newlogov7.png" class="header-logo"/>
 	  </div>
@@ -31,9 +29,12 @@
 				<div *ngFor="let item of cat.item_list" (click)="getGrocerylt(item)" class="div-size">
 					<img src="{{item.icon}}" onError="this.src='http://apiv1.iglobesystems.com/assets/img/no_img.png'" class="img-item">
 					<h3>{{item.name}}</h3>
+					<!-- <ion-icon slot="icon-only" name="arrow-dropright"></ion-icon> -->
 				</div>
 			</div>
 	</div>
+
+	<img src="assets/img/ads/organic.jpg" (click)="goToOrganics()"/>
 	
 	<ion-fab horizontal="end" vertical="bottom" slot="fixed">
             <ion-fab-button color="darkblue" size="small" (click)="opencart()" #cart>

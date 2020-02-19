@@ -60,6 +60,18 @@ export class GroceriesPage implements OnInit {
     console.log(catId);
   }
 
+  goToOrganics(){
+    let catId={
+      "id":178,
+      "name":"organics"
+    }
+    let navigationExtras: NavigationExtras={
+      state:{
+        catId:catId
+      }
+    }
+    this.router.navigate(['grocery-level2'],navigationExtras);
+  }
 
   back(){
     this.navCtrl.navigateBack('cust-home');
