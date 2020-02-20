@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-header>\n  <ion-toolbar color=\"darkblue\">\n    <ion-buttons slot=\"start\">\n       <ion-menu-button color=\"light\"></ion-menu-button>\n    </ion-buttons>\n\n\t <!-- <div class=\"logo-in\"></div> -->\n\t <div>\n\t\t<img src=\"assets/img/newlogov7.png\" class=\"header-logo\"/>\n\t  </div>\n\t <ion-buttons slot=\"end\">\n\t\t<ion-button shape=\"round\" (click)=\"back()\">\n\t\t\t<ion-icon name=\"arrow-round-back\" class=\"text15\"></ion-icon>\n\t\t</ion-button>\n\t </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content class=\"ion-padding\">\n\t<ion-searchbar mode=\"ios\" placeholder=\"Search in store\" class=\"ion-no-padding\"></ion-searchbar>\n\t<!-- <div class=\"bg-header\">\n\t\t<img src=\"assets/img/bg/groceries-bg.png\">\n\t\t<h5 class=\"header-item\">HASSEL FREE SELECTION</h5>\n\t\t<ion-button size=\"small\" class=\"header-btn\" color=\"redtwo\" (click)=\"quickbuy()\">QUICK BUY</ion-button>\n\t</div> -->\n\n\t<div *ngFor=\"let cat of groceryCat\">\n\t\t\t<h1>{{cat.name}}</h1>\n\t\t\t<!-- <img src=\"{{cat.icon}}\"/> -->\n\t\t\t<div class=\"div-item\" >\n\t\t\t\t<div *ngFor=\"let item of cat.item_list\" (click)=\"getGrocerylt(item)\" class=\"div-size\">\n\t\t\t\t\t<img src=\"{{item.icon}}\" onError=\"this.src='http://apiv1.iglobesystems.com/assets/img/no_img.png'\" class=\"img-item\">\n\t\t\t\t\t<h3>{{item.name}}</h3>\n\t\t\t\t</div>\n\t\t\t</div>\n\t</div>\n\t\n\t<ion-fab horizontal=\"end\" vertical=\"bottom\" slot=\"fixed\">\n            <ion-fab-button color=\"darkblue\" size=\"small\" (click)=\"opencart()\" #cart>\n              <!-- <div class=\"cart-length\">{{ cardItemCount | async }}</div> -->\n              <ion-icon name=\"cart\"></ion-icon>\n            </ion-fab-button>\n          </ion-fab>\n</ion-content>\n\n\n"
+module.exports = "<ion-header>\r\n  <ion-toolbar color=\"darkblue\">\r\n    <ion-buttons slot=\"start\">\r\n       <ion-menu-button color=\"light\"></ion-menu-button>\r\n    </ion-buttons>\r\n\t <div>\r\n\t\t<img src=\"assets/img/newlogov7.png\" class=\"header-logo\"/>\r\n\t  </div>\r\n\t <ion-buttons slot=\"end\">\r\n\t\t<ion-button shape=\"round\" (click)=\"back()\">\r\n\t\t\t<ion-icon name=\"arrow-round-back\" class=\"text15\"></ion-icon>\r\n\t\t</ion-button>\r\n\t </ion-buttons>\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-content class=\"ion-padding\">\r\n\t<ion-searchbar mode=\"ios\" placeholder=\"Search in store\" class=\"ion-no-padding\"></ion-searchbar>\r\n\t<!-- <div class=\"bg-header\">\r\n\t\t<img src=\"assets/img/bg/groceries-bg.png\">\r\n\t\t<h5 class=\"header-item\">HASSEL FREE SELECTION</h5>\r\n\t\t<ion-button size=\"small\" class=\"header-btn\" color=\"redtwo\" (click)=\"quickbuy()\">QUICK BUY</ion-button>\r\n\t</div> -->\r\n\r\n\t<div *ngFor=\"let cat of groceryCat\">\r\n\t\t\t<h1>{{cat.name}}</h1>\r\n\t\t\t<!-- <img src=\"{{cat.icon}}\"/> -->\r\n\t\t\t<div class=\"div-item\" >\r\n\t\t\t\t<div *ngFor=\"let item of cat.item_list\" (click)=\"getGrocerylt(item)\" class=\"div-size\">\r\n\t\t\t\t\t<img src=\"{{item.icon}}\" onError=\"this.src='http://apiv1.iglobesystems.com/assets/img/no_img.png'\" class=\"img-item\">\r\n\t\t\t\t\t<h3>{{item.name}}</h3>\r\n\t\t\t\t\t<!-- <ion-icon slot=\"icon-only\" name=\"arrow-dropright\"></ion-icon> -->\r\n\t\t\t\t</div>\r\n\t\t\t</div>\r\n\t</div>\r\n\r\n\t<img src=\"assets/img/ads/organic.jpg\" (click)=\"goToOrganics()\"/>\r\n\t\r\n\t<ion-fab horizontal=\"end\" vertical=\"bottom\" slot=\"fixed\">\r\n            <ion-fab-button color=\"darkblue\" size=\"small\" (click)=\"opencart()\" #cart>\r\n              <!-- <div class=\"cart-length\">{{ cardItemCount | async }}</div> -->\r\n              <ion-icon name=\"cart\"></ion-icon>\r\n            </ion-fab-button>\r\n          </ion-fab>\r\n</ion-content>\r\n\r\n\r\n"
 
 /***/ }),
 
@@ -150,6 +150,18 @@ var GroceriesPage = /** @class */ (function () {
                 return [2 /*return*/];
             });
         });
+    };
+    GroceriesPage.prototype.goToOrganics = function () {
+        var catId = {
+            "id": 178,
+            "name": "organics"
+        };
+        var navigationExtras = {
+            state: {
+                catId: catId
+            }
+        };
+        this.router.navigate(['grocery-level2'], navigationExtras);
     };
     GroceriesPage.prototype.back = function () {
         this.navCtrl.navigateBack('cust-home');
