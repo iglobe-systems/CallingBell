@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-content class=\"animated fadeIn login auth-page ion-padding\" color=\"darkblue\">\n  <!-- <div class=\"theme-bg\"></div> -->\n  <div class=\"auth-content\">\n    <!-- Logo -->\n    <div class=\"animated fadeInDown ion-text-center \">\n      <div>\n        <img src=\"assets/img/newlogov6.png\"/>\n      </div>\n    </div>\n    <br>\n</div>\n<br>\n<ion-button (click)=\"appCons()\" class=\"ion-margin\" shape=\"round\" expand=\"full\" color=\"gold\">APP CONSULTANT</ion-button>\n<ion-button (click)=\"prodCons()\" class=\"ion-margin\" shape=\"round\" expand=\"full\" color=\"gold\">PRODUCT CONSULTANT</ion-button>\n\n <ion-buttons>\n      <ion-button size=\"small\" shape=\"round\" color=\"light\" (click)=\"back()\">\n        <ion-icon name=\"arrow-round-back\"></ion-icon>\n        BACK\n      </ion-button>\n    </ion-buttons>\n</ion-content>\n"
+module.exports = "<ion-content class=\"animated fadeIn login auth-page ion-padding\" color=\"darkblue\">\n  <div class=\"auth-content\">\n    <div class=\"animated fadeInDown ion-text-center \">\n      <div>\n        <img src=\"assets/img/newlogov6.png\"/>\n      </div>\n    </div>\n    <br>\n</div>\n<br>\n<ion-button (click)=\"appCons()\" class=\"ion-margin\" shape=\"round\" expand=\"full\" color=\"gold\">APP CONSULTANT</ion-button>\n<ion-button (click)=\"prodCons()\" class=\"ion-margin\" shape=\"round\" expand=\"full\" color=\"gold\">PRODUCT CONSULTANT</ion-button>\n\n <ion-buttons>\n      <ion-button size=\"small\" shape=\"round\" color=\"light\" (click)=\"back()\">\n        <ion-icon name=\"arrow-round-back\"></ion-icon>\n        BACK\n      </ion-button>\n    </ion-buttons>\n</ion-content>"
 
 /***/ }),
 

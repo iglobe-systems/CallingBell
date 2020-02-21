@@ -13,7 +13,7 @@ export class AlertService {
   async presentToast(message: any) {
     const toast = await this.toastController.create({
       message: message,
-      duration: 3000,
+      duration: 5000,
       position: 'bottom',
       color: 'gold',
       mode:'ios',
@@ -27,7 +27,7 @@ export class AlertService {
   async welcomeNote(message:any){
     const toast = await this.toastController.create({
       message: message,
-      duration: 2000,
+      duration: 3000,
       position: 'middle',
       mode:'md',
       cssClass:"welcomeNote",
@@ -40,7 +40,7 @@ export class AlertService {
   async cartNote(message:any){
     const toast = await this.toastController.create({
       message: message,
-      duration: 1000,
+      duration: 3000,
       position: 'bottom',
       mode:'ios',
       color:'darkblue',
@@ -52,7 +52,7 @@ export class AlertService {
   async developmentNote(message:any){
     const toast = await this.toastController.create({
       message:message,
-      duration:1000,
+      duration:3000,
       position:'middle',
       color:'gold',
       mode:'ios'

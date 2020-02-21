@@ -7,7 +7,6 @@ import { NavController, MenuController, ToastController, AlertController, Loadin
   styleUrls: ['./cons-start.page.scss'],
 })
 export class ConsStartPage implements OnInit {
-
   constructor(public navCtrl: NavController) { }
 
   ngOnInit() {

@@ -68,6 +68,12 @@ export class AppComponent {
         direct:'forward',
         icon:'ios-construct'
       },
+      {
+        title:'Adding Grocery',
+        url:'add-grocery',
+        direct:'forward',
+        icon:'cart'
+      },
       ];
     this.initializeApp();
   }

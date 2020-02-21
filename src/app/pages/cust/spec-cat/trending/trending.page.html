@@ -17,9 +17,12 @@
 <ion-content>
 	<h5 class="ion-margin title">Top trending services which you can't resist</h5>
   <div *ngFor="let service of trending" class="size">
-    <div class="flex" (click)="goToIssue(service)">
-      <img src="{{service.icon}}" onError="this.src='http://apiv1.iglobesystems.com/assets/img/no_img.png'" class="service-img"/>
-      <h5 class="service-name">{{service.name}}</h5>
+    <div class="flex">
+      <img src="{{service.icon}}" onError="this.src='http://apiv1.iglobesystems.com/assets/img/no_img.png'" (click)="goToIssue(service)" class="service-img"/>
+      <div class="support">
+          <h5 class="service-name" (click)="goToIssue(service)">{{service.name}}</h5>
+          <ion-icon name="call" class="support-btn" (click)="supportcall($event,service)"></ion-icon>
+      </div>
     </div>
   </div>
 

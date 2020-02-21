@@ -138,68 +138,6 @@ let ProdCatPage = class ProdCatPage {
             return yield popover.present();
         });
     }
-    openSupport(p) {
-        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
-            const alert = yield this.alertCtrl.create({
-                header: 'Welcome to Support',
-                message: 'Enter your Query',
-                inputs: [
-                    {
-                        name: 'info',
-                        placeholder: 'Enter your query',
-                        type: 'text'
-                    },
-                    {
-                        name: 'category',
-                        value: p.categoryName,
-                        label: 'Category',
-                        disabled: true
-                    }
-                ],
-                buttons: [
-                    {
-                        text: 'Cancel',
-                        handler: data => {
-                            console.log('Cancel clicked');
-                        }
-                    },
-                    {
-                        text: 'submit',
-                        handler: (data) => tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
-                            console.log(data);
-                            const loader = yield this.loadingCtrl.create({
-                                duration: 1000
-                            });
-                            loader.present();
-                            loader.onWillDismiss().then((l) => tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
-                                console.log(data);
-                                // this.authService.sendCode(data.info).subscribe(result => {
-                                //   if (result['response']) {
-                                //     console.log(result);
-                                //     this.alertService.presentToast(result['msg']);
-                                //   } else {
-                                //     console.log(result);
-                                //     this.alertService.presentToast(result['msg']);
-                                //   }
-                                // });
-                                this.authService.postSupport(data).subscribe(result => {
-                                    if (result['response']) {
-                                        console.log(result);
-                                        this.alertService.presentToast(result['message']);
-                                    }
-                                    else {
-                                        console.log(result);
-                                        this.alertService.presentToast(result['message']);
-                                    }
-                                });
-                            }));
-                        })
-                    }
-                ]
-            });
-            yield alert.present();
-        });
-    }
     opencart() {
         this.navCtrl.navigateForward('cart');
     }

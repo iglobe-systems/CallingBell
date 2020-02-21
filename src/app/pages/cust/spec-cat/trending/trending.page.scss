@@ -41,3 +41,15 @@
 	font-weight:600;
 	color:#0e0e27;
 }
+
+.support{
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
+}
+
+.support-btn{
+	background-color: #ffad00;
+	padding: 6px;
+	border-radius: 50%;
+}

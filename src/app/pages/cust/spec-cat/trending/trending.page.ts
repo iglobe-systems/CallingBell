@@ -13,6 +13,8 @@ import { AlertService } from 'src/app/services/alert.service';
 
 import { Router, NavigationExtras } from '@angular/router';
 import { CartPage } from '../../cart/cart.page';
+import { SupportcallComponent } from '../../../../components/supportcall/supportcall.component';
+
 @Component({
   selector: 'app-trending',
   templateUrl: './trending.page.html',
@@ -54,6 +56,19 @@ export class TrendingPage implements OnInit {
       }).then(toast => {
         toast.present();
       });
+  }
+
+  async supportcall(ev: any,service:any){
+    const popover = await this.popoverCtrl.create({
+      component: SupportcallComponent,
+      componentProps:{
+        service:service
+      },
+      event: ev,
+      animated: true,
+      showBackdrop: true
+    });
+    return await popover.present();
   }
 
   goToIssue(service){

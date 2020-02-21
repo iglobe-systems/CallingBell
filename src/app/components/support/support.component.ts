@@ -27,7 +27,8 @@ support:any;
 pro:any;
 issue:any;
 cat:any;
-  constructor(public authService: AuthService,
+  constructor(public authService: AuthService, 
+    
               private route:ActivatedRoute,
               private navParams:NavParams,  
               public alertService: AlertService, 

@@ -13,11 +13,11 @@ import { AppRoutingModule } from './app-routing.module';
 
 // Components
 import { SupportComponent } from './components/support/support.component';
+import { SupportcallComponent } from './components/supportcall/supportcall.component';
 
 import { IonicStorageModule } from '@ionic/storage';
 import { NativeStorage } from '@ionic-native/native-storage/ngx';
 import { EnvService } from './services/env.service';
-
 
 import { FormBuilder, FormGroup, Validators,FormsModule, ReactiveFormsModule } from '@angular/forms';
 
@@ -42,8 +42,8 @@ import { LottieSplashScreen } from '@ionic-native/lottie-splash-screen/ngx';
 import { CartPageModule } from './pages/cust/cart/cart.module';
 
 @NgModule({
-  declarations: [AppComponent, SupportComponent ],
-  entryComponents: [SupportComponent],
+  declarations: [AppComponent, SupportComponent, SupportcallComponent],
+  entryComponents: [SupportComponent, SupportcallComponent],
   imports: [
   BrowserModule, 
   // BrowserAnimationsModule,

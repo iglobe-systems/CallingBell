@@ -64,68 +64,6 @@ export class ProdCatPage implements OnInit {
     return await popover.present();
   }
 
-  async openSupport(p) {
-    const alert = await this.alertCtrl.create({
-      header: 'Welcome to Support',
-      message: 'Enter your Query',
-      inputs: [
-        {
-          name: 'info',
-          placeholder: 'Enter your query',
-          type: 'text'
-        },
-        {
-          name: 'category',
-          value: p.categoryName,
-          label: 'Category',
-          disabled:true
-        }
-      ],
-      buttons: [
-        {
-          text: 'Cancel',
-          handler: data => {
-            console.log('Cancel clicked');
-          }
-        },
-        {
-          text: 'submit',
-          handler: async (data) => {
-            console.log(data);
-            const loader = await this.loadingCtrl.create({
-              duration: 1000
-            });
-
-            loader.present();
-
-            loader.onWillDismiss().then(async l => {
-              console.log(data);
-              // this.authService.sendCode(data.info).subscribe(result => {
-              //   if (result['response']) {
-              //     console.log(result);
-              //     this.alertService.presentToast(result['msg']);
-              //   } else {
-              //     console.log(result);
-              //     this.alertService.presentToast(result['msg']);
-              //   }
-              // });
-              this.authService.postSupport(data).subscribe(result => {
-                if (result['response']) {
-                  console.log(result);
-                  this.alertService.presentToast(result['message']);
-                } else {
-                  console.log(result);
-                  this.alertService.presentToast(result['message']);
-                }
-              });
-            });
-          }
-        }
-      ]
-    });
-    await alert.present();
-  }
-
  opencart(){
     this.navCtrl.navigateForward('cart');
   }
