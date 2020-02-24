@@ -41,6 +41,9 @@ import { SocialSharing } from '@ionic-native/social-sharing/ngx';
 import { LottieSplashScreen } from '@ionic-native/lottie-splash-screen/ngx';
 import { CartPageModule } from './pages/cust/cart/cart.module';
 
+//image picker
+import { ImagePicker } from '@ionic-native/image-picker/ngx';
+
 @NgModule({
   declarations: [AppComponent, SupportComponent, SupportcallComponent],
   entryComponents: [SupportComponent, SupportcallComponent],
@@ -69,7 +72,8 @@ import { CartPageModule } from './pages/cust/cart/cart.module';
     FilePath,
     EnvService,
     SocialSharing,
-    LottieSplashScreen
+    LottieSplashScreen,
+    ImagePicker,
   ],
   bootstrap: [AppComponent],
 })

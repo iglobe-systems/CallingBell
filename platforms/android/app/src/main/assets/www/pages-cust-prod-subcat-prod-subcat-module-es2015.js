@@ -159,7 +159,7 @@ let ProdSubcatPage = class ProdSubcatPage {
         console.log(cat);
     }
     back() {
-        this.navCtrl.navigateBack('trending');
+        this.navCtrl.navigateBack('trending-issues');
     }
 };
 ProdSubcatPage.ctorParameters = () => [

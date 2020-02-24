@@ -86,6 +86,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_services_auth_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/services/auth.service */ "./src/app/services/auth.service.ts");
 /* harmony import */ var src_app_services_alert_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/services/alert.service */ "./src/app/services/alert.service.ts");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var _ionic_native_image_picker_ngx__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @ionic-native/image-picker/ngx */ "./node_modules/@ionic-native/image-picker/ngx/index.js");
+
 
 
 
@@ -93,7 +95,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let ConsHomePage = class ConsHomePage {
-    constructor(navCtrl, menuCtrl, popoverCtrl, alertCtrl, modalCtrl, toastCtrl, authService, loadingCtrl, alertService, router, route) {
+    constructor(navCtrl, menuCtrl, popoverCtrl, alertCtrl, modalCtrl, toastCtrl, authService, loadingCtrl, alertService, router, route, imagePicker) {
         this.navCtrl = navCtrl;
         this.menuCtrl = menuCtrl;
         this.popoverCtrl = popoverCtrl;
@@ -105,6 +107,7 @@ let ConsHomePage = class ConsHomePage {
         this.alertService = alertService;
         this.router = router;
         this.route = route;
+        this.imagePicker = imagePicker;
     }
     ngOnInit() {
         this.route.queryParams.subscribe(params => {
@@ -135,7 +138,8 @@ ConsHomePage.ctorParameters = () => [
     { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["LoadingController"] },
     { type: src_app_services_alert_service__WEBPACK_IMPORTED_MODULE_4__["AlertService"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_5__["ActivatedRoute"] }
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_5__["ActivatedRoute"] },
+    { type: _ionic_native_image_picker_ngx__WEBPACK_IMPORTED_MODULE_6__["ImagePicker"] }
 ];
 ConsHomePage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -153,7 +157,8 @@ ConsHomePage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["LoadingController"],
         src_app_services_alert_service__WEBPACK_IMPORTED_MODULE_4__["AlertService"],
         _angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"],
-        _angular_router__WEBPACK_IMPORTED_MODULE_5__["ActivatedRoute"]])
+        _angular_router__WEBPACK_IMPORTED_MODULE_5__["ActivatedRoute"],
+        _ionic_native_image_picker_ngx__WEBPACK_IMPORTED_MODULE_6__["ImagePicker"]])
 ], ConsHomePage);
 
 

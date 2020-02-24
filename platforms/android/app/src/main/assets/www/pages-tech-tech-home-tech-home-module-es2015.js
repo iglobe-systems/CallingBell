@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-header>\n  <ion-toolbar color=\"darkblue\">\n    <div class=\"header-logo-div\">\n      <img src=\"assets/img/newlogov7.png\" class=\"header-logo\"/>\n    </div>\n    <ion-buttons slot=\"end\">\n      <ion-button size=\"small\" shape=\"round\" color=\"light\" (click)=\"logout()\" class=\"fw600\">\n        <ion-icon name=\"log-out\"></ion-icon>\n   \t\tLOGOUT\n      </ion-button>\n    </ion-buttons>\n  </ion-toolbar>\n  \n</ion-header>\n\n<ion-content class=\"ion-padding\" color=\"darkblue\">\n<!-- <div class=\"text-center\"> -->\n\t<ion-button class=\"ion-margin\" shape=\"round\" expand=\"full\" color=\"gold\" (click)=\"openTickets()\">Open Tickets</ion-button>\n\t<ion-button class=\"ion-margin\" shape=\"round\" expand=\"full\" color=\"gold\" >Closed Tickets</ion-button>\n<!-- </div> -->\n\n</ion-content>\n\n"
+module.exports = "<ion-header>\n  <ion-toolbar color=\"darkblue\">\n    <div class=\"header-logo-div\">\n      <img src=\"assets/img/newlogov7.png\" class=\"header-logo\"/>\n    </div>\n    <ion-buttons slot=\"end\">\n      <ion-button size=\"small\" shape=\"round\" color=\"light\" (click)=\"logout()\" class=\"fw600\">\n        <ion-icon name=\"log-out\"></ion-icon>\n   \t\tLOGOUT\n      </ion-button>\n    </ion-buttons>\n  </ion-toolbar>\n  \n</ion-header>\n\n<ion-content class=\"ion-padding\" color=\"darkblue\">\n<!-- <div class=\"text-center\"> -->\n\t<ion-button class=\"ion-margin\" shape=\"round\" expand=\"full\" color=\"gold\" (click)=\"openTickets()\">Open Tickets</ion-button>\n\t<ion-button class=\"ion-margin\" shape=\"round\" expand=\"full\" color=\"gold\" >Closed Tickets</ion-button>\n<!-- </div> -->\n</ion-content>\n\n"
 
 /***/ }),
 

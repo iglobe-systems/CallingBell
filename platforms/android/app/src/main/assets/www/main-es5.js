@@ -206,6 +206,10 @@ var map = {
 		"./src/app/pages/cust/view-asset/view-asset.module.ts",
 		"pages-cust-view-asset-view-asset-module"
 	],
+	"./pages/dev/add-grocery/add-grocery.module": [
+		"./src/app/pages/dev/add-grocery/add-grocery.module.ts",
+		"pages-dev-add-grocery-add-grocery-module"
+	],
 	"./pages/news/news.module": [
 		"./src/app/pages/news/news.module.ts",
 		"pages-news-news-module"
@@ -712,6 +716,17 @@ module.exports = "\n  <ion-list>\n    <ion-item button (click)=\"opencart()\">It
 
 /***/ }),
 
+/***/ "./node_modules/raw-loader/index.js!./src/app/components/supportcall/supportcall.component.html":
+/*!*********************************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/components/supportcall/supportcall.component.html ***!
+  \*********************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<ion-list class=\"ion-no-padding ion-no-margin\" mode=\"md\">\n    <ion-list-header color=\"darkblue\">\n      <ion-label class=\"fw700\">WELCOME TO SUPPORT</ion-label>\n    </ion-list-header>\n\n    <form [formGroup]=\"onSupportForm\">\n      <!-- <ion-item no-padding class=\"margin\">\n          <ion-label position=\"floating\">How can we support you ?</ion-label>\n          <ion-select formControlName=\"issue\">\n            <ion-select-option value=\"{{p.services}}\" *ngFor=\"let p of support\">{{p.services}}</ion-select-option>\n          </ion-select>\n      </ion-item> -->\n      <ion-label class=\"label\">&nbsp;&nbsp;&nbsp;Specify the time to call</ion-label>\n      <ion-item *ngIf=\"!onSupportForm.get('callMeTodayAt').value && !onSupportForm.get('callMeOn').value && !onSupportForm.get('callMeAt').value \">\n          <ion-label>Call me now</ion-label>\n          <ion-checkbox formControlName=\"callMeNow\" value=\"call now\" ></ion-checkbox>\n      </ion-item>\n      <ion-item *ngIf=\"!onSupportForm.get('callMeNow').value && !onSupportForm.get('callMeOn').value && !onSupportForm.get('callMeAt').value \">\n          <ion-label>Call me today at</ion-label>\n          <ion-datetime display-format=\"h:mm A\" picker-format=\"h:mm A\" formControlName=\"callMeTodayAt\" placeholder=\"Select Time\"></ion-datetime>\n      </ion-item>\n      <ion-item *ngIf=\"!onSupportForm.get('callMeNow').value && !onSupportForm.get('callMeTodayAt').value\">\n          <ion-label>Call me on</ion-label>\n          <ion-datetime placeholder=\"Select Date\" formControlName=\"callMeOn\"></ion-datetime>\n      </ion-item>\n      <ion-item *ngIf=\"!onSupportForm.get('callMeNow').value && !onSupportForm.get('callMeTodayAt').value\">\n          <ion-label>Call me at</ion-label>\n          <ion-datetime display-format=\"h:mm A\" picker-format=\"h:mm A\" formControlName=\"callMeAt\" placeholder=\"Select Time\"></ion-datetime>\n      </ion-item>\n    </form>  \n    <div class=\"text-center\">\n    <ion-button shape=\"round\" color=\"gold\" (click)=\"sendSupport()\" class=\"ion-margin\">Submit</ion-button>\n    </div>\n\n  </ion-list>"
+
+/***/ }),
+
 /***/ "./node_modules/raw-loader/index.js!./src/app/pages/cust/cart/cart.page.html":
 /*!**************************************************************************!*\
   !*** ./node_modules/raw-loader!./src/app/pages/cust/cart/cart.page.html ***!
@@ -813,6 +828,7 @@ var routes = [
     { path: 'trending-issues', loadChildren: './pages/cust/spec-cat/trending-issues/trending-issues.module#TrendingIssuesPageModule' },
     { path: 'issue-list', loadChildren: './pages/cust/spec-cat/issue-list/issue-list.module#IssueListPageModule' },
     { path: 'quick-book', loadChildren: './pages/cust/spec-cat/quick-book/quick-book.module#QuickBookPageModule' },
+    { path: 'add-grocery', loadChildren: './pages/dev/add-grocery/add-grocery.module#AddGroceryPageModule' },
 ];
 var AppRoutingModule = /** @class */ (function () {
     function AppRoutingModule() {
@@ -918,21 +934,29 @@ var AppComponent = /** @class */ (function () {
                 direct: 'forward',
                 icon: 'ios-construct'
             },
+            {
+                title: 'Adding Grocery',
+                url: 'add-grocery',
+                direct: 'forward',
+                icon: 'cart'
+            },
         ];
         this.initializeApp();
     }
     AppComponent.prototype.initializeApp = function () {
         var _this = this;
         this.platform.ready().then(function () {
-            console.log(_this.storage.getItem('token'));
-            _this.storage.getItem('token').then(function (data) {
-                _this.navCtrl.navigateRoot('cust-home');
-                _this.splashScreen.hide();
-            }, function (err) {
-                _this.navCtrl.navigateRoot('cust-login');
-                _this.splashScreen.hide();
-            });
-            _this.statusBar.styleDefault();
+            // console.log(this.storage.getItem('token'));
+            //uncomment during build
+            // this.userInfo = this.storage.getItem('user');
+            // this.storage.getItem('user').then(data => {
+            //   this.navCtrl.navigateRoot('cust-home');
+            //   this.splashScreen.hide();
+            // }, err =>{
+            //   this.navCtrl.navigateRoot('cust-login');
+            //   this.splashScreen.hide();
+            // })
+            // this.statusBar.styleDefault();
             _this.splashScreen.hide();
             Object(rxjs_observable_timer__WEBPACK_IMPORTED_MODULE_6__["timer"])(3000).subscribe(function () { return _this.showSplash = false; });
         }).catch(function () { });
@@ -1005,21 +1029,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
 /* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./app-routing.module */ "./src/app/app-routing.module.ts");
 /* harmony import */ var _components_support_support_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/support/support.component */ "./src/app/components/support/support.component.ts");
-/* harmony import */ var _ionic_storage__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @ionic/storage */ "./node_modules/@ionic/storage/fesm5/ionic-storage.js");
-/* harmony import */ var _ionic_native_native_storage_ngx__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @ionic-native/native-storage/ngx */ "./node_modules/@ionic-native/native-storage/ngx/index.js");
-/* harmony import */ var _services_env_service__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./services/env.service */ "./src/app/services/env.service.ts");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
-/* harmony import */ var _ionic_native_camera_ngx__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @ionic-native/camera/ngx */ "./node_modules/@ionic-native/camera/ngx/index.js");
-/* harmony import */ var _ionic_native_file_ngx__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! @ionic-native/file/ngx */ "./node_modules/@ionic-native/file/ngx/index.js");
-/* harmony import */ var _ionic_native_ionic_webview_ngx__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! @ionic-native/ionic-webview/ngx */ "./node_modules/@ionic-native/ionic-webview/ngx/index.js");
-/* harmony import */ var _ionic_native_file_path_ngx__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! @ionic-native/file-path/ngx */ "./node_modules/@ionic-native/file-path/ngx/index.js");
-/* harmony import */ var _ionic_native_file_transfer_ngx__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! @ionic-native/file-transfer/ngx */ "./node_modules/@ionic-native/file-transfer/ngx/index.js");
-/* harmony import */ var _ionic_native_geolocation_ngx__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! @ionic-native/geolocation/ngx */ "./node_modules/@ionic-native/geolocation/ngx/index.js");
-/* harmony import */ var _pages_cust_image_modal_image_modal_module__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./pages/cust/image-modal/image-modal.module */ "./src/app/pages/cust/image-modal/image-modal.module.ts");
-/* harmony import */ var ngx_papaparse__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ngx-papaparse */ "./node_modules/ngx-papaparse/fesm5/ngx-papaparse.js");
-/* harmony import */ var _ionic_native_social_sharing_ngx__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! @ionic-native/social-sharing/ngx */ "./node_modules/@ionic-native/social-sharing/ngx/index.js");
-/* harmony import */ var _ionic_native_lottie_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! @ionic-native/lottie-splash-screen/ngx */ "./node_modules/@ionic-native/lottie-splash-screen/ngx/index.js");
-/* harmony import */ var _pages_cust_cart_cart_module__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./pages/cust/cart/cart.module */ "./src/app/pages/cust/cart/cart.module.ts");
+/* harmony import */ var _components_supportcall_supportcall_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/supportcall/supportcall.component */ "./src/app/components/supportcall/supportcall.component.ts");
+/* harmony import */ var _ionic_storage__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @ionic/storage */ "./node_modules/@ionic/storage/fesm5/ionic-storage.js");
+/* harmony import */ var _ionic_native_native_storage_ngx__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @ionic-native/native-storage/ngx */ "./node_modules/@ionic-native/native-storage/ngx/index.js");
+/* harmony import */ var _services_env_service__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./services/env.service */ "./src/app/services/env.service.ts");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var _ionic_native_camera_ngx__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! @ionic-native/camera/ngx */ "./node_modules/@ionic-native/camera/ngx/index.js");
+/* harmony import */ var _ionic_native_file_ngx__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! @ionic-native/file/ngx */ "./node_modules/@ionic-native/file/ngx/index.js");
+/* harmony import */ var _ionic_native_ionic_webview_ngx__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! @ionic-native/ionic-webview/ngx */ "./node_modules/@ionic-native/ionic-webview/ngx/index.js");
+/* harmony import */ var _ionic_native_file_path_ngx__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! @ionic-native/file-path/ngx */ "./node_modules/@ionic-native/file-path/ngx/index.js");
+/* harmony import */ var _ionic_native_file_transfer_ngx__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! @ionic-native/file-transfer/ngx */ "./node_modules/@ionic-native/file-transfer/ngx/index.js");
+/* harmony import */ var _ionic_native_geolocation_ngx__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! @ionic-native/geolocation/ngx */ "./node_modules/@ionic-native/geolocation/ngx/index.js");
+/* harmony import */ var _pages_cust_image_modal_image_modal_module__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./pages/cust/image-modal/image-modal.module */ "./src/app/pages/cust/image-modal/image-modal.module.ts");
+/* harmony import */ var ngx_papaparse__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ngx-papaparse */ "./node_modules/ngx-papaparse/fesm5/ngx-papaparse.js");
+/* harmony import */ var _ionic_native_social_sharing_ngx__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! @ionic-native/social-sharing/ngx */ "./node_modules/@ionic-native/social-sharing/ngx/index.js");
+/* harmony import */ var _ionic_native_lottie_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! @ionic-native/lottie-splash-screen/ngx */ "./node_modules/@ionic-native/lottie-splash-screen/ngx/index.js");
+/* harmony import */ var _pages_cust_cart_cart_module__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./pages/cust/cart/cart.module */ "./src/app/pages/cust/cart/cart.module.ts");
+/* harmony import */ var _ionic_native_image_picker_ngx__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! @ionic-native/image-picker/ngx */ "./node_modules/@ionic-native/image-picker/ngx/index.js");
 
 
 
@@ -1032,6 +1058,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 // Components
+
 
 
 
@@ -1050,39 +1077,42 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+//image picker
+
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
     AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-            declarations: [_app_component__WEBPACK_IMPORTED_MODULE_8__["AppComponent"], _components_support_support_component__WEBPACK_IMPORTED_MODULE_10__["SupportComponent"]],
-            entryComponents: [_components_support_support_component__WEBPACK_IMPORTED_MODULE_10__["SupportComponent"]],
+            declarations: [_app_component__WEBPACK_IMPORTED_MODULE_8__["AppComponent"], _components_support_support_component__WEBPACK_IMPORTED_MODULE_10__["SupportComponent"], _components_supportcall_supportcall_component__WEBPACK_IMPORTED_MODULE_11__["SupportcallComponent"]],
+            entryComponents: [_components_support_support_component__WEBPACK_IMPORTED_MODULE_10__["SupportComponent"], _components_supportcall_supportcall_component__WEBPACK_IMPORTED_MODULE_11__["SupportcallComponent"]],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__["BrowserModule"],
                 // BrowserAnimationsModule,
                 _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["IonicModule"].forRoot(),
                 _app_routing_module__WEBPACK_IMPORTED_MODULE_9__["AppRoutingModule"],
                 _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpClientModule"],
-                _ionic_storage__WEBPACK_IMPORTED_MODULE_11__["IonicStorageModule"].forRoot(),
-                _angular_forms__WEBPACK_IMPORTED_MODULE_14__["ReactiveFormsModule"],
-                _pages_cust_image_modal_image_modal_module__WEBPACK_IMPORTED_MODULE_21__["ImageModalPageModule"],
-                ngx_papaparse__WEBPACK_IMPORTED_MODULE_22__["PapaParseModule"],
-                _pages_cust_cart_cart_module__WEBPACK_IMPORTED_MODULE_25__["CartPageModule"],
+                _ionic_storage__WEBPACK_IMPORTED_MODULE_12__["IonicStorageModule"].forRoot(),
+                _angular_forms__WEBPACK_IMPORTED_MODULE_15__["ReactiveFormsModule"],
+                _pages_cust_image_modal_image_modal_module__WEBPACK_IMPORTED_MODULE_22__["ImageModalPageModule"],
+                ngx_papaparse__WEBPACK_IMPORTED_MODULE_23__["PapaParseModule"],
+                _pages_cust_cart_cart_module__WEBPACK_IMPORTED_MODULE_26__["CartPageModule"],
             ],
             providers: [
                 _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_7__["StatusBar"],
                 _ionic_native_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_6__["SplashScreen"],
                 { provide: _angular_router__WEBPACK_IMPORTED_MODULE_3__["RouteReuseStrategy"], useClass: _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["IonicRouteStrategy"] },
-                _ionic_native_native_storage_ngx__WEBPACK_IMPORTED_MODULE_12__["NativeStorage"],
-                _ionic_native_camera_ngx__WEBPACK_IMPORTED_MODULE_15__["Camera"],
-                _ionic_native_file_ngx__WEBPACK_IMPORTED_MODULE_16__["File"],
-                _ionic_native_file_transfer_ngx__WEBPACK_IMPORTED_MODULE_19__["FileTransfer"],
-                _ionic_native_ionic_webview_ngx__WEBPACK_IMPORTED_MODULE_17__["WebView"],
-                _ionic_native_geolocation_ngx__WEBPACK_IMPORTED_MODULE_20__["Geolocation"],
-                _ionic_native_file_path_ngx__WEBPACK_IMPORTED_MODULE_18__["FilePath"],
-                _services_env_service__WEBPACK_IMPORTED_MODULE_13__["EnvService"],
-                _ionic_native_social_sharing_ngx__WEBPACK_IMPORTED_MODULE_23__["SocialSharing"],
-                _ionic_native_lottie_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_24__["LottieSplashScreen"]
+                _ionic_native_native_storage_ngx__WEBPACK_IMPORTED_MODULE_13__["NativeStorage"],
+                _ionic_native_camera_ngx__WEBPACK_IMPORTED_MODULE_16__["Camera"],
+                _ionic_native_file_ngx__WEBPACK_IMPORTED_MODULE_17__["File"],
+                _ionic_native_file_transfer_ngx__WEBPACK_IMPORTED_MODULE_20__["FileTransfer"],
+                _ionic_native_ionic_webview_ngx__WEBPACK_IMPORTED_MODULE_18__["WebView"],
+                _ionic_native_geolocation_ngx__WEBPACK_IMPORTED_MODULE_21__["Geolocation"],
+                _ionic_native_file_path_ngx__WEBPACK_IMPORTED_MODULE_19__["FilePath"],
+                _services_env_service__WEBPACK_IMPORTED_MODULE_14__["EnvService"],
+                _ionic_native_social_sharing_ngx__WEBPACK_IMPORTED_MODULE_24__["SocialSharing"],
+                _ionic_native_lottie_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_25__["LottieSplashScreen"],
+                _ionic_native_image_picker_ngx__WEBPACK_IMPORTED_MODULE_27__["ImagePicker"],
             ],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_8__["AppComponent"]],
         })
@@ -1272,6 +1302,106 @@ var SupportComponent = /** @class */ (function () {
             _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["PopoverController"]])
     ], SupportComponent);
     return SupportComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/components/supportcall/supportcall.component.scss":
+/*!*******************************************************************!*\
+  !*** ./src/app/components/supportcall/supportcall.component.scss ***!
+  \*******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvc3VwcG9ydGNhbGwvc3VwcG9ydGNhbGwuY29tcG9uZW50LnNjc3MifQ== */"
+
+/***/ }),
+
+/***/ "./src/app/components/supportcall/supportcall.component.ts":
+/*!*****************************************************************!*\
+  !*** ./src/app/components/supportcall/supportcall.component.ts ***!
+  \*****************************************************************/
+/*! exports provided: SupportcallComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SupportcallComponent", function() { return SupportcallComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
+/* harmony import */ var src_app_services_alert_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/services/alert.service */ "./src/app/services/alert.service.ts");
+
+
+
+
+
+var SupportcallComponent = /** @class */ (function () {
+    function SupportcallComponent(formBuilder, loadingCtrl, popoverctrl, alertService) {
+        this.formBuilder = formBuilder;
+        this.loadingCtrl = loadingCtrl;
+        this.popoverctrl = popoverctrl;
+        this.alertService = alertService;
+    }
+    SupportcallComponent.prototype.ngOnInit = function () {
+        this.onSupportForm = this.formBuilder.group({
+            'callMeNow': [null],
+            'callMeTodayAt': [null],
+            'callMeOn': [null],
+            'callMeAt': [null]
+        });
+    };
+    SupportcallComponent.prototype.sendSupport = function () {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
+            var loader;
+            var _this = this;
+            return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.loadingCtrl.create({
+                            duration: 1000
+                        })];
+                    case 1:
+                        loader = _a.sent();
+                        loader.present();
+                        loader.onWillDismiss().then(function (l) { return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](_this, void 0, void 0, function () {
+                            return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
+                                console.log(this.onSupportForm.value);
+                                return [2 /*return*/];
+                            });
+                        }); });
+                        return [4 /*yield*/, loader.present()];
+                    case 2:
+                        _a.sent();
+                        return [4 /*yield*/, this.popoverctrl.dismiss()];
+                    case 3:
+                        _a.sent();
+                        this.alertService.presentToast("We have received your request! Our Customer Relationship Executive will reach you!");
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    SupportcallComponent.ctorParameters = function () { return [
+        { type: _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormBuilder"] },
+        { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["LoadingController"] },
+        { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["PopoverController"] },
+        { type: src_app_services_alert_service__WEBPACK_IMPORTED_MODULE_4__["AlertService"] }
+    ]; };
+    SupportcallComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-supportcall',
+            template: __webpack_require__(/*! raw-loader!./supportcall.component.html */ "./node_modules/raw-loader/index.js!./src/app/components/supportcall/supportcall.component.html"),
+            styles: [__webpack_require__(/*! ./supportcall.component.scss */ "./src/app/components/supportcall/supportcall.component.scss")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormBuilder"],
+            _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["LoadingController"],
+            _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["PopoverController"],
+            src_app_services_alert_service__WEBPACK_IMPORTED_MODULE_4__["AlertService"]])
+    ], SupportcallComponent);
+    return SupportcallComponent;
 }());
 
 
@@ -1599,7 +1729,7 @@ var AlertService = /** @class */ (function () {
                 switch (_a.label) {
                     case 0: return [4 /*yield*/, this.toastController.create({
                             message: message,
-                            duration: 3000,
+                            duration: 5000,
                             position: 'bottom',
                             color: 'gold',
                             mode: 'ios',
@@ -1622,7 +1752,7 @@ var AlertService = /** @class */ (function () {
                 switch (_a.label) {
                     case 0: return [4 /*yield*/, this.toastController.create({
                             message: message,
-                            duration: 2000,
+                            duration: 3000,
                             position: 'middle',
                             mode: 'md',
                             cssClass: "welcomeNote",
@@ -1644,7 +1774,7 @@ var AlertService = /** @class */ (function () {
                 switch (_a.label) {
                     case 0: return [4 /*yield*/, this.toastController.create({
                             message: message,
-                            duration: 1000,
+                            duration: 3000,
                             position: 'bottom',
                             mode: 'ios',
                             color: 'darkblue',
@@ -1665,7 +1795,7 @@ var AlertService = /** @class */ (function () {
                 switch (_a.label) {
                     case 0: return [4 /*yield*/, this.toastController.create({
                             message: message,
-                            duration: 1000,
+                            duration: 3000,
                             position: 'middle',
                             color: 'gold',
                             mode: 'ios'
@@ -1783,7 +1913,8 @@ var AuthService = /** @class */ (function () {
     AuthService.prototype.getProdslt = function (catId) {
         var body = {
             "cat_id": catId,
-            "include_item": true
+            "include_item": true,
+            "hide_empty_cat": true
         };
         console.log(catId);
         return this.http.post(this.env.NEW_API_URL + '/api_v1/products/GetProductCat', body)
@@ -1839,16 +1970,16 @@ var AuthService = /** @class */ (function () {
         return this.http.post(this.env.NEW_API_URL + '/api_v1/services/GetServicesCat', body)
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_7__["map"])(function (res) { return res; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_7__["catchError"])(this.handleError));
     };
-    AuthService.prototype.login = function (body) {
-        return this.http.post(this.env.API_URL + '/iglobe/CBA/api_v1/login/index.php', body)
-            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_7__["map"])(function (res) { return res; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_7__["catchError"])(this.handleError));
-    };
     AuthService.prototype.storeUserData = function (token, user) {
         this.storage.setItem('token', token);
         this.storage.setItem('user', user);
         this.user = user;
         this.token = token;
         this.isLoggedIn = true;
+    };
+    AuthService.prototype.login = function (body) {
+        return this.http.post(this.env.API_URL + '/iglobe/CBA/api_v1/login/index.php', body)
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_7__["map"])(function (res) { return res; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_7__["catchError"])(this.handleError));
     };
     AuthService.prototype.storeTechData = function (session, id, userid) {
         this.storage.setItem('session', session);

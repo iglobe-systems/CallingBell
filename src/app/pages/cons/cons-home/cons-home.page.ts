@@ -11,6 +11,7 @@ import {
 import { AuthService } from 'src/app/services/auth.service';
 import { AlertService } from 'src/app/services/alert.service';
 import {Router,ActivatedRoute } from '@angular/router';
+import { ImagePicker } from '@ionic-native/image-picker/ngx';
 
 @Component({
   selector: 'app-cons-home',
@@ -18,7 +19,7 @@ import {Router,ActivatedRoute } from '@angular/router';
   styleUrls: ['./cons-home.page.scss'],
 })
 export class ConsHomePage implements OnInit {
-	count:any;
+  count:any;
   constructor( public navCtrl: NavController,
     public menuCtrl: MenuController,
     public popoverCtrl: PopoverController,
@@ -29,15 +30,15 @@ export class ConsHomePage implements OnInit {
     public loadingCtrl: LoadingController,
     private alertService: AlertService,
     private router: Router,
-    private route:ActivatedRoute) { }
+    private route:ActivatedRoute,
+    public imagePicker:ImagePicker) { }
 
  
   ngOnInit() {
-
      this.route.queryParams.subscribe(params => {
         if (this.router.getCurrentNavigation().extras.state) {
           this.count = this.router.getCurrentNavigation().extras.state.count
-           }
+      }
     });
   }
 

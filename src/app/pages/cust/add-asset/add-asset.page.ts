@@ -43,6 +43,7 @@ export class AddAssetPage implements OnInit {
      this.onAddAssetForm = this.formBuilder.group({
       'productCategory': [null, Validators.required],
       'productName': [null, Validators.required],
+      'productSerialNo':[null, Validators.required],
       'productBrand': [null, Validators.required],
       'dateOfPurchase': [null, Validators.required],
       'monthsWarranty': [null, Validators.required],

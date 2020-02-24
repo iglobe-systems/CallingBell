@@ -1045,6 +1045,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ionic_native_social_sharing_ngx__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! @ionic-native/social-sharing/ngx */ "./node_modules/@ionic-native/social-sharing/ngx/index.js");
 /* harmony import */ var _ionic_native_lottie_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! @ionic-native/lottie-splash-screen/ngx */ "./node_modules/@ionic-native/lottie-splash-screen/ngx/index.js");
 /* harmony import */ var _pages_cust_cart_cart_module__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./pages/cust/cart/cart.module */ "./src/app/pages/cust/cart/cart.module.ts");
+/* harmony import */ var _ionic_native_image_picker_ngx__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! @ionic-native/image-picker/ngx */ "./node_modules/@ionic-native/image-picker/ngx/index.js");
 
 
 
@@ -1075,6 +1076,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+//image picker
 
 var AppModule = /** @class */ (function () {
     function AppModule() {
@@ -1108,7 +1111,8 @@ var AppModule = /** @class */ (function () {
                 _ionic_native_file_path_ngx__WEBPACK_IMPORTED_MODULE_19__["FilePath"],
                 _services_env_service__WEBPACK_IMPORTED_MODULE_14__["EnvService"],
                 _ionic_native_social_sharing_ngx__WEBPACK_IMPORTED_MODULE_24__["SocialSharing"],
-                _ionic_native_lottie_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_25__["LottieSplashScreen"]
+                _ionic_native_lottie_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_25__["LottieSplashScreen"],
+                _ionic_native_image_picker_ngx__WEBPACK_IMPORTED_MODULE_27__["ImagePicker"],
             ],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_8__["AppComponent"]],
         })

@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-header>\n  <ion-toolbar color=\"darkblue\">\n    <div class=\"header-logo-div\">\n      <img src=\"assets/img/newlogov7.png\" class=\"header-logo\"/>\n    </div>\n    <ion-buttons slot=\"end\">\n      <ion-button size=\"small\" shape=\"round\" color=\"light\" (click)=\"logout()\" class=\"fw600\">\n        <ion-icon name=\"log-out\"></ion-icon>\n      LOGOUT\n      </ion-button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content class=\"ion-padding\" color=\"darkblue\">\n  <h1 class=\"fw800 text-center\">75</h1>\n  <h2 class=\"text15 fw500 text-center\">CUSTOMERS COUNT</h2>\n  <ion-button class=\"ion-margin\" shape=\"round\" expand=\"full\" color=\"gold\">PROFILE</ion-button>\n\t<ion-button class=\"ion-margin\" shape=\"round\" expand=\"full\" color=\"gold\">LEADS</ion-button>\n   <h1 class=\"fw800 text-center\">1500</h1>\n  <h2 class=\"text15 fw500 text-center\">PREVIOUS MONTH INCENTIVE</h2>\n  <ion-card class=\"ion-padding\">* To claim this incentives join 5 new customers this month </ion-card>\n\n  <h1 class=\"fw800 text-center\">2000</h1>\n  <h2 class=\"text15 fw500 text-center\">TOTAL INCENTIVES CLAIMED</h2>\n</ion-content>\n "
+module.exports = "<ion-header>\n  <ion-toolbar color=\"darkblue\">\n    <div class=\"header-logo-div\">\n      <img src=\"assets/img/newlogov7.png\" class=\"header-logo\"/>\n    </div>\n    <ion-buttons slot=\"end\">\n      <ion-button size=\"small\" shape=\"round\" color=\"light\" (click)=\"logout()\" class=\"fw600\">\n        <ion-icon name=\"log-out\"></ion-icon>\n      LOGOUT\n      </ion-button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content class=\"ion-padding\" color=\"darkblue\">\n  <h1 class=\"fw800 text-center\">75</h1>\n  <h2 class=\"text15 fw500 text-center\">CUSTOMERS COUNT</h2>\n  <ion-button class=\"ion-margin\" shape=\"round\" expand=\"full\" color=\"gold\">PROFILE</ion-button>\n\t<ion-button class=\"ion-margin\" shape=\"round\" expand=\"full\" color=\"gold\">LEADS</ion-button>\n   <h1 class=\"fw800 text-center\">1500</h1>\n  <h2 class=\"text15 fw500 text-center\">PREVIOUS MONTH INCENTIVE</h2>\n  <ion-card class=\"ion-padding\">* To claim this incentives join 5 new customers this month </ion-card>\n\n  <h1 class=\"fw800 text-center\">2000</h1>\n  <h2 class=\"text15 fw500 text-center\">TOTAL INCENTIVES CLAIMED</h2>\n\n  <ion-grid *ngIf=\"images.length != 0\">\n      <ion-col *ngFor=\"let image of images\">\n          <img src=\"{{image}}\" style=\"height: 150px;width:150px\" />\n      </ion-col>\n  </ion-grid>\n  \n  <ion-fab vertical=\"bottom\" horizontal=\"end\" slot=\"fixed\">\n      <ion-fab-button (click)=\"getPictures()\">\n          <ion-icon name=\"add\"></ion-icon>\n      </ion-fab-button>\n  </ion-fab>\n</ion-content>\n "
 
 /***/ }),
 
@@ -89,6 +89,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_services_auth_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/services/auth.service */ "./src/app/services/auth.service.ts");
 /* harmony import */ var src_app_services_alert_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/services/alert.service */ "./src/app/services/alert.service.ts");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _ionic_native_image_picker_ngx__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @ionic-native/image-picker/ngx */ "./node_modules/@ionic-native/image-picker/ngx/index.js");
+
 
 
 
@@ -96,7 +98,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var ConsHomePage = /** @class */ (function () {
-    function ConsHomePage(navCtrl, menuCtrl, popoverCtrl, alertCtrl, modalCtrl, toastCtrl, authService, loadingCtrl, alertService, router, route) {
+    function ConsHomePage(navCtrl, menuCtrl, popoverCtrl, alertCtrl, modalCtrl, toastCtrl, authService, loadingCtrl, alertService, router, route, imagePicker) {
         this.navCtrl = navCtrl;
         this.menuCtrl = menuCtrl;
         this.popoverCtrl = popoverCtrl;
@@ -108,6 +110,7 @@ var ConsHomePage = /** @class */ (function () {
         this.alertService = alertService;
         this.router = router;
         this.route = route;
+        this.imagePicker = imagePicker;
     }
     ConsHomePage.prototype.ngOnInit = function () {
         var _this = this;
@@ -127,6 +130,15 @@ var ConsHomePage = /** @class */ (function () {
         this.authService.logout();
         this.navCtrl.navigateRoot('/');
     };
+    ConsHomePage.prototype.getPictures = function () {
+        var _this = this;
+        this.imagePicker.getPictures({
+            maximumImagesCount: 5,
+            outputType: 1
+        }).then(function (selectedImg) {
+            selectedImg.forEach(function (i) { return _this.images.push("data:image/jpeg;base64," + i); });
+        });
+    };
     ConsHomePage.ctorParameters = function () { return [
         { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["NavController"] },
         { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["MenuController"] },
@@ -138,7 +150,8 @@ var ConsHomePage = /** @class */ (function () {
         { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["LoadingController"] },
         { type: src_app_services_alert_service__WEBPACK_IMPORTED_MODULE_4__["AlertService"] },
         { type: _angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"] },
-        { type: _angular_router__WEBPACK_IMPORTED_MODULE_5__["ActivatedRoute"] }
+        { type: _angular_router__WEBPACK_IMPORTED_MODULE_5__["ActivatedRoute"] },
+        { type: _ionic_native_image_picker_ngx__WEBPACK_IMPORTED_MODULE_6__["ImagePicker"] }
     ]; };
     ConsHomePage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -156,7 +169,8 @@ var ConsHomePage = /** @class */ (function () {
             _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["LoadingController"],
             src_app_services_alert_service__WEBPACK_IMPORTED_MODULE_4__["AlertService"],
             _angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"],
-            _angular_router__WEBPACK_IMPORTED_MODULE_5__["ActivatedRoute"]])
+            _angular_router__WEBPACK_IMPORTED_MODULE_5__["ActivatedRoute"],
+            _ionic_native_image_picker_ngx__WEBPACK_IMPORTED_MODULE_6__["ImagePicker"]])
     ], ConsHomePage);
     return ConsHomePage;
 }());

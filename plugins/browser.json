@@ -39,6 +39,9 @@
     },
     "cordova-plugin-nativestorage": {
       "PACKAGE_NAME": "io.cordova.callingBell"
+    },
+    "cordova-plugin-telerik-imagepicker": {
+      "PACKAGE_NAME": "io.cordova.callingBell"
     }
   },
   "dependent_plugins": {
