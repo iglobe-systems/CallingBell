@@ -145,11 +145,9 @@ export class AuthService {
     const headers = new HttpHeaders({
       'IG-API-KEY': this.userInfo['__zone_symbol__value'].token
     });
-
     const body:Object={
       "id":i.product_detail.id
     }
-
     return this.http.post(this.env.NEW_API_URL + '/api_v1/products/RemoveFromCart', body, { headers: headers })
     .pipe(map(res => res),
     catchError(this.handleError));
@@ -174,9 +172,16 @@ export class AuthService {
     this.isLoggedIn = true;
   }
 
+  imageUpload(formData){
+    const headers = new HttpHeaders({
+      'IG-API-KEY': this.userInfo['__zone_symbol__value'].token
+    });
+    return this.http.post(this.env.NEW_API_URL + '/api_v1/assets/add',formData,{headers:headers})
+    .pipe(map(res => res),
+    catchError(this.handleError));
+  }
 
-
-
+  
 
 
 
@@ -192,8 +197,6 @@ export class AuthService {
       .pipe(map(res => res),
       catchError(this.handleError));
   }
-
- 
 
   storeTechData(session,id,userid){
     this.storage.setItem('session',session);

@@ -695,7 +695,7 @@ module.exports = webpackAsyncContext;
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div *ngIf=\"showSplash\">\n  <div>\n      <img src=\"assets/img/Splash/BELL_B.png\" class=\"bell bell_BF\">\n      <img src=\"assets/img/Splash/BELL_T.png\" class=\"bell bell_T\">\n      <img src=\"assets/img/Splash/BELL_F.png\" class=\"bell bell_BF\">\n    </div>\n</div>\n\n<ion-app >\n  <ion-split-pane>\n    <ion-menu>\n      <ion-header>\n        <ion-toolbar color=\"darkblue\" class=\"user-profile\">\n          <ion-buttons slot=\"start\">\n            <div class=\"logo-in size\"></div>\n          </ion-buttons>\n        <br>\n          <ion-item class=\"ion-margin-bottom\" no-lines>\n            <ion-label  class=\"ion-text-right\">\n              <ion-menu-toggle menu=\"first\" class=\"mto\" auto-hide=\"false\">\n                <a class=\"text08\" tappable (click)=\"goToEditProfile()\">\n                  <ion-text color=\"light\">\n                    <ion-icon name=\"ios-contact\" class=\"text15\"></ion-icon>\n                    &nbsp;<strong>PROFILE</strong>\n                  </ion-text>\n                </a> \n                <br>\n                <!-- <ion-text color=\"secondary\"> | </ion-text>  -->\n                <a class=\"text08\" tappable (click)=\"logout()\">\n                  <ion-text color=\"light\">\n                    <ion-icon name=\"ios-log-out\" class=\"text15\"></ion-icon>\n                    &nbsp;<strong>LOGOUT</strong>\n                  </ion-text>\n                </a>\n              </ion-menu-toggle>\n            </ion-label>\n          </ion-item>\n\n        </ion-toolbar>\n      </ion-header>\n\n      <ion-content class=\"bg-profile\" color=\"darkblue\">\n        <ion-list>\n          <ion-list-header color=\"gold\">\n            <ion-label color=\"darkblue fw600\">MENU</ion-label>\n          </ion-list-header>\n\n          <ion-menu-toggle auto-hide=\"false\" *ngFor=\"let p of appPages\">\n            <ion-item [routerLink]=\"[p.url]\" color=\"light\">\n              <ion-icon slot=\"start\" [name]=\"p.icon\" color=\"gold\"></ion-icon>\n              <ion-label color=\"darkblue\">\n                {{p.title}}\n              </ion-label>\n            </ion-item>\n          </ion-menu-toggle>\n        </ion-list>\n      </ion-content>\n    </ion-menu>\n    <ion-router-outlet main></ion-router-outlet>\n  </ion-split-pane>\n</ion-app>\n\n"
+module.exports = "<!-- <div *ngIf=\"showSplash\">\n  <div>\n      <img src=\"assets/img/Splash/BELL_B.png\" class=\"bell bell_BF\">\n      <img src=\"assets/img/Splash/BELL_T.png\" class=\"bell bell_T\">\n      <img src=\"assets/img/Splash/BELL_F.png\" class=\"bell bell_BF\">\n    </div>\n</div> -->\n\n<ion-app >\n  <ion-split-pane>\n    <ion-menu>\n      <ion-header>\n        <ion-toolbar color=\"darkblue\" class=\"user-profile\">\n          <ion-buttons slot=\"start\">\n            <div class=\"logo-in size\"></div>\n          </ion-buttons>\n        <br>\n          <ion-item class=\"ion-margin-bottom\" no-lines>\n            <ion-label  class=\"ion-text-right\">\n              <ion-menu-toggle menu=\"first\" class=\"mto\" auto-hide=\"false\">\n                <a class=\"text08\" tappable (click)=\"goToEditProfile()\">\n                  <ion-text color=\"light\">\n                    <ion-icon name=\"ios-contact\" class=\"text15\"></ion-icon>\n                    &nbsp;<strong>PROFILE</strong>\n                  </ion-text>\n                </a> \n                <br>\n                <!-- <ion-text color=\"secondary\"> | </ion-text>  -->\n                <a class=\"text08\" tappable (click)=\"logout()\">\n                  <ion-text color=\"light\">\n                    <ion-icon name=\"ios-log-out\" class=\"text15\"></ion-icon>\n                    &nbsp;<strong>LOGOUT</strong>\n                  </ion-text>\n                </a>\n              </ion-menu-toggle>\n            </ion-label>\n          </ion-item>\n\n        </ion-toolbar>\n      </ion-header>\n\n      <ion-content class=\"bg-profile\" color=\"darkblue\">\n        <ion-list>\n          <ion-list-header color=\"gold\">\n            <ion-label color=\"darkblue fw600\">MENU</ion-label>\n          </ion-list-header>\n\n          <ion-menu-toggle auto-hide=\"false\" *ngFor=\"let p of appPages\">\n            <ion-item [routerLink]=\"[p.url]\" color=\"light\">\n              <ion-icon slot=\"start\" [name]=\"p.icon\" color=\"gold\"></ion-icon>\n              <ion-label color=\"darkblue\">\n                {{p.title}}\n              </ion-label>\n            </ion-item>\n          </ion-menu-toggle>\n        </ion-list>\n      </ion-content>\n    </ion-menu>\n    <ion-router-outlet main></ion-router-outlet>\n  </ion-split-pane>\n</ion-app>\n\n"
 
 /***/ }),
 
@@ -938,15 +938,15 @@ let AppComponent = class AppComponent {
         this.platform.ready().then(() => {
             // console.log(this.storage.getItem('token'));
             //uncomment during build
-            // this.userInfo = this.storage.getItem('user');
-            // this.storage.getItem('user').then(data => {
-            //   this.navCtrl.navigateRoot('cust-home');
-            //   this.splashScreen.hide();
-            // }, err =>{
-            //   this.navCtrl.navigateRoot('cust-login');
-            //   this.splashScreen.hide();
-            // })
-            // this.statusBar.styleDefault();
+            this.userInfo = this.storage.getItem('user');
+            this.storage.getItem('user').then(data => {
+                this.navCtrl.navigateRoot('cust-home');
+                this.splashScreen.hide();
+            }, err => {
+                this.navCtrl.navigateRoot('cust-login');
+                this.splashScreen.hide();
+            });
+            this.statusBar.styleDefault();
             this.splashScreen.hide();
             Object(rxjs_observable_timer__WEBPACK_IMPORTED_MODULE_6__["timer"])(3000).subscribe(() => this.showSplash = false);
         }).catch(() => { });
@@ -1093,6 +1093,7 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
             _ionic_native_camera_ngx__WEBPACK_IMPORTED_MODULE_16__["Camera"],
             _ionic_native_file_ngx__WEBPACK_IMPORTED_MODULE_17__["File"],
             _ionic_native_file_transfer_ngx__WEBPACK_IMPORTED_MODULE_20__["FileTransfer"],
+            _ionic_native_file_transfer_ngx__WEBPACK_IMPORTED_MODULE_20__["FileTransferObject"],
             _ionic_native_ionic_webview_ngx__WEBPACK_IMPORTED_MODULE_18__["WebView"],
             _ionic_native_geolocation_ngx__WEBPACK_IMPORTED_MODULE_21__["Geolocation"],
             _ionic_native_file_path_ngx__WEBPACK_IMPORTED_MODULE_19__["FilePath"],
@@ -1864,6 +1865,13 @@ let AuthService = class AuthService {
         this.user = user;
         this.token = token;
         this.isLoggedIn = true;
+    }
+    imageUpload(formData) {
+        const headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+            'IG-API-KEY': this.userInfo['__zone_symbol__value'].token
+        });
+        return this.http.post(this.env.NEW_API_URL + '/api_v1/assets/add', formData, { headers: headers })
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_7__["map"])(res => res), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_7__["catchError"])(this.handleError));
     }
     login(body) {
         return this.http.post(this.env.API_URL + '/iglobe/CBA/api_v1/login/index.php', body)

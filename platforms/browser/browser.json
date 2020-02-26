@@ -15,6 +15,10 @@
             {
               "xml": "<feature name=\"NativeStorage\"><param name=\"browser-package\" value=\"NativeStorage\" /></feature>",
               "count": 1
+            },
+            {
+              "xml": "<feature name=\"Camera\"><param name=\"browser-package\" value=\"Camera\" /></feature>",
+              "count": 1
             }
           ]
         }
@@ -77,6 +81,15 @@
       "PACKAGE_NAME": "io.cordova.callingBell"
     },
     "cordova-plugin-telerik-imagepicker": {
+      "PACKAGE_NAME": "io.cordova.callingBell"
+    },
+    "cordova-plugin-camera": {
+      "PACKAGE_NAME": "io.cordova.callingBell"
+    },
+    "cordova-sqlite-storage": {
+      "PACKAGE_NAME": "io.cordova.callingBell"
+    },
+    "cordova-plugin-filepath": {
       "PACKAGE_NAME": "io.cordova.callingBell"
     }
   },
@@ -358,6 +371,44 @@
       "clobbers": [
         "plugins.imagePicker"
       ]
+    },
+    {
+      "file": "plugins/cordova-plugin-camera/www/CameraConstants.js",
+      "id": "cordova-plugin-camera.Camera",
+      "pluginId": "cordova-plugin-camera",
+      "clobbers": [
+        "Camera"
+      ]
+    },
+    {
+      "file": "plugins/cordova-plugin-camera/www/CameraPopoverOptions.js",
+      "id": "cordova-plugin-camera.CameraPopoverOptions",
+      "pluginId": "cordova-plugin-camera",
+      "clobbers": [
+        "CameraPopoverOptions"
+      ]
+    },
+    {
+      "file": "plugins/cordova-plugin-camera/www/Camera.js",
+      "id": "cordova-plugin-camera.camera",
+      "pluginId": "cordova-plugin-camera",
+      "clobbers": [
+        "navigator.camera"
+      ]
+    },
+    {
+      "file": "plugins/cordova-plugin-camera/src/browser/CameraProxy.js",
+      "id": "cordova-plugin-camera.CameraProxy",
+      "pluginId": "cordova-plugin-camera",
+      "runs": true
+    },
+    {
+      "file": "plugins/cordova-sqlite-storage/www/SQLitePlugin.js",
+      "id": "cordova-sqlite-storage.SQLitePlugin",
+      "pluginId": "cordova-sqlite-storage",
+      "clobbers": [
+        "SQLitePlugin"
+      ]
     }
   ],
   "plugin_metadata": {
@@ -373,6 +424,9 @@
     "es6-promise-plugin": "4.2.2",
     "cordova-plugin-x-socialsharing": "5.6.2",
     "cordova-plugin-nativestorage": "2.3.2",
-    "cordova-plugin-telerik-imagepicker": "2.3.3"
+    "cordova-plugin-telerik-imagepicker": "2.3.3",
+    "cordova-plugin-camera": "4.1.0",
+    "cordova-sqlite-storage": "4.0.0",
+    "cordova-plugin-filepath": "1.5.7"
   }
 }

@@ -33,13 +33,13 @@ export class CustHomePage implements OnInit {
 
   slideOptsOne = {
     initialSlide: 0,
-    slidesPerView: 1.2,
+    slidesPerView: 1,
     autoplay:true
   };
 
   slideOptsTwo = {
     initialSlide: 0,
-    slidesPerView: 1.2,
+    slidesPerView: 1,
     autoplay:true,
     grabCursor: true,
   };
@@ -84,7 +84,7 @@ export class CustHomePage implements OnInit {
         isBeginningSlide: true,
         isEndSlide: false,
         slidesItems: [
-          {id: 101},{id:102}
+          {id: 100},{id:101}
         ]
       };
       

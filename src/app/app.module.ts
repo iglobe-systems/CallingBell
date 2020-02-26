@@ -20,13 +20,12 @@ import { NativeStorage } from '@ionic-native/native-storage/ngx';
 import { EnvService } from './services/env.service';
 
 import { FormBuilder, FormGroup, Validators,FormsModule, ReactiveFormsModule } from '@angular/forms';
-
 // Camera 
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 import { File } from '@ionic-native/file/ngx';
 import { WebView } from '@ionic-native/ionic-webview/ngx';
 import { FilePath } from '@ionic-native/file-path/ngx';
-import { FileTransfer} from '@ionic-native/file-transfer/ngx';
+import { FileTransfer,FileTransferObject} from '@ionic-native/file-transfer/ngx';
 
 //geo location
 import { Geolocation } from '@ionic-native/geolocation/ngx';
@@ -63,10 +62,11 @@ import { ImagePicker } from '@ionic-native/image-picker/ngx';
     StatusBar,
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-     NativeStorage,
-     Camera,
-     File,
-     FileTransfer,
+    NativeStorage,
+    Camera,
+    File,
+    FileTransfer,
+    FileTransferObject,
     WebView,
     Geolocation,
     FilePath,

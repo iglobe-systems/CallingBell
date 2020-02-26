@@ -42,6 +42,15 @@
     },
     "cordova-plugin-telerik-imagepicker": {
       "PACKAGE_NAME": "io.cordova.callingBell"
+    },
+    "cordova-plugin-camera": {
+      "PACKAGE_NAME": "io.cordova.callingBell"
+    },
+    "cordova-sqlite-storage": {
+      "PACKAGE_NAME": "io.cordova.callingBell"
+    },
+    "cordova-plugin-filepath": {
+      "PACKAGE_NAME": "io.cordova.callingBell"
     }
   },
   "dependent_plugins": {

@@ -84,15 +84,15 @@ initializeApp() {
 
       //uncomment during build
 
-      // this.userInfo = this.storage.getItem('user');
-      // this.storage.getItem('user').then(data => {
-      //   this.navCtrl.navigateRoot('cust-home');
-      //   this.splashScreen.hide();
-      // }, err =>{
-      //   this.navCtrl.navigateRoot('cust-login');
-      //   this.splashScreen.hide();
-      // })
-      // this.statusBar.styleDefault();
+      this.userInfo = this.storage.getItem('user');
+      this.storage.getItem('user').then(data => {
+        this.navCtrl.navigateRoot('cust-home');
+        this.splashScreen.hide();
+      }, err =>{
+        this.navCtrl.navigateRoot('cust-login');
+        this.splashScreen.hide();
+      })
+      this.statusBar.styleDefault();
       
       this.splashScreen.hide();
       timer(3000).subscribe(()=> this.showSplash = false)

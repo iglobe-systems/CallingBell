@@ -47,21 +47,23 @@
 		<ion-item>
 			<ion-label position="stacked" class="fw600">Product Image</ion-label>
 			<div>
-				<ion-button fill="outline" color="darkblue" class="buttonone" size="small">Camera</ion-button>
+				<ion-button fill="outline" color="darkblue" class="buttonone" size="small"	(click)="openCamera()">Camera</ion-button>
 				<ion-button fill="outline" color="darkblue" class="buttontwo" size="small">Gallery</ion-button>
+				<ion-button fill="outline" color="darkblue" class="buttontwo" size="small" (click)="upload()">Upload</ion-button>
+				<img [src]="image" >  
 			</div>
 		</ion-item>
 		<ion-item>
 			<ion-label position="stacked" class="fw600">Invoice Image</ion-label>
 			<div>
-				<ion-button fill="outline" color="darkblue" class="buttonone" size="small">Camera</ion-button>
+				<ion-button fill="outline" color="darkblue" class="buttonone" size="small" (click)="openCamera()">Camera</ion-button>
 				<ion-button fill="outline" color="darkblue" class="buttontwo" size="small">Gallery</ion-button>
 			</div>
 		</ion-item>
 		<ion-item>
 			<ion-label position="stacked" class="fw600">Warranty Image</ion-label>
 			<div>
-				<ion-button fill="outline" color="darkblue" class="buttonone" size="small">Camera</ion-button>
+				<ion-button fill="outline" color="darkblue" class="buttonone" size="small" (click)="openCamera()">Camera</ion-button>
 				<ion-button fill="outline" color="darkblue" class="buttontwo" size="small">Gallery</ion-button>
 			</div>
 		</ion-item>
@@ -70,4 +72,31 @@
 	<div class="text-center">
 		<ion-button (click)="addAsset()" color="gold">SUBMIT FORM</ion-button>
 	</div>
+
+	<!-- <h3 *ngIf="images.length == 0" text-center>Please Select Image!</h3>
+ 
+	<ion-list>
+	  <ion-item *ngFor="let img of images; index as pos" text-wrap>
+		<ion-thumbnail slot="start">
+		  <ion-img [src]="img.path"></ion-img>
+		</ion-thumbnail>
+		<ion-label>
+		  {{ img.name }}
+		</ion-label>
+		<ion-button slot="end" fill="clear" (click)="startUpload(img)">
+		  <ion-icon slot="icon-only" name="cloud-upload"></ion-icon>
+		</ion-button>
+		<ion-button slot="end" fill="clear" (click)="deleteImage(img, pos)">
+		  <ion-icon slot="icon-only" name="trash"></ion-icon>
+		</ion-button>
+	  </ion-item>
+	</ion-list> -->
 </ion-content>
+
+<!-- <ion-footer>
+	<ion-toolbar color="primary">
+	  <ion-button fill="clear" expand="full" color="light" (click)="selectImage()">
+		<ion-icon slot="start" name="camera"></ion-icon>
+		Select Image</ion-button>
+	</ion-toolbar>
+  </ion-footer> -->
