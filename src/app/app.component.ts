@@ -95,14 +95,14 @@ initializeApp() {
       });
 
       // uncomment during build
-      this.userInfo = this.storage.getItem('user');
-      this.storage.getItem('user').then(data => {
-        this.navCtrl.navigateRoot('cust-home');
-        this.splashScreen.hide();
-      }, err =>{
-        this.navCtrl.navigateRoot('cust-login');
-        this.splashScreen.hide();
-      })
+      // this.userInfo = this.storage.getItem('user');
+      // this.storage.getItem('user').then(data => {
+      //   this.navCtrl.navigateRoot('cust-home');
+      //   this.splashScreen.hide();
+      // }, err =>{
+      //   this.navCtrl.navigateRoot('cust-login');
+      //   this.splashScreen.hide();
+      // })
       
       let connectSubscription = this.network.onConnect().subscribe(async () => {
         alert('Network Connected! Restart app for better performance!');

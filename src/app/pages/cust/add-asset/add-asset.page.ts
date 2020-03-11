@@ -116,7 +116,6 @@ export class AddAssetPage implements OnInit {
        fileKey: 'file',
        fileName: 'name.jpg',
        headers: {}
-    
     }
 
 fileTransfer.upload(this.imageData, 'http://apiv1.iglobesystems.com:8000/api_v1/assets/add', options1)
