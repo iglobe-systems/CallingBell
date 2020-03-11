@@ -25,8 +25,11 @@ categoryName:any;
 groceryCat:any;
 groceryFilter:any;
 
-public onQtyForm:FormGroup;
+// public onQtyForm:FormGroup;
 qty:any;
+
+message:any='1';
+
   constructor(
     private route:ActivatedRoute,
     public authService: AuthService, 
@@ -40,9 +43,9 @@ qty:any;
     private formBuilder: FormBuilder) { }
 
   ngOnInit() {
-    this.onQtyForm = this.formBuilder.group({
-      'qty':['', Validators.required]
-    });
+    // this.onQtyForm = this.formBuilder.group({
+    //   'qty':['', Validators.required]
+    // });
     this.getGrocerylt();
   }
 
@@ -62,18 +65,22 @@ qty:any;
    });
   } 
   addToCart(product) {
-    if(this.onQtyForm.get('qty').touched){
-      this.alertService.cartNote('1 item added to cart');
-    }else{
-      this.alertService.cartNote('Please select quantity');
+    console.log(this.message);
+    let quantity = {
+      'qty':this.message
     }
-    
-    // let qty={
-    //   "qty":"1"
+    // this.message='1';
+    console.log(quantity);
+    // if(this.onQtyForm.get('qty').touched){
+    //   this.alertService.cartNote('1 item added to cart');
+    // }else{
+    //   this.alertService.cartNote('Please select quantity');
     // }
-    console.log(this.onQtyForm.value);
-    this.authService.addToCart(this.onQtyForm.value,product).subscribe(result =>{
+    // console.log(this.onQtyForm.value);
+    this.authService.addToCart(quantity,product).subscribe(result =>{
       console.log(result);
+      this.alertService.cartNote('Item added to cart');
+      this.message='1';
       });
     }
  

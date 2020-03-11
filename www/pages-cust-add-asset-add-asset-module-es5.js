@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-header>\n<ion-toolbar color=\"darkblue\">\n    <ion-buttons slot=\"start\">\n      <ion-menu-button color=\"light\"></ion-menu-button>\n    </ion-buttons>\n\t<div>\n\t\t<img src=\"assets/img/newlogov7.png\" class=\"header-logo\"/>\n\t  </div>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content class=\"ion-padding\">\n\t<h2 class=\"header\">ASSET MANAGEMENT</h2>\n\t<p class=\"header-sub\">You can add your household assets here!</p>\n\t   <form [formGroup]=\"onAddAssetForm\">\n\t\t<ion-list lines=\"none\">\n\t\t<ion-item>\n\t\t\t<ion-label position=\"floating\" class=\"fw600\">Product Category</ion-label>\n\t\t    <ion-select formControlName=\"productCategory\" interface=\"popover\" lines=\"none\">\n\t\t            <ion-select-option >Entertainment</ion-select-option>\n\t\t    </ion-select>\n\t\t</ion-item>\n\t\t<ion-item>\n\t\t\t<ion-label  position=\"floating\" class=\"fw600\">Product Name</ion-label>\n\t\t    <ion-input formControlName=\"productName\" type=\"text\"></ion-input>\n\t\t</ion-item>\n\t\t<ion-item>\n\t\t\t<ion-label  position=\"floating\" class=\"fw600\">Product Serial No. (optional)</ion-label>\n\t\t\t<ion-input formControlName=\"productSerialNo\" type=\"text\"></ion-input>\n\t\t</ion-item>\n\t\t<ion-item>\n\t\t\t<ion-label  position=\"floating\" class=\"fw600\">Brand</ion-label>\n\t\t    <ion-input formControlName=\"productBrand\" type=\"text\"></ion-input>\n\t\t</ion-item>\n\t\t<ion-item>\n\t\t\t<ion-label  position=\"floating\" class=\"fw600\">Date of Purchase</ion-label>\n\t\t    <ion-datetime placeholder=\"Select Date\" formControlName=\"dateOfPurchase\"></ion-datetime>\n\t\t</ion-item>\n\t\t<ion-item>\n\t\t\t<ion-label  position=\"floating\" class=\"fw600\">Number of Months Warranty</ion-label>\n\t\t    <ion-input type=\"numeric\" formControlName=\"monthsWarranty\"></ion-input>\n\t\t</ion-item>\n\t\t<ion-item >\n\t\t\t<ion-label position=\"floating\" class=\"fw600\" color=\"darkblue\">Product Price</ion-label>\n\t\t    <ion-input type=\"numeric\" placeholder=\"&#8377;\" formControlName=\"productPrice\"></ion-input>\n\t\t</ion-item>\n\t\t<ion-item>\n\t\t\t<ion-label position=\"stacked\" class=\"fw600\">Product Image</ion-label>\n\t\t\t<div>\n\t\t\t\t<ion-button fill=\"outline\" color=\"darkblue\" class=\"buttonone\" size=\"small\"\t(click)=\"openCamera()\">Camera</ion-button>\n\t\t\t\t<ion-button fill=\"outline\" color=\"darkblue\" class=\"buttontwo\" size=\"small\">Gallery</ion-button>\n\t\t\t\t<ion-button fill=\"outline\" color=\"darkblue\" class=\"buttontwo\" size=\"small\" (click)=\"upload()\">Upload</ion-button>\n\t\t\t\t<img [src]=\"image\" >  \n\t\t\t</div>\n\t\t</ion-item>\n\t\t<ion-item>\n\t\t\t<ion-label position=\"stacked\" class=\"fw600\">Invoice Image</ion-label>\n\t\t\t<div>\n\t\t\t\t<ion-button fill=\"outline\" color=\"darkblue\" class=\"buttonone\" size=\"small\" (click)=\"openCamera()\">Camera</ion-button>\n\t\t\t\t<ion-button fill=\"outline\" color=\"darkblue\" class=\"buttontwo\" size=\"small\">Gallery</ion-button>\n\t\t\t</div>\n\t\t</ion-item>\n\t\t<ion-item>\n\t\t\t<ion-label position=\"stacked\" class=\"fw600\">Warranty Image</ion-label>\n\t\t\t<div>\n\t\t\t\t<ion-button fill=\"outline\" color=\"darkblue\" class=\"buttonone\" size=\"small\" (click)=\"openCamera()\">Camera</ion-button>\n\t\t\t\t<ion-button fill=\"outline\" color=\"darkblue\" class=\"buttontwo\" size=\"small\">Gallery</ion-button>\n\t\t\t</div>\n\t\t</ion-item>\n\t</ion-list>\n\t</form>\n\t<div class=\"text-center\">\n\t\t<ion-button (click)=\"addAsset()\" color=\"gold\">SUBMIT FORM</ion-button>\n\t</div>\n\n\t<!-- <h3 *ngIf=\"images.length == 0\" text-center>Please Select Image!</h3>\n \n\t<ion-list>\n\t  <ion-item *ngFor=\"let img of images; index as pos\" text-wrap>\n\t\t<ion-thumbnail slot=\"start\">\n\t\t  <ion-img [src]=\"img.path\"></ion-img>\n\t\t</ion-thumbnail>\n\t\t<ion-label>\n\t\t  {{ img.name }}\n\t\t</ion-label>\n\t\t<ion-button slot=\"end\" fill=\"clear\" (click)=\"startUpload(img)\">\n\t\t  <ion-icon slot=\"icon-only\" name=\"cloud-upload\"></ion-icon>\n\t\t</ion-button>\n\t\t<ion-button slot=\"end\" fill=\"clear\" (click)=\"deleteImage(img, pos)\">\n\t\t  <ion-icon slot=\"icon-only\" name=\"trash\"></ion-icon>\n\t\t</ion-button>\n\t  </ion-item>\n\t</ion-list> -->\n</ion-content>\n\n<!-- <ion-footer>\n\t<ion-toolbar color=\"primary\">\n\t  <ion-button fill=\"clear\" expand=\"full\" color=\"light\" (click)=\"selectImage()\">\n\t\t<ion-icon slot=\"start\" name=\"camera\"></ion-icon>\n\t\tSelect Image</ion-button>\n\t</ion-toolbar>\n  </ion-footer> -->"
+module.exports = "<ion-header>\r\n<ion-toolbar color=\"darkblue\">\r\n    <ion-buttons slot=\"start\">\r\n      <ion-menu-button color=\"light\"></ion-menu-button>\r\n    </ion-buttons>\r\n\t<div>\r\n\t\t<img src=\"assets/img/newlogov7.png\" class=\"header-logo\"/>\r\n\t  </div>\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-content class=\"ion-padding\">\r\n\t<h2 class=\"header\">ASSET MANAGEMENT</h2>\r\n\t<p class=\"header-sub\">You can add your household assets here!</p>\r\n\t   <form [formGroup]=\"onAddAssetForm\">\r\n\t\t<ion-list lines=\"none\">\r\n\t\t<ion-item>\r\n\t\t\t<ion-label position=\"floating\" class=\"fw600\">Product Category</ion-label>\r\n\t\t    <ion-select formControlName=\"productCategory\" interface=\"popover\" lines=\"none\" mode=\"ios\">\r\n\t\t            <ion-select-option >Entertainment</ion-select-option>\r\n\t\t    </ion-select>\r\n\t\t</ion-item>\r\n\t\t<ion-item>\r\n\t\t\t<ion-label  position=\"floating\" class=\"fw600\">Product Name</ion-label>\r\n\t\t    <ion-input formControlName=\"productName\" type=\"text\"></ion-input>\r\n\t\t</ion-item>\r\n\t\t<ion-item>\r\n\t\t\t<ion-label  position=\"floating\" class=\"fw600\">Product Serial No. (optional)</ion-label>\r\n\t\t\t<ion-input formControlName=\"productSerialNo\" type=\"text\"></ion-input>\r\n\t\t</ion-item>\r\n\t\t<ion-item>\r\n\t\t\t<ion-label  position=\"floating\" class=\"fw600\">Brand</ion-label>\r\n\t\t    <ion-input formControlName=\"productBrand\" type=\"text\"></ion-input>\r\n\t\t</ion-item>\r\n\t\t<ion-item>\r\n\t\t\t<ion-label  position=\"floating\" class=\"fw600\">Date of Purchase</ion-label>\r\n\t\t    <ion-datetime placeholder=\"Select Date\" formControlName=\"dateOfPurchase\"></ion-datetime>\r\n\t\t</ion-item>\r\n\t\t<ion-item>\r\n\t\t\t<ion-label  position=\"floating\" class=\"fw600\">Number of Months Warranty</ion-label>\r\n\t\t    <ion-input type=\"numeric\" formControlName=\"monthsWarranty\"></ion-input>\r\n\t\t</ion-item>\r\n\t\t<ion-item >\r\n\t\t\t<ion-label position=\"floating\" class=\"fw600\" color=\"darkblue\">Product Price</ion-label>\r\n\t\t    <ion-input type=\"numeric\" placeholder=\"&#8377;\" formControlName=\"productPrice\"></ion-input>\r\n\t\t</ion-item>\r\n\t</ion-list>\r\n\t</form>\r\n\t<div class=\"text-center\">\r\n\t\t<ion-button (click)=\"addAsset()\" color=\"gold\">SUBMIT FORM</ion-button>\r\n\t</div>\r\n\t<ion-list>\r\n\t\t<ion-item>\r\n\t\t\t<ion-label position=\"stacked\" class=\"fw600\">Product Image</ion-label>\r\n\t\t\t<div>\r\n\t\t\t\t<ion-button fill=\"outline\" color=\"darkblue\" class=\"buttonone\" size=\"small\"\t(click)=\"openCam()\">Camera</ion-button>\r\n\t\t\t\t<ion-button fill=\"outline\" color=\"darkblue\" class=\"buttontwo\" size=\"small\">Gallery</ion-button>\r\n\t\t\t\t<ion-button fill=\"outline\" color=\"darkblue\" class=\"buttontwo\" size=\"small\" (click)=\"upload()\">Upload</ion-button>\r\n\t\t\t\t<img src=\"{{image}}\" onError=\"this.src='http://apiv1.iglobesystems.com/assets/img/no_img.png'\" class=\"asset-image\">  \r\n\t\t\t</div>\r\n\t\t</ion-item>\r\n\t\t<ion-item>\r\n\t\t\t<ion-label position=\"stacked\" class=\"fw600\">Invoice Image</ion-label>\r\n\t\t\t<div>\r\n\t\t\t\t<ion-button fill=\"outline\" color=\"darkblue\" class=\"buttonone\" size=\"small\">Camera</ion-button>\r\n\t\t\t\t<ion-button fill=\"outline\" color=\"darkblue\" class=\"buttontwo\" size=\"small\">Gallery</ion-button>\r\n\t\t\t</div>\r\n\t\t</ion-item>\r\n\t\t<ion-item>\r\n\t\t\t<ion-label position=\"stacked\" class=\"fw600\">Warranty Image</ion-label>\r\n\t\t\t<div>\r\n\t\t\t\t<ion-button fill=\"outline\" color=\"darkblue\" class=\"buttonone\" size=\"small\">Camera</ion-button>\r\n\t\t\t\t<ion-button fill=\"outline\" color=\"darkblue\" class=\"buttontwo\" size=\"small\">Gallery</ion-button>\r\n\t\t\t</div>\r\n\t\t</ion-item>\r\n\t</ion-list>\r\n\t\t\r\n\t\r\n\t\r\n\t\r\n\t<!-- <h3 *ngIf=\"images.length == 0\" text-center>Please Select Image!</h3>\r\n \r\n\t<ion-list>\r\n\t  <ion-item *ngFor=\"let img of images; index as pos\" text-wrap>\r\n\t\t<ion-thumbnail slot=\"start\">\r\n\t\t  <ion-img [src]=\"img.path\"></ion-img>\r\n\t\t</ion-thumbnail>\r\n\t\t<ion-label>\r\n\t\t  {{ img.name }}\r\n\t\t</ion-label>\r\n\t\t<ion-button slot=\"end\" fill=\"clear\" (click)=\"startUpload(img)\">\r\n\t\t  <ion-icon slot=\"icon-only\" name=\"cloud-upload\"></ion-icon>\r\n\t\t</ion-button>\r\n\t\t<ion-button slot=\"end\" fill=\"clear\" (click)=\"deleteImage(img, pos)\">\r\n\t\t  <ion-icon slot=\"icon-only\" name=\"trash\"></ion-icon>\r\n\t\t</ion-button>\r\n\t  </ion-item>\r\n\t</ion-list> -->\r\n</ion-content>\r\n\r\n<!-- <ion-footer>\r\n\t<ion-toolbar color=\"primary\">\r\n\t  <ion-button fill=\"clear\" expand=\"full\" color=\"light\" (click)=\"selectImage()\">\r\n\t\t<ion-icon slot=\"start\" name=\"camera\"></ion-icon>\r\n\t\tSelect Image</ion-button>\r\n\t</ion-toolbar>\r\n  </ion-footer> -->"
 
 /***/ }),
 
@@ -70,7 +70,7 @@ var AddAssetPageModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".header-logo {\n  width: 120px;\n  vertical-align: middle;\n}\n\n.header {\n  text-align: center;\n  font-size: 14px;\n  font-weight: 600;\n  margin: 5px 0px;\n}\n\n.header-sub {\n  text-align: center;\n  font-size: 12px;\n  margin: 5px 0px;\n}\n\nh5 {\n  text-align: center;\n  font-size: 1rem;\n  font-weight: 600;\n}\n\nion-item {\n  border: 0.5px solid black;\n  border-radius: 10px;\n  margin-bottom: 10px;\n}\n\n.buttonone {\n  margin: 10px 0px;\n}\n\n.buttontwo {\n  margin: 10px 20px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcGFnZXMvY3VzdC9hZGQtYXNzZXQvRDpcXFJpYXpcXE5ld0FQS1xcTmV3QVBLdjAuMS9zcmNcXGFwcFxccGFnZXNcXGN1c3RcXGFkZC1hc3NldFxcYWRkLWFzc2V0LnBhZ2Uuc2NzcyIsInNyYy9hcHAvcGFnZXMvY3VzdC9hZGQtYXNzZXQvYWRkLWFzc2V0LnBhZ2Uuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLFlBQUE7RUFDQSxzQkFBQTtBQ0NKOztBRE9BO0VBQ0Msa0JBQUE7RUFDQSxlQUFBO0VBQ0EsZ0JBQUE7RUFDQSxlQUFBO0FDSkQ7O0FET0E7RUFDQyxrQkFBQTtFQUNBLGVBQUE7RUFDQSxlQUFBO0FDSkQ7O0FET0E7RUFDQyxrQkFBQTtFQUNBLGVBQUE7RUFDQSxnQkFBQTtBQ0pEOztBRE9BO0VBQ0MseUJBQUE7RUFDQSxtQkFBQTtFQUNBLG1CQUFBO0FDSkQ7O0FET0E7RUFDQyxnQkFBQTtBQ0pEOztBRE1BO0VBQ0MsaUJBQUE7QUNIRCIsImZpbGUiOiJzcmMvYXBwL3BhZ2VzL2N1c3QvYWRkLWFzc2V0L2FkZC1hc3NldC5wYWdlLnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuaGVhZGVyLWxvZ297XHJcbiAgICB3aWR0aDoxMjBweDtcclxuICAgIHZlcnRpY2FsLWFsaWduOiBtaWRkbGU7XHJcbn1cclxuXHJcbi8vIGltZ3tcclxuLy8gXHR3aWR0aDo1MHB4O1xyXG4vLyBcdGhlaWdodDogNTBweDtcclxuLy8gfVxyXG5cclxuLmhlYWRlcntcclxuXHR0ZXh0LWFsaWduOiBjZW50ZXI7XHJcblx0Zm9udC1zaXplOjE0cHg7XHJcblx0Zm9udC13ZWlnaHQ6IDYwMDtcclxuXHRtYXJnaW46IDVweCAwcHg7XHJcbn1cclxuXHJcbi5oZWFkZXItc3Vie1xyXG5cdHRleHQtYWxpZ246IGNlbnRlcjtcclxuXHRmb250LXNpemU6MTJweDtcclxuXHRtYXJnaW46IDVweCAwcHg7XHJcbn1cclxuXHJcbmg1e1xyXG5cdHRleHQtYWxpZ246IGNlbnRlcjtcclxuXHRmb250LXNpemU6IDFyZW07XHJcblx0Zm9udC13ZWlnaHQ6IDYwMDtcclxufVxyXG5cclxuaW9uLWl0ZW17XHJcblx0Ym9yZGVyOjAuNXB4IHNvbGlkIGJsYWNrO1xyXG5cdGJvcmRlci1yYWRpdXM6MTBweDtcclxuXHRtYXJnaW4tYm90dG9tOiAxMHB4O1xyXG59XHJcblxyXG4uYnV0dG9ub25le1xyXG5cdG1hcmdpbjogMTBweCAwcHg7XHJcbn1cclxuLmJ1dHRvbnR3b3tcclxuXHRtYXJnaW46MTBweCAyMHB4O1xyXG59IiwiLmhlYWRlci1sb2dvIHtcbiAgd2lkdGg6IDEyMHB4O1xuICB2ZXJ0aWNhbC1hbGlnbjogbWlkZGxlO1xufVxuXG4uaGVhZGVyIHtcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xuICBmb250LXNpemU6IDE0cHg7XG4gIGZvbnQtd2VpZ2h0OiA2MDA7XG4gIG1hcmdpbjogNXB4IDBweDtcbn1cblxuLmhlYWRlci1zdWIge1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG4gIGZvbnQtc2l6ZTogMTJweDtcbiAgbWFyZ2luOiA1cHggMHB4O1xufVxuXG5oNSB7XG4gIHRleHQtYWxpZ246IGNlbnRlcjtcbiAgZm9udC1zaXplOiAxcmVtO1xuICBmb250LXdlaWdodDogNjAwO1xufVxuXG5pb24taXRlbSB7XG4gIGJvcmRlcjogMC41cHggc29saWQgYmxhY2s7XG4gIGJvcmRlci1yYWRpdXM6IDEwcHg7XG4gIG1hcmdpbi1ib3R0b206IDEwcHg7XG59XG5cbi5idXR0b25vbmUge1xuICBtYXJnaW46IDEwcHggMHB4O1xufVxuXG4uYnV0dG9udHdvIHtcbiAgbWFyZ2luOiAxMHB4IDIwcHg7XG59Il19 */"
+module.exports = ".header-logo {\n  width: 120px;\n  vertical-align: middle;\n}\n\n.header {\n  text-align: center;\n  font-size: 14px;\n  font-weight: 600;\n  margin: 5px 0px;\n}\n\n.header-sub {\n  text-align: center;\n  font-size: 12px;\n  margin: 5px 0px;\n}\n\nh5 {\n  text-align: center;\n  font-size: 1rem;\n  font-weight: 600;\n}\n\nion-item {\n  border: 0.5px solid black;\n  border-radius: 10px;\n  margin-bottom: 10px;\n}\n\n.buttonone {\n  margin: 10px 0px;\n}\n\n.buttontwo {\n  margin: 10px 20px;\n}\n\n.asset-image {\n  width: 80px;\n  height: 80px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcGFnZXMvY3VzdC9hZGQtYXNzZXQvRDpcXFJpYXpcXE5ld0FQS1xcTmV3QVBLdjAuMS9zcmNcXGFwcFxccGFnZXNcXGN1c3RcXGFkZC1hc3NldFxcYWRkLWFzc2V0LnBhZ2Uuc2NzcyIsInNyYy9hcHAvcGFnZXMvY3VzdC9hZGQtYXNzZXQvYWRkLWFzc2V0LnBhZ2Uuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLFlBQUE7RUFDQSxzQkFBQTtBQ0NKOztBRENBO0VBQ0Msa0JBQUE7RUFDQSxlQUFBO0VBQ0EsZ0JBQUE7RUFDQSxlQUFBO0FDRUQ7O0FEQ0E7RUFDQyxrQkFBQTtFQUNBLGVBQUE7RUFDQSxlQUFBO0FDRUQ7O0FEQ0E7RUFDQyxrQkFBQTtFQUNBLGVBQUE7RUFDQSxnQkFBQTtBQ0VEOztBRENBO0VBQ0MseUJBQUE7RUFDQSxtQkFBQTtFQUNBLG1CQUFBO0FDRUQ7O0FEQ0E7RUFDQyxnQkFBQTtBQ0VEOztBREFBO0VBQ0MsaUJBQUE7QUNHRDs7QURBQTtFQUNDLFdBQUE7RUFDQSxZQUFBO0FDR0QiLCJmaWxlIjoic3JjL2FwcC9wYWdlcy9jdXN0L2FkZC1hc3NldC9hZGQtYXNzZXQucGFnZS5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmhlYWRlci1sb2dve1xyXG4gICAgd2lkdGg6MTIwcHg7XHJcbiAgICB2ZXJ0aWNhbC1hbGlnbjogbWlkZGxlO1xyXG59XHJcbi5oZWFkZXJ7XHJcblx0dGV4dC1hbGlnbjogY2VudGVyO1xyXG5cdGZvbnQtc2l6ZToxNHB4O1xyXG5cdGZvbnQtd2VpZ2h0OiA2MDA7XHJcblx0bWFyZ2luOiA1cHggMHB4O1xyXG59XHJcblxyXG4uaGVhZGVyLXN1YntcclxuXHR0ZXh0LWFsaWduOiBjZW50ZXI7XHJcblx0Zm9udC1zaXplOjEycHg7XHJcblx0bWFyZ2luOiA1cHggMHB4O1xyXG59XHJcblxyXG5oNXtcclxuXHR0ZXh0LWFsaWduOiBjZW50ZXI7XHJcblx0Zm9udC1zaXplOiAxcmVtO1xyXG5cdGZvbnQtd2VpZ2h0OiA2MDA7XHJcbn1cclxuXHJcbmlvbi1pdGVte1xyXG5cdGJvcmRlcjowLjVweCBzb2xpZCBibGFjaztcclxuXHRib3JkZXItcmFkaXVzOjEwcHg7XHJcblx0bWFyZ2luLWJvdHRvbTogMTBweDtcclxufVxyXG5cclxuLmJ1dHRvbm9uZXtcclxuXHRtYXJnaW46IDEwcHggMHB4O1xyXG59XHJcbi5idXR0b250d297XHJcblx0bWFyZ2luOjEwcHggMjBweDtcclxufVxyXG5cclxuLmFzc2V0LWltYWdle1xyXG5cdHdpZHRoOiA4MHB4O1xyXG5cdGhlaWdodDogODBweDtcclxufVxyXG5cclxuIiwiLmhlYWRlci1sb2dvIHtcbiAgd2lkdGg6IDEyMHB4O1xuICB2ZXJ0aWNhbC1hbGlnbjogbWlkZGxlO1xufVxuXG4uaGVhZGVyIHtcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xuICBmb250LXNpemU6IDE0cHg7XG4gIGZvbnQtd2VpZ2h0OiA2MDA7XG4gIG1hcmdpbjogNXB4IDBweDtcbn1cblxuLmhlYWRlci1zdWIge1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG4gIGZvbnQtc2l6ZTogMTJweDtcbiAgbWFyZ2luOiA1cHggMHB4O1xufVxuXG5oNSB7XG4gIHRleHQtYWxpZ246IGNlbnRlcjtcbiAgZm9udC1zaXplOiAxcmVtO1xuICBmb250LXdlaWdodDogNjAwO1xufVxuXG5pb24taXRlbSB7XG4gIGJvcmRlcjogMC41cHggc29saWQgYmxhY2s7XG4gIGJvcmRlci1yYWRpdXM6IDEwcHg7XG4gIG1hcmdpbi1ib3R0b206IDEwcHg7XG59XG5cbi5idXR0b25vbmUge1xuICBtYXJnaW46IDEwcHggMHB4O1xufVxuXG4uYnV0dG9udHdvIHtcbiAgbWFyZ2luOiAxMHB4IDIwcHg7XG59XG5cbi5hc3NldC1pbWFnZSB7XG4gIHdpZHRoOiA4MHB4O1xuICBoZWlnaHQ6IDgwcHg7XG59Il19 */"
 
 /***/ }),
 
@@ -89,26 +89,25 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ionic_native_camera_ngx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ionic-native/camera/ngx */ "./node_modules/@ionic-native/camera/ngx/index.js");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
 /* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
-/* harmony import */ var _ionic_native_file_ngx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ionic-native/file/ngx */ "./node_modules/@ionic-native/file/ngx/index.js");
-/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
-/* harmony import */ var _ionic_native_ionic_webview_ngx__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @ionic-native/ionic-webview/ngx */ "./node_modules/@ionic-native/ionic-webview/ngx/index.js");
-/* harmony import */ var _ionic_storage__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @ionic/storage */ "./node_modules/@ionic/storage/fesm5/ionic-storage.js");
-/* harmony import */ var _ionic_native_file_path_ngx__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @ionic-native/file-path/ngx */ "./node_modules/@ionic-native/file-path/ngx/index.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var _ionic_native_file_transfer_ngx__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @ionic-native/file-transfer/ngx */ "./node_modules/@ionic-native/file-transfer/ngx/index.js");
 
 
 
 
 
+// import { File, FileEntry } from '@ionic-native/file/ngx';
 
+// import { Observable } from 'rxjs/Observable';
+// import { NativeStorage } from '@ionic-native/native-storage/ngx';
+// import { WebView } from '@ionic-native/ionic-webview/ngx';
+// import { Storage } from '@ionic/storage';
+// import { FilePath } from '@ionic-native/file-path/ngx';
+// import { finalize } from 'rxjs/operators';
 
-
-
-
-// import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
 // const STORAGE_KEY = 'my_images';
 var AddAssetPage = /** @class */ (function () {
-    function AddAssetPage(camera, 
-    // public transfer: FileTransfer,
+    function AddAssetPage(camera, transfer, 
     // public authService: AuthService, 
     // public alertService: AlertService, 
     loadingCtrl, 
@@ -116,23 +115,18 @@ var AddAssetPage = /** @class */ (function () {
     // public navCtrl: NavController,
     // public popoverCtrl: PopoverController,
     // private router: Router,
-    http, formBuilder, storage, toastController, file, webview, actionSheetController, platform, ref, filePath) {
+    http, formBuilder, 
+    // private storage: Storage,
+    toastController) {
         this.camera = camera;
+        this.transfer = transfer;
         this.loadingCtrl = loadingCtrl;
         this.http = http;
         this.formBuilder = formBuilder;
-        this.storage = storage;
         this.toastController = toastController;
-        this.file = file;
-        this.webview = webview;
-        this.actionSheetController = actionSheetController;
-        this.platform = platform;
-        this.ref = ref;
-        this.filePath = filePath;
         // userInfo: any;
-        // image:any;
-        // imageData:any;
-        this.images = [];
+        this.image = '';
+        this.imageData = '';
     }
     AddAssetPage.prototype.ngOnInit = function () {
         // this.platform.ready().then(() => {
@@ -151,19 +145,66 @@ var AddAssetPage = /** @class */ (function () {
     AddAssetPage.prototype.addAsset = function () {
         console.log(this.onAddAssetForm.value);
     };
+    AddAssetPage.prototype.openCam = function () {
+        var _this = this;
+        var options = {
+            quality: 50,
+            destinationType: this.camera.DestinationType.FILE_URI,
+            encodingType: this.camera.EncodingType.JPEG,
+            mediaType: this.camera.MediaType.PICTURE
+        };
+        this.camera.getPicture(options).then(function (imageData) {
+            // imageData is either a base64 encoded string or a file URI
+            // If it's base64 (DATA_URL):
+            //alert(imageData)
+            _this.imageData = imageData;
+            _this.image = window.Ionic.WebView.convertFileSrc(imageData);
+        }, function (err) {
+            // Handle error
+            alert("error " + JSON.stringify(err));
+        });
+    };
+    AddAssetPage.prototype.upload = function () {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
+            var loading, fileTransfer, options1;
+            return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.loadingCtrl.create({
+                            message: 'Uploading...',
+                        })];
+                    case 1:
+                        loading = _a.sent();
+                        return [4 /*yield*/, loading.present()];
+                    case 2:
+                        _a.sent();
+                        fileTransfer = this.transfer.create();
+                        options1 = {
+                            fileKey: 'file',
+                            fileName: 'name.jpg',
+                            headers: {}
+                        };
+                        fileTransfer.upload(this.imageData, 'http://apiv1.iglobesystems.com:8000/api_v1/assets/add', options1)
+                            .then(function (data) {
+                            // success
+                            loading.dismiss();
+                            alert("success");
+                        }, function (err) {
+                            // error
+                            alert("error" + JSON.stringify(err));
+                            loading.dismiss();
+                        });
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
     AddAssetPage.ctorParameters = function () { return [
         { type: _ionic_native_camera_ngx__WEBPACK_IMPORTED_MODULE_2__["Camera"] },
+        { type: _ionic_native_file_transfer_ngx__WEBPACK_IMPORTED_MODULE_6__["FileTransfer"] },
         { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["LoadingController"] },
-        { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_6__["HttpClient"] },
+        { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_5__["HttpClient"] },
         { type: _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormBuilder"] },
-        { type: _ionic_storage__WEBPACK_IMPORTED_MODULE_8__["Storage"] },
-        { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["ToastController"] },
-        { type: _ionic_native_file_ngx__WEBPACK_IMPORTED_MODULE_5__["File"] },
-        { type: _ionic_native_ionic_webview_ngx__WEBPACK_IMPORTED_MODULE_7__["WebView"] },
-        { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["ActionSheetController"] },
-        { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["Platform"] },
-        { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"] },
-        { type: _ionic_native_file_path_ngx__WEBPACK_IMPORTED_MODULE_9__["FilePath"] }
+        { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["ToastController"] }
     ]; };
     AddAssetPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -172,17 +213,11 @@ var AddAssetPage = /** @class */ (function () {
             styles: [__webpack_require__(/*! ./add-asset.page.scss */ "./src/app/pages/cust/add-asset/add-asset.page.scss")]
         }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_ionic_native_camera_ngx__WEBPACK_IMPORTED_MODULE_2__["Camera"],
+            _ionic_native_file_transfer_ngx__WEBPACK_IMPORTED_MODULE_6__["FileTransfer"],
             _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["LoadingController"],
-            _angular_common_http__WEBPACK_IMPORTED_MODULE_6__["HttpClient"],
+            _angular_common_http__WEBPACK_IMPORTED_MODULE_5__["HttpClient"],
             _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormBuilder"],
-            _ionic_storage__WEBPACK_IMPORTED_MODULE_8__["Storage"],
-            _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["ToastController"],
-            _ionic_native_file_ngx__WEBPACK_IMPORTED_MODULE_5__["File"],
-            _ionic_native_ionic_webview_ngx__WEBPACK_IMPORTED_MODULE_7__["WebView"],
-            _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["ActionSheetController"],
-            _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["Platform"],
-            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"],
-            _ionic_native_file_path_ngx__WEBPACK_IMPORTED_MODULE_9__["FilePath"]])
+            _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["ToastController"]])
     ], AddAssetPage);
     return AddAssetPage;
 }());

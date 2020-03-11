@@ -6,4 +6,4 @@ ionic cordova platform add android
 ionic cordova build --release android
 zip -d platforms/android/app/build/outputs/apk/release/app-release-unsigned.apk META-INF/\*
 jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore CALLING_BELL-release-key.keystore platforms/android/app/build/outputs/apk/release/app-release-unsigned.apk CALLINGBELL
-zipalign -v 4 platforms/android/app/build/outputs/apk/release/app-release-unsigned.apk CalllingBell.apk
+zipalign -v 4 platforms/android/app/build/outputs/apk/release/app-release-unsigned.apk CallingBell.apk

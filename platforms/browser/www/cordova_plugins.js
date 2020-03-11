@@ -314,6 +314,37 @@ module.exports = [
         "clobbers": [
             "SQLitePlugin"
         ]
+    },
+    {
+        "file": "plugins/cordova-plugin-network-information/www/network.js",
+        "id": "cordova-plugin-network-information.network",
+        "pluginId": "cordova-plugin-network-information",
+        "clobbers": [
+            "navigator.connection",
+            "navigator.network.connection"
+        ]
+    },
+    {
+        "file": "plugins/cordova-plugin-network-information/www/Connection.js",
+        "id": "cordova-plugin-network-information.Connection",
+        "pluginId": "cordova-plugin-network-information",
+        "clobbers": [
+            "Connection"
+        ]
+    },
+    {
+        "file": "plugins/cordova-plugin-network-information/src/browser/network.js",
+        "id": "cordova-plugin-network-information.NetworkInfoProxy",
+        "pluginId": "cordova-plugin-network-information",
+        "runs": true
+    },
+    {
+        "file": "plugins/onesignal-cordova-plugin/www/OneSignal.js",
+        "id": "onesignal-cordova-plugin.OneSignal",
+        "pluginId": "onesignal-cordova-plugin",
+        "clobbers": [
+            "OneSignal"
+        ]
     }
 ];
 module.exports.metadata = 
@@ -334,7 +365,9 @@ module.exports.metadata =
     "cordova-plugin-telerik-imagepicker": "2.3.3",
     "cordova-plugin-camera": "4.1.0",
     "cordova-sqlite-storage": "4.0.0",
-    "cordova-plugin-filepath": "1.5.7"
+    "cordova-plugin-filepath": "1.5.7",
+    "cordova-plugin-network-information": "2.0.2",
+    "onesignal-cordova-plugin": "2.8.4"
 }
 // BOTTOM OF METADATA
 });

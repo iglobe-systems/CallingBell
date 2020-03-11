@@ -25,8 +25,9 @@ export class GroceryFilterlistPage implements OnInit {
   groceryBrand:any;
   groceryQty:any;
   filteredList:any[];
-
-  public onQtyForm:FormGroup;
+  
+  message:any='1';
+  // public onQtyForm:FormGroup;
   constructor(private route:ActivatedRoute,
     public authService: AuthService, 
     public alertService: AlertService, 
@@ -39,9 +40,9 @@ export class GroceryFilterlistPage implements OnInit {
     private formBuilder: FormBuilder) { }
 
   ngOnInit() {
-    this.onQtyForm = this.formBuilder.group({
-      'qty':['', Validators.required]
-    });
+    // this.onQtyForm = this.formBuilder.group({
+    //   'qty':['', Validators.required]
+    // });
     this.filteredList = [];
     this.getFilteredList();
     this.getList();
@@ -59,7 +60,6 @@ export class GroceryFilterlistPage implements OnInit {
   }
 
   grocerydesc(desc){
- 
     let navigationExtras: NavigationExtras={
       state:{
         groceryDesc:desc,
@@ -69,15 +69,31 @@ export class GroceryFilterlistPage implements OnInit {
   }
 
   addToCart(product) {
-    this.alertService.cartNote('1 item added to cart');
-    let qty={
-      "qty":"1"
+    console.log(this.message);
+    let quantity = {
+      'qty':this.message
     }
-    let id={
-      "id":product.id
-    }
-    this.authService.addToCart(qty,id).subscribe(result =>{
+    // this.alertService.cartNote('1 item added to cart');
+    // let qty={
+    //   "qty":"1"
+    // }
+    // let id={
+    //   "id":product.id
+    // }
+    // this.authService.addToCart(qty,id).subscribe(result =>{
+    //   console.log(result);
+    //   });
+    // console.log(this.onQtyForm);
+    // if(this.onQtyForm.get('qty').touched){
+    //   this.alertService.cartNote('1 item added to cart');
+    // }else{
+    //   this.alertService.cartNote('Please select quantity');
+    // } 
+    // console.log(this.onQtyForm.value);
+    this.authService.addToCart(quantity,product).subscribe(result =>{
       console.log(result);
+      this.alertService.cartNote('Item added to cart');
+      this.message='1';
       });
   }
   
@@ -90,10 +106,10 @@ export class GroceryFilterlistPage implements OnInit {
   }
 
   getList(){
-    let braname=this.groceryBrand;
+    let brandname=this.groceryBrand;
     let qty=this.groceryQty;
       for (var list of this.groceryList){
-        if((braname.indexOf(list.brand_name) > -1 || braname.length==0) && (qty.indexOf(list.quantity) > -1 || qty.length==0) ){
+        if((brandname.indexOf(list.brand_name) > -1 || brandname.length==0) && (qty.indexOf(list.quantity) > -1 || qty.length==0) ){
           this.filteredList.push(list);         
         }     
     } 

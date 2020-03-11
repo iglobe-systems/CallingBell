@@ -4,6 +4,15 @@
 
 export const environment = {
   production: false
+  // firebase: {
+  //   apiKey: "AIzaSyCGLT-_nfJke4gU46tuqCR7qYMVDKr1UMI",
+  //   authDomain: "callingbell-1569589209323.firebaseapp.com",
+  //   databaseURL: "https://callingbell-1569589209323.firebaseio.com",
+  //   projectId: "callingbell-1569589209323",
+  //   storageBucket: "callingbell-1569589209323.appspot.com",
+  //   messagingSenderId: "954697133395",
+  //   appId: "1:954697133395:web:5a95bf92a1a98e556345a6"
+  // }
 };
 
 /*

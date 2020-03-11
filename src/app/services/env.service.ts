@@ -15,7 +15,6 @@ export class EnvService {
   // base64img:string='';
   // url:'http://vaccrm.com/iglobe/CBA/api_v1/unwanted/image.php';
   constructor(public http: HttpClient) { }
-
   //  setImage(img){
   //   this.base64img=img;
   // }

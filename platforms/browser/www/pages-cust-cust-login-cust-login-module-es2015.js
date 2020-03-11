@@ -204,7 +204,7 @@ let CustLoginPage = class CustLoginPage {
                 console.log(number);
             }
             else {
-                this.alertService.presentToast('Login error ! Riaz will take care!');
+                this.alertService.presentToast(data);
                 return false;
             }
         });

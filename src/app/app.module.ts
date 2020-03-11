@@ -25,7 +25,7 @@ import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 import { File } from '@ionic-native/file/ngx';
 import { WebView } from '@ionic-native/ionic-webview/ngx';
 import { FilePath } from '@ionic-native/file-path/ngx';
-import { FileTransfer,FileTransferObject} from '@ionic-native/file-transfer/ngx';
+import { FileTransfer,FileTransferObject,FileUploadOptions } from '@ionic-native/file-transfer/ngx';
 
 //geo location
 import { Geolocation } from '@ionic-native/geolocation/ngx';
@@ -43,6 +43,8 @@ import { CartPageModule } from './pages/cust/cart/cart.module';
 //image picker
 import { ImagePicker } from '@ionic-native/image-picker/ngx';
 
+//network
+import { Network } from '@ionic-native/network/ngx';
 @NgModule({
   declarations: [AppComponent, SupportComponent, SupportcallComponent],
   entryComponents: [SupportComponent, SupportcallComponent],
@@ -74,6 +76,7 @@ import { ImagePicker } from '@ionic-native/image-picker/ngx';
     SocialSharing,
     LottieSplashScreen,
     ImagePicker,
+    Network
   ],
   bootstrap: [AppComponent],
 })

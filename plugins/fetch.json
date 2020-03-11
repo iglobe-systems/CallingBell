@@ -130,5 +130,21 @@
     },
     "is_top_level": true,
     "variables": {}
+  },
+  "cordova-plugin-network-information": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-network-information"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "onesignal-cordova-plugin": {
+    "source": {
+      "type": "registry",
+      "id": "onesignal-cordova-plugin@^2.8.4"
+    },
+    "is_top_level": true,
+    "variables": {}
   }
 }

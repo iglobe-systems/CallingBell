@@ -41,12 +41,11 @@
                             <!-- <ion-select interface="popover" type="number" color="darkblue">
                               <ion-select-option *ngFor = "let count of cat.max_count">{{count}}</ion-select-option>
                             </ion-select> -->
-                            <form [formGroup]="onQtyForm">
-                              <select formControlName="qty" interface="popover">
-                                <option></option>
+                            <!-- <form [formGroup]="onQtyForm"> -->
+                              <select interface="popover" [(ngModel)]="message">
                                 <option *ngFor = "let count of list.max_count" value="{{count}}">{{count}}</option>
                               </select>
-                            </form>
+                            <!-- </form> -->
                           </ion-col>
                           <ion-col class="ion-no-padding">
                               <ion-buttons class="ion-text-center">

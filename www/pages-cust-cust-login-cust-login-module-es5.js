@@ -225,7 +225,7 @@ var CustLoginPage = /** @class */ (function () {
                 console.log(number);
             }
             else {
-                _this.alertService.presentToast('Login error ! Riaz will take care!');
+                _this.alertService.presentToast(data);
                 return false;
             }
         });

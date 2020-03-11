@@ -38,7 +38,9 @@ export class CelebPage implements OnInit {
     this.navCtrl.navigateBack('cust-home');
   }
 
-  form(){
-  	this.navCtrl.navigateForward('celeb-form');
+  celeblevel2 (){
+  	this.navCtrl.navigateForward('celeb-package');
   }
+
+
 }

@@ -39,7 +39,7 @@
                    <div class="item-content-style">
                       <h5 class="cat-name fw600" (click)="getProductDesc(sclist)">{{sclist.name}}</h5>
                       <h5 class="cat-quantity" (click)="getProductDesc(sclist)">{{sclist.quantity}}</h5>
-                      <!-- <h5 class="cat-brand" (click)="grocerydesc(cat.id)">{{sclist.brand_name}}</h5> -->
+                      <h5 class="cat-brand" (click)="getProductDesc(sclist)">{{sclist.brand_name}}</h5>
                       <ion-row class="cat-item-footer">
                         <ion-col class="ion-no-padding" size="9" (click)="getProductDesc(sclist)">
                           <h1 class="cat-mrp fw600">&#8377; {{sclist.mrp}}</h1>

@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-header>\r\n    <ion-toolbar color=\"darkblue\">\r\n      <ion-buttons slot=\"start\">\r\n         <ion-menu-button color=\"light\"></ion-menu-button>\r\n      </ion-buttons>\r\n  \r\n      <div>\r\n            <img src=\"assets/img/newlogov7.png\" class=\"header-logo\"/>\r\n          </div>\r\n     \r\n      <ion-buttons slot=\"end\">\r\n        <ion-button shape=\"round\" (click)=\"back()\">\r\n          <ion-icon name=\"arrow-round-back\" class=\"text15\"></ion-icon>\r\n        </ion-button>\r\n      </ion-buttons>\r\n    </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-content>\r\n    <ion-searchbar mode=\"ios\" placeholder=\"Search in store\"></ion-searchbar>\r\n    <div>\r\n        <div class=\"cat-main\">\r\n            <h5 class=\"cat-header\">Filtered Results by {{groceryBrand}} - {{groceryQty}}</h5>\r\n        </div>\r\n        <div *ngFor=\"let list of filteredList\">\r\n          <ion-list>\r\n            <ion-item>\r\n                <div class=\"item-style\">\r\n                    <div class=\"ion-text-center item-img-style\"  (click)=\"grocerydesc(list.id)\">\r\n                        <img src=\"{{list.icon}}\" onError=\"this.src='http://apiv1.iglobesystems.com/assets/img/no_img.png'\" class=\"cat-img\"/>\r\n                    </div>\r\n                     <div class=\"item-content-style\">\r\n                        <h5 class=\"cat-name fw600\"  (click)=\"grocerydesc(list.id)\">{{list.name}}</h5>\r\n                        <h5 class=\"cat-quantity\"  (click)=\"grocerydesc(list.id)\">{{list.quantity}}</h5>\r\n                        <h5 class=\"cat-brand\"  (click)=\"grocerydesc(list.id)\">{{list.brand_name}}</h5>\r\n                        <ion-row class=\"cat-item-footer\">\r\n                          <ion-col class=\"ion-no-padding\" size=\"7\">\r\n                            <h1 class=\"cat-mrp fw600\" (click)=\"grocerydesc(list.id)\">&#8377; {{list.mrp}}</h1>\r\n                          </ion-col>\r\n                          <ion-col>\r\n                            <!-- <ion-select interface=\"popover\" type=\"number\" color=\"darkblue\">\r\n                              <ion-select-option *ngFor = \"let count of cat.max_count\">{{count}}</ion-select-option>\r\n                            </ion-select> -->\r\n                            <form [formGroup]=\"onQtyForm\">\r\n                              <select formControlName=\"qty\" interface=\"popover\">\r\n                                <option></option>\r\n                                <option *ngFor = \"let count of list.max_count\" value=\"{{count}}\">{{count}}</option>\r\n                              </select>\r\n                            </form>\r\n                          </ion-col>\r\n                          <ion-col class=\"ion-no-padding\">\r\n                              <ion-buttons class=\"ion-text-center\">\r\n                                <ion-button size=\"small\" color=\"darkblue\" (click)=\"addToCart(list)\" tappable><ion-icon name=\"add-circle\"></ion-icon></ion-button>\r\n                              </ion-buttons>\r\n                            </ion-col>\r\n                        </ion-row>\r\n                     </div>\r\n                    </div>\r\n            </ion-item>\r\n          </ion-list>\r\n        </div>\r\n      <!-- <div *ngFor=\"let list of filteredList\" class=\"cat-divsize\" (click)=\"grocerydesc(list.id)\">\r\n          <img src=\"{{list.img_m}}\" class=\"cat-img\"/>\r\n          <h5 class=\"cat-name fw600\">{{list.name}}</h5>\r\n          <h5 class=\"cat-quantity\">{{list.quantity}}</h5>\r\n          <p class=\"cat-brand\">{{list.brand_name}}</p>\r\n          <h1 class=\"cat-mrp fw600\">&#8377; {{list.mrp}}</h1>\r\n      </div> -->\r\n    </div>\r\n    <div *ngIf=\"filteredList.length == 0\">\r\n        <div class=\"cat-main\">\r\n            <h5 class=\"cat-nf\">No Products Found</h5>\r\n        </div>\r\n    </div>\r\n\r\n    <ion-fab horizontal=\"end\" vertical=\"bottom\" slot=\"fixed\">\r\n        <ion-fab-button color=\"darkblue\" size=\"small\" (click)=\"opencart()\" #cart>\r\n          <!-- <div class=\"cart-length\">{{ cardItemCount | async }}</div> -->\r\n          <ion-icon name=\"cart\"></ion-icon>\r\n        </ion-fab-button>\r\n      </ion-fab>\r\n</ion-content>\r\n"
+module.exports = "<ion-header>\r\n    <ion-toolbar color=\"darkblue\">\r\n      <ion-buttons slot=\"start\">\r\n         <ion-menu-button color=\"light\"></ion-menu-button>\r\n      </ion-buttons>\r\n  \r\n      <div>\r\n            <img src=\"assets/img/newlogov7.png\" class=\"header-logo\"/>\r\n          </div>\r\n     \r\n      <ion-buttons slot=\"end\">\r\n        <ion-button shape=\"round\" (click)=\"back()\">\r\n          <ion-icon name=\"arrow-round-back\" class=\"text15\"></ion-icon>\r\n        </ion-button>\r\n      </ion-buttons>\r\n    </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-content>\r\n    <ion-searchbar mode=\"ios\" placeholder=\"Search in store\"></ion-searchbar>\r\n    <div>\r\n        <div class=\"cat-main\">\r\n            <h5 class=\"cat-header\">Filtered Results by {{groceryBrand}} - {{groceryQty}}</h5>\r\n        </div>\r\n        <div *ngFor=\"let list of filteredList\">\r\n          <ion-list>\r\n            <ion-item>\r\n                <div class=\"item-style\">\r\n                    <div class=\"ion-text-center item-img-style\"  (click)=\"grocerydesc(list.id)\">\r\n                        <img src=\"{{list.icon}}\" onError=\"this.src='http://apiv1.iglobesystems.com/assets/img/no_img.png'\" class=\"cat-img\"/>\r\n                    </div>\r\n                     <div class=\"item-content-style\">\r\n                        <h5 class=\"cat-name fw600\"  (click)=\"grocerydesc(list.id)\">{{list.name}}</h5>\r\n                        <h5 class=\"cat-quantity\"  (click)=\"grocerydesc(list.id)\">{{list.quantity}}</h5>\r\n                        <h5 class=\"cat-brand\"  (click)=\"grocerydesc(list.id)\">{{list.brand_name}}</h5>\r\n                        <ion-row class=\"cat-item-footer\">\r\n                          <ion-col class=\"ion-no-padding\" size=\"7\">\r\n                            <h1 class=\"cat-mrp fw600\" (click)=\"grocerydesc(list.id)\">&#8377; {{list.mrp}}</h1>\r\n                          </ion-col>\r\n                          <ion-col>\r\n                            <!-- <ion-select interface=\"popover\" type=\"number\" color=\"darkblue\">\r\n                              <ion-select-option *ngFor = \"let count of cat.max_count\">{{count}}</ion-select-option>\r\n                            </ion-select> -->\r\n                            <!-- <form [formGroup]=\"onQtyForm\"> -->\r\n                              <select interface=\"popover\" [(ngModel)]=\"message\">\r\n                                <option *ngFor = \"let count of list.max_count\" value=\"{{count}}\">{{count}}</option>\r\n                              </select>\r\n                            <!-- </form> -->\r\n                          </ion-col>\r\n                          <ion-col class=\"ion-no-padding\">\r\n                              <ion-buttons class=\"ion-text-center\">\r\n                                <ion-button size=\"small\" color=\"darkblue\" (click)=\"addToCart(list)\" tappable><ion-icon name=\"add-circle\"></ion-icon></ion-button>\r\n                              </ion-buttons>\r\n                            </ion-col>\r\n                        </ion-row>\r\n                     </div>\r\n                    </div>\r\n            </ion-item>\r\n          </ion-list>\r\n        </div>\r\n      <!-- <div *ngFor=\"let list of filteredList\" class=\"cat-divsize\" (click)=\"grocerydesc(list.id)\">\r\n          <img src=\"{{list.img_m}}\" class=\"cat-img\"/>\r\n          <h5 class=\"cat-name fw600\">{{list.name}}</h5>\r\n          <h5 class=\"cat-quantity\">{{list.quantity}}</h5>\r\n          <p class=\"cat-brand\">{{list.brand_name}}</p>\r\n          <h1 class=\"cat-mrp fw600\">&#8377; {{list.mrp}}</h1>\r\n      </div> -->\r\n    </div>\r\n    <div *ngIf=\"filteredList.length == 0\">\r\n        <div class=\"cat-main\">\r\n            <h5 class=\"cat-nf\">No Products Found</h5>\r\n        </div>\r\n    </div>\r\n\r\n    <ion-fab horizontal=\"end\" vertical=\"bottom\" slot=\"fixed\">\r\n        <ion-fab-button color=\"darkblue\" size=\"small\" (click)=\"opencart()\" #cart>\r\n          <!-- <div class=\"cart-length\">{{ cardItemCount | async }}</div> -->\r\n          <ion-icon name=\"cart\"></ion-icon>\r\n        </ion-fab-button>\r\n      </ion-fab>\r\n</ion-content>\r\n"
 
 /***/ }),
 
@@ -102,6 +102,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var GroceryFilterlistPage = /** @class */ (function () {
+    // public onQtyForm:FormGroup;
     function GroceryFilterlistPage(route, authService, alertService, loadingCtrl, alertCtrl, navCtrl, popoverCtrl, modalCtrl, router, formBuilder) {
         this.route = route;
         this.authService = authService;
@@ -113,11 +114,12 @@ var GroceryFilterlistPage = /** @class */ (function () {
         this.modalCtrl = modalCtrl;
         this.router = router;
         this.formBuilder = formBuilder;
+        this.message = '1';
     }
     GroceryFilterlistPage.prototype.ngOnInit = function () {
-        this.onQtyForm = this.formBuilder.group({
-            'qty': ['', _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required]
-        });
+        // this.onQtyForm = this.formBuilder.group({
+        //   'qty':['', Validators.required]
+        // });
         this.filteredList = [];
         this.getFilteredList();
         this.getList();
@@ -142,15 +144,32 @@ var GroceryFilterlistPage = /** @class */ (function () {
         this.router.navigate(['grocery-desc'], navigationExtras);
     };
     GroceryFilterlistPage.prototype.addToCart = function (product) {
-        this.alertService.cartNote('1 item added to cart');
-        var qty = {
-            "qty": "1"
+        var _this = this;
+        console.log(this.message);
+        var quantity = {
+            'qty': this.message
         };
-        var id = {
-            "id": product.id
-        };
-        this.authService.addToCart(qty, id).subscribe(function (result) {
+        // this.alertService.cartNote('1 item added to cart');
+        // let qty={
+        //   "qty":"1"
+        // }
+        // let id={
+        //   "id":product.id
+        // }
+        // this.authService.addToCart(qty,id).subscribe(result =>{
+        //   console.log(result);
+        //   });
+        // console.log(this.onQtyForm);
+        // if(this.onQtyForm.get('qty').touched){
+        //   this.alertService.cartNote('1 item added to cart');
+        // }else{
+        //   this.alertService.cartNote('Please select quantity');
+        // } 
+        // console.log(this.onQtyForm.value);
+        this.authService.addToCart(quantity, product).subscribe(function (result) {
             console.log(result);
+            _this.alertService.cartNote('Item added to cart');
+            _this.message = '1';
         });
     };
     GroceryFilterlistPage.prototype.opencart = function () {
@@ -172,12 +191,12 @@ var GroceryFilterlistPage = /** @class */ (function () {
     };
     GroceryFilterlistPage.prototype.getList = function () {
         var e_1, _a;
-        var braname = this.groceryBrand;
+        var brandname = this.groceryBrand;
         var qty = this.groceryQty;
         try {
             for (var _b = tslib__WEBPACK_IMPORTED_MODULE_0__["__values"](this.groceryList), _c = _b.next(); !_c.done; _c = _b.next()) {
                 var list = _c.value;
-                if ((braname.indexOf(list.brand_name) > -1 || braname.length == 0) && (qty.indexOf(list.quantity) > -1 || qty.length == 0)) {
+                if ((brandname.indexOf(list.brand_name) > -1 || brandname.length == 0) && (qty.indexOf(list.quantity) > -1 || qty.length == 0)) {
                     this.filteredList.push(list);
                 }
             }

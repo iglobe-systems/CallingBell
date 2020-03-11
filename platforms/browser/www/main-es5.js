@@ -138,6 +138,10 @@ var map = {
 		"./src/app/pages/cust/spec-cat/celeb-form/celeb-form.module.ts",
 		"pages-cust-spec-cat-celeb-form-celeb-form-module"
 	],
+	"./pages/cust/spec-cat/celeb-item/celeb-item.module": [
+		"./src/app/pages/cust/spec-cat/celeb-item/celeb-item.module.ts",
+		"pages-cust-spec-cat-celeb-item-celeb-item-module"
+	],
 	"./pages/cust/spec-cat/celeb-package/celeb-package.module": [
 		"./src/app/pages/cust/spec-cat/celeb-package/celeb-package.module.ts",
 		"pages-cust-spec-cat-celeb-package-celeb-package-module"
@@ -701,7 +705,7 @@ module.exports = webpackAsyncContext;
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!-- <div *ngIf=\"showSplash\">\n  <div>\n      <img src=\"assets/img/Splash/BELL_B.png\" class=\"bell bell_BF\">\n      <img src=\"assets/img/Splash/BELL_T.png\" class=\"bell bell_T\">\n      <img src=\"assets/img/Splash/BELL_F.png\" class=\"bell bell_BF\">\n    </div>\n</div> -->\n\n<ion-app >\n  <ion-split-pane>\n    <ion-menu>\n      <ion-header>\n        <ion-toolbar color=\"darkblue\" class=\"user-profile\">\n          <ion-buttons slot=\"start\">\n            <div class=\"logo-in size\"></div>\n          </ion-buttons>\n        <br>\n          <ion-item class=\"ion-margin-bottom\" no-lines>\n            <ion-label  class=\"ion-text-right\">\n              <ion-menu-toggle menu=\"first\" class=\"mto\" auto-hide=\"false\">\n                <a class=\"text08\" tappable (click)=\"goToEditProfile()\">\n                  <ion-text color=\"light\">\n                    <ion-icon name=\"ios-contact\" class=\"text15\"></ion-icon>\n                    &nbsp;<strong>PROFILE</strong>\n                  </ion-text>\n                </a> \n                <br>\n                <!-- <ion-text color=\"secondary\"> | </ion-text>  -->\n                <a class=\"text08\" tappable (click)=\"logout()\">\n                  <ion-text color=\"light\">\n                    <ion-icon name=\"ios-log-out\" class=\"text15\"></ion-icon>\n                    &nbsp;<strong>LOGOUT</strong>\n                  </ion-text>\n                </a>\n              </ion-menu-toggle>\n            </ion-label>\n          </ion-item>\n\n        </ion-toolbar>\n      </ion-header>\n\n      <ion-content class=\"bg-profile\" color=\"darkblue\">\n        <ion-list>\n          <ion-list-header color=\"gold\">\n            <ion-label color=\"darkblue fw600\">MENU</ion-label>\n          </ion-list-header>\n\n          <ion-menu-toggle auto-hide=\"false\" *ngFor=\"let p of appPages\">\n            <ion-item [routerLink]=\"[p.url]\" color=\"light\">\n              <ion-icon slot=\"start\" [name]=\"p.icon\" color=\"gold\"></ion-icon>\n              <ion-label color=\"darkblue\">\n                {{p.title}}\n              </ion-label>\n            </ion-item>\n          </ion-menu-toggle>\n        </ion-list>\n      </ion-content>\n    </ion-menu>\n    <ion-router-outlet main></ion-router-outlet>\n  </ion-split-pane>\n</ion-app>\n\n"
+module.exports = "<!-- <div *ngIf=\"showSplash\">\r\n  <div>\r\n      <img src=\"assets/img/Splash/BELL_B.png\" class=\"bell bell_BF\">\r\n      <img src=\"assets/img/Splash/BELL_T.png\" class=\"bell bell_T\">\r\n      <img src=\"assets/img/Splash/BELL_F.png\" class=\"bell bell_BF\">\r\n    </div>\r\n</div> -->\r\n\r\n<ion-app >\r\n  <ion-split-pane>\r\n    <ion-menu>\r\n      <ion-header>\r\n        <ion-toolbar color=\"darkblue\" class=\"user-profile\">\r\n          <ion-buttons slot=\"start\">\r\n            <div class=\"logo-in size\"></div>\r\n          </ion-buttons>\r\n        <br>\r\n          <ion-item class=\"ion-margin-bottom\" no-lines>\r\n            <ion-label  class=\"ion-text-right\">\r\n              <ion-menu-toggle menu=\"first\" class=\"mto\" auto-hide=\"false\">\r\n                <a class=\"text08\" tappable (click)=\"goToEditProfile()\">\r\n                  <ion-text color=\"light\">\r\n                    <ion-icon name=\"ios-contact\" class=\"text15\"></ion-icon>\r\n                    &nbsp;<strong>PROFILE</strong>\r\n                  </ion-text>\r\n                </a> \r\n                <br>\r\n                <!-- <ion-text color=\"secondary\"> | </ion-text>  -->\r\n                <a class=\"text08\" tappable (click)=\"logout()\">\r\n                  <ion-text color=\"light\">\r\n                    <ion-icon name=\"ios-log-out\" class=\"text15\"></ion-icon>\r\n                    &nbsp;<strong>LOGOUT</strong>\r\n                  </ion-text>\r\n                </a>\r\n              </ion-menu-toggle>\r\n            </ion-label>\r\n          </ion-item>\r\n\r\n        </ion-toolbar>\r\n      </ion-header>\r\n\r\n      <ion-content class=\"bg-profile\" color=\"darkblue\">\r\n        <ion-list>\r\n          <ion-list-header color=\"gold\">\r\n            <ion-label color=\"darkblue fw600\">MENU</ion-label>\r\n          </ion-list-header>\r\n\r\n          <ion-menu-toggle auto-hide=\"false\" *ngFor=\"let p of appPages\">\r\n            <ion-item [routerLink]=\"[p.url]\" color=\"light\">\r\n              <ion-icon slot=\"start\" [name]=\"p.icon\" color=\"gold\"></ion-icon>\r\n              <ion-label color=\"darkblue\">\r\n                {{p.title}}\r\n              </ion-label>\r\n            </ion-item>\r\n          </ion-menu-toggle>\r\n        </ion-list>\r\n      </ion-content>\r\n    </ion-menu>\r\n    <ion-router-outlet main></ion-router-outlet>\r\n  </ion-split-pane>\r\n</ion-app>\r\n\r\n"
 
 /***/ }),
 
@@ -723,7 +727,7 @@ module.exports = "\n  <ion-list>\n    <ion-item button (click)=\"opencart()\">It
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-list class=\"ion-no-padding ion-no-margin\" mode=\"md\">\n    <ion-list-header color=\"darkblue\">\n      <ion-label class=\"fw700\">WELCOME TO SUPPORT</ion-label>\n    </ion-list-header>\n\n    <form [formGroup]=\"onSupportForm\">\n      <!-- <ion-item no-padding class=\"margin\">\n          <ion-label position=\"floating\">How can we support you ?</ion-label>\n          <ion-select formControlName=\"issue\">\n            <ion-select-option value=\"{{p.services}}\" *ngFor=\"let p of support\">{{p.services}}</ion-select-option>\n          </ion-select>\n      </ion-item> -->\n      <ion-label class=\"label\">&nbsp;&nbsp;&nbsp;Specify the time to call</ion-label>\n      <ion-item *ngIf=\"!onSupportForm.get('callMeTodayAt').value && !onSupportForm.get('callMeOn').value && !onSupportForm.get('callMeAt').value \">\n          <ion-label>Call me now</ion-label>\n          <ion-checkbox formControlName=\"callMeNow\" value=\"call now\" ></ion-checkbox>\n      </ion-item>\n      <ion-item *ngIf=\"!onSupportForm.get('callMeNow').value && !onSupportForm.get('callMeOn').value && !onSupportForm.get('callMeAt').value \">\n          <ion-label>Call me today at</ion-label>\n          <ion-datetime display-format=\"h:mm A\" picker-format=\"h:mm A\" formControlName=\"callMeTodayAt\" placeholder=\"Select Time\"></ion-datetime>\n      </ion-item>\n      <ion-item *ngIf=\"!onSupportForm.get('callMeNow').value && !onSupportForm.get('callMeTodayAt').value\">\n          <ion-label>Call me on</ion-label>\n          <ion-datetime placeholder=\"Select Date\" formControlName=\"callMeOn\"></ion-datetime>\n      </ion-item>\n      <ion-item *ngIf=\"!onSupportForm.get('callMeNow').value && !onSupportForm.get('callMeTodayAt').value\">\n          <ion-label>Call me at</ion-label>\n          <ion-datetime display-format=\"h:mm A\" picker-format=\"h:mm A\" formControlName=\"callMeAt\" placeholder=\"Select Time\"></ion-datetime>\n      </ion-item>\n    </form>  \n    <div class=\"text-center\">\n    <ion-button shape=\"round\" color=\"gold\" (click)=\"sendSupport()\" class=\"ion-margin\">Submit</ion-button>\n    </div>\n\n  </ion-list>"
+module.exports = "<ion-list class=\"ion-no-padding ion-no-margin\" mode=\"md\">\r\n    <ion-list-header color=\"darkblue\">\r\n      <ion-label class=\"fw700\">WELCOME TO SUPPORT</ion-label>\r\n    </ion-list-header>\r\n\r\n    <form [formGroup]=\"onSupportForm\">\r\n      <!-- <ion-item no-padding class=\"margin\">\r\n          <ion-label position=\"floating\">How can we support you ?</ion-label>\r\n          <ion-select formControlName=\"issue\">\r\n            <ion-select-option value=\"{{p.services}}\" *ngFor=\"let p of support\">{{p.services}}</ion-select-option>\r\n          </ion-select>\r\n      </ion-item> -->\r\n      <ion-label class=\"label\">&nbsp;&nbsp;&nbsp;Specify the time to call</ion-label>\r\n      <ion-item *ngIf=\"!onSupportForm.get('callMeTodayAt').value && !onSupportForm.get('callMeOn').value && !onSupportForm.get('callMeAt').value \">\r\n          <ion-label>Call me now</ion-label>\r\n          <ion-checkbox formControlName=\"callMeNow\" value=\"call now\" ></ion-checkbox>\r\n      </ion-item>\r\n      <ion-item *ngIf=\"!onSupportForm.get('callMeNow').value && !onSupportForm.get('callMeOn').value && !onSupportForm.get('callMeAt').value \">\r\n          <ion-label>Call me today at</ion-label>\r\n          <ion-datetime display-format=\"h:mm A\" picker-format=\"h:mm A\" formControlName=\"callMeTodayAt\" placeholder=\"Select Time\"></ion-datetime>\r\n      </ion-item>\r\n      <ion-item *ngIf=\"!onSupportForm.get('callMeNow').value && !onSupportForm.get('callMeTodayAt').value\">\r\n          <ion-label>Call me on</ion-label>\r\n          <ion-datetime placeholder=\"Select Date\" formControlName=\"callMeOn\"></ion-datetime>\r\n      </ion-item>\r\n      <ion-item *ngIf=\"!onSupportForm.get('callMeNow').value && !onSupportForm.get('callMeTodayAt').value\">\r\n          <ion-label>Call me at</ion-label>\r\n          <ion-datetime display-format=\"h:mm A\" picker-format=\"h:mm A\" formControlName=\"callMeAt\" placeholder=\"Select Time\"></ion-datetime>\r\n      </ion-item>\r\n    </form>  \r\n    <div class=\"text-center\">\r\n    <ion-button shape=\"round\" color=\"gold\" (click)=\"sendSupport()\" class=\"ion-margin\">Submit</ion-button>\r\n    </div>\r\n\r\n  </ion-list>"
 
 /***/ }),
 
@@ -734,7 +738,7 @@ module.exports = "<ion-list class=\"ion-no-padding ion-no-margin\" mode=\"md\">\
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!-- <ion-header>\n  <ion-toolbar color=\"danger\">\n    <ion-buttons slot=\"start\">\n      <ion-menu-button color=\"light\"></ion-menu-button>\n    </ion-buttons>\n    <div class=\"logo-in\"></div>\n  </ion-toolbar>\n</ion-header> -->\n\n<ion-content fullscreen>\n  <div class=\"ion-text-end\">\n    <ion-button (click)=\"close()\" fill=\"clear\" color=\"dark\">\n      <ion-icon name=\"close\" slot=\"start\"></ion-icon>\n    </ion-button>\n  </div>\n\n  <div>\n    <ion-list class=\"list-style\">\n      <ion-item *ngFor=\"let i of cartList\">\n        <ion-grid>\n        <ion-row>\n          <ion-col size=\"7\" class=\"prod-name\">\n            <b>{{ i.product_detail.name }}</b>\n          </ion-col>\n          <ion-col size=\"1\"></ion-col>\n          <ion-col size=\"2\" class=\"count-style\">\n            Qty : {{i.count}}\n          </ion-col>\n          <ion-col size=\"2\" class=\"ion-text-end\" (click)=\"removeCartItem(i)\">\n            <ion-icon name=\"trash\" color=\"darkblue\" mode=\"ios\"></ion-icon>\n          </ion-col>\n        </ion-row>\n\n        <ion-row>\n            <ion-col size=\"6\" class=\"prod-qty\">\n              <h5 class=\"margin-style\">{{i.product_detail.quantity}}</h5>\n            </ion-col>\n            <ion-col size=\"6\" class=\"prod-mrp\">\n              <b>{{ i.count * i.product_detail.mrp | currency:'INR' }}</b>\n            </ion-col>\n        </ion-row>\n        </ion-grid>\n      </ion-item>\n      <ion-row>\n          <ion-col size=\"6\">\n            <p class=\"total-style\">Total:</p>\n          </ion-col>\n          <ion-col size=\"6\" class=\"ion-text-end\">\n            <p class=\"total-style\">{{ getTotal() | currency:'INR' }}</p>\n          </ion-col>\n    </ion-row>\n    </ion-list>\n      <div class=\"ion-text-end ion-padding\">\n        <ion-button size=\"small\" color=\"dark\" (click)=\"checkout()\">\n          Checkout\n        </ion-button>\n      </div>\n    </div>\n\n\n\n\n\n    \n      <!-- <ion-list>\n        <ion-item *ngFor=\"let p of cart\" class=\"ion-text-wrap\">\n          <ion-grid>\n            <ion-row class=\"ion-align-items-center\">\n              <ion-col size=\"2\" class=\"ion-align-self-center\">\n                <ion-button color=\"medium\" fill=\"clear\" (click)=\"decreaseCartItem(p)\">\n                  <ion-icon name=\"remove-circle\" slot=\"icon-only\"></ion-icon>\n                </ion-button>\n              </ion-col>\n   \n              <ion-col size=\"1\" class=\"ion-align-self-center\">\n                {{p.count}}\n              </ion-col>\n   \n              <ion-col size=\"2\" class=\"ion-align-self-center\">\n                <ion-button color=\"medium\" fill=\"clear\" (click)=\"increaseCartItem(p)\">\n                  <ion-icon name=\"add-circle\" slot=\"icon-only\"></ion-icon>\n                </ion-button>\n              </ion-col>\n   \n              <ion-col size=\"2\" offset=\"5\">\n                <ion-button color=\"medium\" fill=\"clear\" (click)=\"removeCartItem(p)\">\n                  <ion-icon name=\"close-circle\" slot=\"icon-only\"></ion-icon>\n                </ion-button>\n              </ion-col>\n            </ion-row>\n            <ion-row>\n              <ion-col size=\"9\">\n                <b>{{ p.name }}</b>\n              </ion-col>\n              <ion-col size=\"3\" class=\"ion-text-end\">\n                {{ p.count * p.mrp | currency:'INR' }}\n              </ion-col>\n            </ion-row>\n          </ion-grid>\n        </ion-item>\n        <ion-item>\n          <ion-grid>\n            <ion-row>\n              <ion-col size=\"9\">\n                Total:\n              </ion-col>\n              <ion-col size=\"3\" class=\"ion-text-end\">\n                {{ getTotal() | currency:'INR' }}\n              </ion-col>\n            </ion-row>\n          </ion-grid>\n        </ion-item>\n      </ion-list> -->\n\n</ion-content>\n"
+module.exports = "<!-- <ion-header>\n  <ion-toolbar color=\"danger\">\n    <ion-buttons slot=\"start\">\n      <ion-menu-button color=\"light\"></ion-menu-button>\n    </ion-buttons>\n    <div class=\"logo-in\"></div>\n  </ion-toolbar>\n</ion-header> -->\n\n<ion-content fullscreen>\n  <div class=\"ion-text-end\">\n    <ion-button (click)=\"close()\" fill=\"clear\" color=\"dark\">\n      <ion-icon name=\"close\" slot=\"start\"></ion-icon>\n    </ion-button>\n  </div>\n\n  <div>\n    <ion-list class=\"list-style\">\n      <ion-item *ngFor=\"let i of cartList\">\n        <ion-grid>\n        <ion-row>\n          <ion-col size=\"7\" class=\"prod-name\">\n            <b>{{ i.product_detail.name }}</b>\n          </ion-col>\n          <ion-col size=\"1\"></ion-col>\n          <ion-col size=\"2\" class=\"count-style\">\n            Qty : {{i.count}}\n          </ion-col>\n          <ion-col size=\"2\" class=\"ion-text-end\" (click)=\"removeCartItem(i)\">\n            <ion-icon name=\"trash\" color=\"darkblue\" mode=\"ios\"></ion-icon>\n          </ion-col>\n        </ion-row>\n\n        <ion-row>\n            <ion-col size=\"6\" class=\"prod-qty\">\n              <h5 class=\"margin-style\">{{i.product_detail.quantity}}</h5>\n            </ion-col>\n            <ion-col size=\"6\" class=\"prod-mrp\">\n              <b>{{ i.count * i.product_detail.mrp | currency:'INR' }}</b>\n            </ion-col>\n        </ion-row>\n        </ion-grid>\n      </ion-item>\n      <ion-row>\n          <ion-col size=\"6\">\n            <p class=\"total-style\">Total:</p>\n          </ion-col>\n          <ion-col size=\"6\" class=\"ion-text-end\">\n            <p class=\"total-style\">{{ getTotal() | currency:'INR' }}</p>\n          </ion-col>\n    </ion-row>\n    </ion-list>\n      <div class=\"ion-text-end ion-padding\">\n        <ion-button size=\"small\" color=\"dark\" (click)=\"checkout()\">\n          Checkout\n        </ion-button>\n      </div>\n    </div>\n\n      <!-- <ion-list>\n        <ion-item *ngFor=\"let p of cart\" class=\"ion-text-wrap\">\n          <ion-grid>\n            <ion-row class=\"ion-align-items-center\">\n              <ion-col size=\"2\" class=\"ion-align-self-center\">\n                <ion-button color=\"medium\" fill=\"clear\" (click)=\"decreaseCartItem(p)\">\n                  <ion-icon name=\"remove-circle\" slot=\"icon-only\"></ion-icon>\n                </ion-button>\n              </ion-col>\n   \n              <ion-col size=\"1\" class=\"ion-align-self-center\">\n                {{p.count}}\n              </ion-col>\n   \n              <ion-col size=\"2\" class=\"ion-align-self-center\">\n                <ion-button color=\"medium\" fill=\"clear\" (click)=\"increaseCartItem(p)\">\n                  <ion-icon name=\"add-circle\" slot=\"icon-only\"></ion-icon>\n                </ion-button>\n              </ion-col>\n   \n              <ion-col size=\"2\" offset=\"5\">\n                <ion-button color=\"medium\" fill=\"clear\" (click)=\"removeCartItem(p)\">\n                  <ion-icon name=\"close-circle\" slot=\"icon-only\"></ion-icon>\n                </ion-button>\n              </ion-col>\n            </ion-row>\n            <ion-row>\n              <ion-col size=\"9\">\n                <b>{{ p.name }}</b>\n              </ion-col>\n              <ion-col size=\"3\" class=\"ion-text-end\">\n                {{ p.count * p.mrp | currency:'INR' }}\n              </ion-col>\n            </ion-row>\n          </ion-grid>\n        </ion-item>\n        <ion-item>\n          <ion-grid>\n            <ion-row>\n              <ion-col size=\"9\">\n                Total:\n              </ion-col>\n              <ion-col size=\"3\" class=\"ion-text-end\">\n                {{ getTotal() | currency:'INR' }}\n              </ion-col>\n            </ion-row>\n          </ion-grid>\n        </ion-item>\n      </ion-list> -->   \n       \n</ion-content>\n"
 
 /***/ }),
 
@@ -829,6 +833,7 @@ var routes = [
     { path: 'issue-list', loadChildren: './pages/cust/spec-cat/issue-list/issue-list.module#IssueListPageModule' },
     { path: 'quick-book', loadChildren: './pages/cust/spec-cat/quick-book/quick-book.module#QuickBookPageModule' },
     { path: 'add-grocery', loadChildren: './pages/dev/add-grocery/add-grocery.module#AddGroceryPageModule' },
+    { path: 'celeb-item', loadChildren: './pages/cust/spec-cat/celeb-item/celeb-item.module#CelebItemPageModule' },
 ];
 var AppRoutingModule = /** @class */ (function () {
     function AppRoutingModule() {
@@ -877,6 +882,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _services_auth_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./services/auth.service */ "./src/app/services/auth.service.ts");
 /* harmony import */ var rxjs_observable_timer__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! rxjs/observable/timer */ "./node_modules/rxjs-compat/_esm5/observable/timer.js");
 /* harmony import */ var _ionic_native_native_storage_ngx__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @ionic-native/native-storage/ngx */ "./node_modules/@ionic-native/native-storage/ngx/index.js");
+/* harmony import */ var _ionic_native_network_ngx__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @ionic-native/network/ngx */ "./node_modules/@ionic-native/network/ngx/index.js");
 
 
 
@@ -886,16 +892,19 @@ __webpack_require__.r(__webpack_exports__);
 
 
 // import { LottieSplashScreen } from '@ionic-native/lottie-splash-screen/ngx';
+
 var AppComponent = /** @class */ (function () {
-    function AppComponent(platform, splashScreen, statusBar, navCtrl, authService, storage
-    // private lottie: LottieSplashScreen
-    ) {
+    function AppComponent(platform, splashScreen, statusBar, navCtrl, authService, storage, 
+    // private lottie: LottieSplashScreen,
+    network, toastController) {
         this.platform = platform;
         this.splashScreen = splashScreen;
         this.statusBar = statusBar;
         this.navCtrl = navCtrl;
         this.authService = authService;
         this.storage = storage;
+        this.network = network;
+        this.toastController = toastController;
         this.showSplash = true;
         this.appPages = [
             {
@@ -947,7 +956,26 @@ var AppComponent = /** @class */ (function () {
         var _this = this;
         this.platform.ready().then(function () {
             // console.log(this.storage.getItem('token'));
-            //uncomment during build
+            var disconnectSubscription = _this.network.onDisconnect().subscribe(function () { return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](_this, void 0, void 0, function () {
+                var toast;
+                return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
+                    switch (_a.label) {
+                        case 0:
+                            alert('No Network :-( ');
+                            return [4 /*yield*/, this.toastController.create({
+                                    message: 'Oops! You are offline. Try connecting internet again!.',
+                                    showCloseButton: true,
+                                    color: 'gold',
+                                    mode: 'ios',
+                                })];
+                        case 1:
+                            toast = _a.sent();
+                            toast.present();
+                            return [2 /*return*/];
+                    }
+                });
+            }); });
+            // uncomment during build
             _this.userInfo = _this.storage.getItem('user');
             _this.storage.getItem('user').then(function (data) {
                 _this.navCtrl.navigateRoot('cust-home');
@@ -956,8 +984,37 @@ var AppComponent = /** @class */ (function () {
                 _this.navCtrl.navigateRoot('cust-login');
                 _this.splashScreen.hide();
             });
+            var connectSubscription = _this.network.onConnect().subscribe(function () { return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](_this, void 0, void 0, function () {
+                var toast;
+                return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
+                    switch (_a.label) {
+                        case 0:
+                            alert('Network Connected! Restart app for better performance!');
+                            return [4 /*yield*/, this.toastController.create({
+                                    message: 'Hayyaah! You are online!.',
+                                    duration: 5000,
+                                    showCloseButton: true,
+                                    color: 'gold',
+                                    mode: 'ios',
+                                })];
+                        case 1:
+                            toast = _a.sent();
+                            toast.present();
+                            return [2 /*return*/];
+                    }
+                });
+            }); });
             _this.statusBar.styleDefault();
             _this.splashScreen.hide();
+            // onesignal 
+            // var notificationOpenedCallback = function(jsonData) {
+            //   console.log('notificationOpenedCallback: ' + JSON.stringify(jsonData));
+            // };
+            // window["plugins"].OneSignal.setLogLevel({logLevel: 4, visualLevel: 4});
+            // window["plugins"].OneSignal
+            //   .startInit("1c71ed87-8cb0-497b-b79b-46845489ceb7", "YOUR_GOOGLE_PROJECT_NUMBER_IF_ANDROID")
+            //   .handleNotificationOpened(notificationOpenedCallback)
+            //   .endInit();
             Object(rxjs_observable_timer__WEBPACK_IMPORTED_MODULE_6__["timer"])(3000).subscribe(function () { return _this.showSplash = false; });
         }).catch(function () { });
     };
@@ -984,7 +1041,9 @@ var AppComponent = /** @class */ (function () {
         { type: _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_4__["StatusBar"] },
         { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["NavController"] },
         { type: _services_auth_service__WEBPACK_IMPORTED_MODULE_5__["AuthService"] },
-        { type: _ionic_native_native_storage_ngx__WEBPACK_IMPORTED_MODULE_7__["NativeStorage"] }
+        { type: _ionic_native_native_storage_ngx__WEBPACK_IMPORTED_MODULE_7__["NativeStorage"] },
+        { type: _ionic_native_network_ngx__WEBPACK_IMPORTED_MODULE_8__["Network"] },
+        { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["ToastController"] }
     ]; };
     AppComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -997,9 +1056,9 @@ var AppComponent = /** @class */ (function () {
             _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_4__["StatusBar"],
             _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["NavController"],
             _services_auth_service__WEBPACK_IMPORTED_MODULE_5__["AuthService"],
-            _ionic_native_native_storage_ngx__WEBPACK_IMPORTED_MODULE_7__["NativeStorage"]
-            // private lottie: LottieSplashScreen
-        ])
+            _ionic_native_native_storage_ngx__WEBPACK_IMPORTED_MODULE_7__["NativeStorage"],
+            _ionic_native_network_ngx__WEBPACK_IMPORTED_MODULE_8__["Network"],
+            _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["ToastController"]])
     ], AppComponent);
     return AppComponent;
 }());
@@ -1046,6 +1105,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ionic_native_lottie_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! @ionic-native/lottie-splash-screen/ngx */ "./node_modules/@ionic-native/lottie-splash-screen/ngx/index.js");
 /* harmony import */ var _pages_cust_cart_cart_module__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./pages/cust/cart/cart.module */ "./src/app/pages/cust/cart/cart.module.ts");
 /* harmony import */ var _ionic_native_image_picker_ngx__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! @ionic-native/image-picker/ngx */ "./node_modules/@ionic-native/image-picker/ngx/index.js");
+/* harmony import */ var _ionic_native_network_ngx__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! @ionic-native/network/ngx */ "./node_modules/@ionic-native/network/ngx/index.js");
 
 
 
@@ -1078,6 +1138,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 //image picker
+
+//network
 
 var AppModule = /** @class */ (function () {
     function AppModule() {
@@ -1114,6 +1176,7 @@ var AppModule = /** @class */ (function () {
                 _ionic_native_social_sharing_ngx__WEBPACK_IMPORTED_MODULE_24__["SocialSharing"],
                 _ionic_native_lottie_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_25__["LottieSplashScreen"],
                 _ionic_native_image_picker_ngx__WEBPACK_IMPORTED_MODULE_27__["ImagePicker"],
+                _ionic_native_network_ngx__WEBPACK_IMPORTED_MODULE_28__["Network"]
             ],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_8__["AppComponent"]],
         })
@@ -2377,6 +2440,15 @@ __webpack_require__.r(__webpack_exports__);
 // The list of file replacements can be found in `angular.json`.
 var environment = {
     production: false
+    // firebase: {
+    //   apiKey: "AIzaSyCGLT-_nfJke4gU46tuqCR7qYMVDKr1UMI",
+    //   authDomain: "callingbell-1569589209323.firebaseapp.com",
+    //   databaseURL: "https://callingbell-1569589209323.firebaseio.com",
+    //   projectId: "callingbell-1569589209323",
+    //   storageBucket: "callingbell-1569589209323.appspot.com",
+    //   messagingSenderId: "954697133395",
+    //   appId: "1:954697133395:web:5a95bf92a1a98e556345a6"
+    // }
 };
 /*
  * For easier debugging in development mode, you can import the following file

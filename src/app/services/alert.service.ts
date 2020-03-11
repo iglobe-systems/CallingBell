@@ -60,4 +60,6 @@ export class AlertService {
       toast.present();
     })
   }
+
 }
+

@@ -15,15 +15,15 @@ import {
   ActionSheetController,
   Platform
 } from '@ionic/angular';
-import { File, FileEntry } from '@ionic-native/file/ngx';
+// import { File, FileEntry } from '@ionic-native/file/ngx';
 import { HttpClientModule, HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs/Observable';
-import { NativeStorage } from '@ionic-native/native-storage/ngx';
-import { WebView } from '@ionic-native/ionic-webview/ngx';
-import { Storage } from '@ionic/storage';
-import { FilePath } from '@ionic-native/file-path/ngx';
-import { finalize } from 'rxjs/operators';
-// import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
+// import { Observable } from 'rxjs/Observable';
+// import { NativeStorage } from '@ionic-native/native-storage/ngx';
+// import { WebView } from '@ionic-native/ionic-webview/ngx';
+// import { Storage } from '@ionic/storage';
+// import { FilePath } from '@ionic-native/file-path/ngx';
+// import { finalize } from 'rxjs/operators';
+import { FileTransfer,FileUploadOptions,FileTransferObject } from '@ionic-native/file-transfer/ngx';
 
 // const STORAGE_KEY = 'my_images';
 @Component({
@@ -33,15 +33,15 @@ import { finalize } from 'rxjs/operators';
 })
 export class AddAssetPage implements OnInit {
   // userInfo: any;
-  // image:any;
-  // imageData:any;
+  image:any='';
+  imageData:any='';
 
-  images = [];
+  // images = [];
 
   public onAddAssetForm: FormGroup;
   constructor(
               private camera: Camera,
-              // public transfer: FileTransfer,
+              private transfer: FileTransfer,
               // public authService: AuthService, 
               // public alertService: AlertService, 
               public loadingCtrl: LoadingController, 
@@ -51,14 +51,14 @@ export class AddAssetPage implements OnInit {
               // private router: Router,
               public http: HttpClient,
               private formBuilder: FormBuilder,
-              private storage: Storage,
+              // private storage: Storage,
               public toastController: ToastController,
-              private file: File,
-              private webview: WebView,
-              private actionSheetController: ActionSheetController,
-              private platform: Platform,
-              private ref: ChangeDetectorRef,
-              private filePath: FilePath
+              // private file: File,
+              // private webview: WebView,
+              // private actionSheetController: ActionSheetController,
+              // private platform: Platform,
+              // private ref: ChangeDetectorRef,
+              // private filePath: FilePath
               ) { }
 
   ngOnInit() {
@@ -79,6 +79,58 @@ export class AddAssetPage implements OnInit {
   addAsset(){
     console.log(this.onAddAssetForm.value);
   }
+
+  openCam(){
+
+    const options: CameraOptions = {
+      quality: 50,
+      destinationType: this.camera.DestinationType.FILE_URI,
+      encodingType: this.camera.EncodingType.JPEG,
+      mediaType: this.camera.MediaType.PICTURE
+    }
+    
+    this.camera.getPicture(options).then((imageData) => {
+     // imageData is either a base64 encoded string or a file URI
+     // If it's base64 (DATA_URL):
+     //alert(imageData)
+     this.imageData=imageData
+     this.image=(<any>window).Ionic.WebView.convertFileSrc(imageData);
+    }, (err) => {
+     // Handle error
+     alert("error "+JSON.stringify(err))
+    });
+
+  }
+
+
+  async upload()
+  {
+    const loading = await this.loadingCtrl.create({
+      message: 'Uploading...',
+      });
+    await loading.present();
+
+    const fileTransfer: FileTransferObject = this.transfer.create();
+
+    let options1: FileUploadOptions = {
+       fileKey: 'file',
+       fileName: 'name.jpg',
+       headers: {}
+    
+    }
+
+fileTransfer.upload(this.imageData, 'http://apiv1.iglobesystems.com:8000/api_v1/assets/add', options1)
+ .then((data) => {
+   // success
+   loading.dismiss();
+   alert("success");
+ }, (err) => {
+   // error
+   alert("error"+JSON.stringify(err));
+   loading.dismiss()
+ });
+  }
+
 
   // loadStoredImages() {
   //   this.storage.get(STORAGE_KEY).then(images => {

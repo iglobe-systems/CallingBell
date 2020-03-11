@@ -1,0 +1,234 @@
+<ion-header>
+  <ion-toolbar color="darkblue">
+    <ion-buttons slot="start">
+       <ion-menu-button color="light"></ion-menu-button>
+    </ion-buttons>
+    <div>
+      <img src="assets/img/newlogov7.png" class="header-logo"/>
+    </div>
+     <ion-buttons slot="end">
+        <ion-button shape="round" (click)="back()">
+          <ion-icon name="arrow-round-back" class="text15"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div *ngIf="service.name === 'Cakes'">
+
+    <ion-segment [(ngModel)]="segment" scrollable color="darkblue">
+      <ion-segment-button value="Whole Cakes">
+        Whole cakes
+      </ion-segment-button>
+      <ion-segment-button value="Theme Cakes">
+        Theme cakes
+      </ion-segment-button>
+      <ion-segment-button value="Birthday Cakes">
+        Birthday cakes
+      </ion-segment-button>
+      <ion-segment-button value="Wedding Cakes">
+        Wedding cakes
+      </ion-segment-button>
+      <ion-segment-button value="Photo Cakes">
+        Photo cakes
+      </ion-segment-button>
+    </ion-segment>
+  
+    <div [ngSwitch]="segment">
+      <div *ngSwitchCase="'Whole Cakes'">
+        <div *ngFor="let cake of wholeCakes" class="card-style">
+          <ion-card class="content-style">
+            <img src="{{cake.image_url}}">
+            <ion-card-header class="content-header">
+              <ion-card-title class="content-title">{{cake.name}}</ion-card-title>
+            </ion-card-header>
+            <ion-card-content class="content-desc">
+             {{cake.desc}}
+            </ion-card-content>
+            <ion-footer>
+              <ion-row>
+                <ion-col>
+                  <div class="content-price">&#8377; {{cake.price}}</div>
+                </ion-col>
+                <ion-col>
+                  <ion-button fill="outline" size="small" color="darkblue">Add To Cart</ion-button>
+                </ion-col>
+              </ion-row>
+            </ion-footer>
+          </ion-card>
+        </div>
+      </div>
+
+      <div *ngSwitchCase="'Theme Cakes'">
+        <div *ngFor="let cake of themeCakes" class="card-style">
+          <ion-card class="content-style">
+            <img src="{{cake.image_url}}">
+            <ion-card-header class="content-header">
+              <ion-card-title class="content-title">{{cake.name}}</ion-card-title>
+            </ion-card-header>
+            <ion-card-content class="content-desc">
+             {{cake.desc}}
+            </ion-card-content>
+            <ion-footer>
+              <ion-row>
+                <ion-col>
+                  <div class="content-price">&#8377; {{cake.price}}</div>
+                </ion-col>
+                <ion-col>
+                  <ion-button fill="outline" size="small" color="darkblue">Add To Cart</ion-button>
+                </ion-col>
+              </ion-row>
+            </ion-footer>
+          </ion-card>
+        </div>
+      </div>
+    
+      <div *ngSwitchCase="'Birthday Cakes'">
+        <div *ngFor="let cake of birthdayCakes" class="card-style">
+          <ion-card class="content-style">
+            <img src="{{cake.image_url}}">
+            <ion-card-header class="content-header">
+              <ion-card-title class="content-title">{{cake.name}}</ion-card-title>
+            </ion-card-header>
+            <ion-card-content class="content-desc">
+             {{cake.desc}}
+            </ion-card-content>
+            <ion-footer>
+              <ion-row>
+                <ion-col>
+                  <div class="content-price">&#8377; {{cake.price}}</div>
+                </ion-col>
+                <ion-col>
+                  <ion-button fill="outline" size="small" color="darkblue">Add To Cart</ion-button>
+                </ion-col>
+              </ion-row>
+            </ion-footer>
+          </ion-card>
+        </div>
+      </div>
+  
+      <div *ngSwitchCase="'Wedding Cakes'">
+        <div *ngFor="let cake of weddingCakes" class="card-style">
+          <ion-card class="content-style">
+            <img src="{{cake.image_url}}">
+            <ion-card-header class="content-header">
+              <ion-card-title class="content-title">{{cake.name}}</ion-card-title>
+            </ion-card-header>
+            <ion-card-content class="content-desc">
+             {{cake.desc}}
+            </ion-card-content>
+            <ion-footer>
+              <ion-row>
+                <ion-col>
+                  <div class="content-price">&#8377; {{cake.price}}</div>
+                </ion-col>
+                <ion-col>
+                  <ion-button fill="outline" size="small" color="darkblue">Add To Cart</ion-button>
+                </ion-col>
+              </ion-row>
+            </ion-footer>
+          </ion-card>
+        </div>
+      </div>
+  
+      <div *ngSwitchCase="'Photo Cakes'">
+        <div *ngFor="let cake of photoCakes" class="card-style">
+          <ion-card class="content-style">
+            <img src="{{cake.image_url}}">
+            <ion-card-header class="content-header">
+              <ion-card-title class="content-title">{{cake.name}}</ion-card-title>
+            </ion-card-header>
+            <ion-card-content class="content-desc">
+             {{cake.desc}}
+            </ion-card-content>
+            <ion-footer>
+              <ion-row>
+                <ion-col>
+                  <div class="content-price">&#8377; {{cake.price}}</div>
+                </ion-col>
+                <ion-col>
+                  <ion-button fill="outline" size="small" color="darkblue">Add To Cart</ion-button>
+                </ion-col>
+              </ion-row>
+            </ion-footer>
+          </ion-card>
+        </div>
+      </div>
+  
+    </div>
+
+  </div>
+
+  <div *ngIf="service.name === 'Personalised Card'">
+
+    <ion-segment [(ngModel)]="segment2" scrollable color="darkblue">
+      <ion-segment-button value="E card">
+        E card
+      </ion-segment-button>
+      <ion-segment-button value="Physical card">
+        Physical card
+      </ion-segment-button>
+    </ion-segment>
+
+    <div [ngSwitch]="segment2"> 
+      <div *ngSwitchCase="'E card'">
+        <div *ngFor="let card of eCard">
+          <ion-card class="card-content" (click)="goToCardForm(card)">
+            <img src="{{card.image_url}}" class="card-img"/>
+            <ion-icon name="arrow-forward" color="darkblue" class="card-icon" mode="ios"></ion-icon>
+          </ion-card>
+        </div>
+      </div>
+      <div *ngSwitchCase="'Physical card'">
+        <div *ngFor="let card of physicalCard" class="card-style">
+          <ion-card>
+            <img src="{{card.image_url}}"/>
+            <ion-card-header class="content-header">
+              <ion-card-title class="card-title">{{card.name}}</ion-card-title>
+            </ion-card-header>
+            <ion-footer>
+              <ion-row>
+                <ion-col>
+                  <div class="content-price">&#8377; {{card.price}}</div>
+                </ion-col>
+                <ion-col>
+                  <ion-button fill="outline" size="small" color="darkblue">Add To Cart</ion-button>
+                </ion-col>
+              </ion-row>
+            </ion-footer>
+          </ion-card>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  
+  <div *ngIf="service.name === 'Return Gifts'">
+    <h5 class="gift-header">Theme based return gifts for every occasion</h5>
+    <ion-card *ngFor="let gift of returnGifts">
+      <ion-row>
+        <ion-col>
+          <img src="{{gift.image_url}}"/>
+        </ion-col>
+        <ion-col>
+          <h5 class="gift-name">{{gift.name}}</h5>
+          <h5 class="gift-desc-title">It contains</h5>
+          <ul *ngFor="let item of gift.desc" class="gift-ul">
+            <li class="gift-li">{{item}}</li>
+          </ul>
+          <ion-row>
+            <ion-col>
+              <h5 class="gift-price">Rs.{{gift.price}}</h5>
+            </ion-col>
+            <ion-col>
+              <ion-button color="gold" size="small">Add to Cart</ion-button>
+            </ion-col>
+          </ion-row>
+        </ion-col>
+      </ion-row>
+    </ion-card>
+  </div>
+
+</ion-content>

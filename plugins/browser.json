@@ -51,6 +51,12 @@
     },
     "cordova-plugin-filepath": {
       "PACKAGE_NAME": "io.cordova.callingBell"
+    },
+    "cordova-plugin-network-information": {
+      "PACKAGE_NAME": "io.cordova.callingBell"
+    },
+    "onesignal-cordova-plugin": {
+      "PACKAGE_NAME": "io.cordova.callingBell"
     }
   },
   "dependent_plugins": {

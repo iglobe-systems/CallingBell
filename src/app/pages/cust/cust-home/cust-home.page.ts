@@ -21,6 +21,9 @@ import { Router, NavigationExtras } from '@angular/router';
 import { Icon } from 'ionicons/dist/types/icon/icon';
 import { CartPage } from '../cart/cart.page';
 import { NativeStorage } from '@ionic-native/native-storage/ngx';
+
+// import { Device } from '@ionic-native/device/ngx';
+
 @Component({
   selector: 'app-cust-home',
   templateUrl: './cust-home.page.html',
@@ -68,6 +71,7 @@ export class CustHomePage implements OnInit {
     public router: Router,
     private platform: Platform,
     private storage: NativeStorage,
+    // private device: Device
     ) 
   {
     this.sliderOne =
@@ -99,8 +103,18 @@ export class CustHomePage implements OnInit {
    // this.getProductCategory();
    this.getUser();
    this.getIcons();
+  //  this.getDeviceInfo();
    console.log(this.storage.getItem('user'));
   }
+
+  // getDeviceInfo(){
+  //   console.log([
+  //     {key:'model',value: this.device.model},
+  //     {key:'manufacturer',value: this.device.manufacturer},
+  //     {key:'version',value: this.device.version},
+  //     {key:'platform',value: this.device.platform}
+  //     ])
+  // }
 
   getIcons(){
     this.authService.getHomeIcons().subscribe(result =>{

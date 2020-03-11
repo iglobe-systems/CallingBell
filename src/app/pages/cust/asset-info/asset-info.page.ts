@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalController } from  '@ionic/angular';
+import { ModalController, NavController } from  '@ionic/angular';
 import { ImageModalPage } from '../image-modal/image-modal.page';
 @Component({
   selector: 'app-asset-info',
@@ -15,7 +15,8 @@ export class AssetInfoPage implements OnInit {
 		spaceBetween:20
 	};
 
-  constructor(private modalCtrl:ModalController) {
+  constructor(private modalCtrl:ModalController,
+			  private navCtrl:NavController) {
 
    }
 
@@ -31,4 +32,7 @@ export class AssetInfoPage implements OnInit {
   	}).then(modal => modal.present());
   }
 
+  back(){
+    this.navCtrl.navigateBack('view-asset');
+  }
 }

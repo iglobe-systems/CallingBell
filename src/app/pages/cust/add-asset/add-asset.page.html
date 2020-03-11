@@ -16,7 +16,7 @@
 		<ion-list lines="none">
 		<ion-item>
 			<ion-label position="floating" class="fw600">Product Category</ion-label>
-		    <ion-select formControlName="productCategory" interface="popover" lines="none">
+		    <ion-select formControlName="productCategory" interface="popover" lines="none" mode="ios">
 		            <ion-select-option >Entertainment</ion-select-option>
 		    </ion-select>
 		</ion-item>
@@ -44,35 +44,40 @@
 			<ion-label position="floating" class="fw600" color="darkblue">Product Price</ion-label>
 		    <ion-input type="numeric" placeholder="&#8377;" formControlName="productPrice"></ion-input>
 		</ion-item>
+	</ion-list>
+	</form>
+	<div class="text-center">
+		<ion-button (click)="addAsset()" color="gold">SUBMIT FORM</ion-button>
+	</div>
+	<ion-list>
 		<ion-item>
 			<ion-label position="stacked" class="fw600">Product Image</ion-label>
 			<div>
-				<ion-button fill="outline" color="darkblue" class="buttonone" size="small"	(click)="openCamera()">Camera</ion-button>
+				<ion-button fill="outline" color="darkblue" class="buttonone" size="small"	(click)="openCam()">Camera</ion-button>
 				<ion-button fill="outline" color="darkblue" class="buttontwo" size="small">Gallery</ion-button>
 				<ion-button fill="outline" color="darkblue" class="buttontwo" size="small" (click)="upload()">Upload</ion-button>
-				<img [src]="image" >  
+				<img src="{{image}}" onError="this.src='http://apiv1.iglobesystems.com/assets/img/no_img.png'" class="asset-image">  
 			</div>
 		</ion-item>
 		<ion-item>
 			<ion-label position="stacked" class="fw600">Invoice Image</ion-label>
 			<div>
-				<ion-button fill="outline" color="darkblue" class="buttonone" size="small" (click)="openCamera()">Camera</ion-button>
+				<ion-button fill="outline" color="darkblue" class="buttonone" size="small">Camera</ion-button>
 				<ion-button fill="outline" color="darkblue" class="buttontwo" size="small">Gallery</ion-button>
 			</div>
 		</ion-item>
 		<ion-item>
 			<ion-label position="stacked" class="fw600">Warranty Image</ion-label>
 			<div>
-				<ion-button fill="outline" color="darkblue" class="buttonone" size="small" (click)="openCamera()">Camera</ion-button>
+				<ion-button fill="outline" color="darkblue" class="buttonone" size="small">Camera</ion-button>
 				<ion-button fill="outline" color="darkblue" class="buttontwo" size="small">Gallery</ion-button>
 			</div>
 		</ion-item>
 	</ion-list>
-	</form>
-	<div class="text-center">
-		<ion-button (click)="addAsset()" color="gold">SUBMIT FORM</ion-button>
-	</div>
-
+		
+	
+	
+	
 	<!-- <h3 *ngIf="images.length == 0" text-center>Please Select Image!</h3>
  
 	<ion-list>

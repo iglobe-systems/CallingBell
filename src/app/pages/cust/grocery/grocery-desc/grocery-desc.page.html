@@ -49,7 +49,6 @@
                   <ion-item class="no-lines">
                       <ion-label>Qty : </ion-label>
                       <select type="number" formControlName="qty" color="darkblue">
-                        <option></option>
                         <option *ngFor = "let count of productDesc.max_count">{{count}}</option>
                       </select>
                   </ion-item>

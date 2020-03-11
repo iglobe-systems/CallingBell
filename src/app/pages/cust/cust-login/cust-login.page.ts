@@ -133,7 +133,7 @@ export class CustLoginPage implements OnInit {
           this.router.navigate(['otp-form'],navigationExtras);
           console.log(number);
         } else {
-          this.alertService.presentToast('Login error ! Riaz will take care!');
+          this.alertService.presentToast(data);
           return false;
         }
       }
