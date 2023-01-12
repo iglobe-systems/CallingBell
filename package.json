@@ -63,7 +63,7 @@
     "es6-promise-plugin": "^4.2.2",
     "firebase": "^7.9.3",
     "ionic-img-viewer": "^2.9.0",
-    "ngx-papaparse": "^3.0.4",
+    "ngx-papaparse": "^6.0.2",
     "onesignal-cordova-plugin": "^2.8.4",
     "rxjs": "~6.5.1",
     "rxjs-compat": "^6.5.3",
